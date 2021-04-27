@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ExtendedXmlSerializer;
+﻿using ExtendedXmlSerializer;
 using ExtendedXmlSerializer.Configuration;
 using Logo.DataType.Xml;
 

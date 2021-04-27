@@ -4,6 +4,7 @@ using Logo.DataType.Infrastructure;
 
 namespace Logo.DataType.ArAps
 {
+    [Serializable]
     public class ArAp : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, ITradingGroup, IProjectCode, IGlobalId
     {
         public static string XmlRoot => "AR_APS";
