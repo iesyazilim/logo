@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Description>Logo xml modeli</Description>
+		<PackageIcon></PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ExtendedXmlSerializer" Version="3.6.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Orders\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Ies.Logo.DataType.Auditing\Ies.Logo.DataType.Auditing.csproj" />
+	</ItemGroup>
+
+</Project>
