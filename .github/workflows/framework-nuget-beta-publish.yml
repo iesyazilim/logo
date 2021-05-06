@@ -12,6 +12,7 @@ env:
     PackageVersion: '0.0.${{ github.run_number }}-beta'
     NugetSourceUrl: 'https://api.nuget.org/v3/index.json'
     Configuration: 'Release'
+    
 jobs:
   beta-publish:
   
