@@ -13,7 +13,7 @@ on:
       - 'framework/**'
       
 env:
-    SolutionPath: 'framework/Ies.Logo.sln'
+    SolutionPath: 'framework/IesYazilim.Logo.sln'
     Configuration: 'Debug'
     
 jobs:
