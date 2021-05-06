@@ -4,5 +4,6 @@
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/iesyazilim/logo/</RepositoryUrl>
 		<Authors>IES Yazılım</Authors>
+		<Description>IES Yazılım Framework</Description>
 	</PropertyGroup>
 </Project>
