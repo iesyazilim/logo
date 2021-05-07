@@ -6,7 +6,7 @@ on:
   workflow_dispatch: 
 
 env:
-    SolutionPath: 'framework/IesYazilim.Logo.sln'
+    SolutionPath: 'framework/Ies.Logo.sln'
     PackagePath: '${{ github.workspace }}\packages'
     BuildVersion: '0.0.${{ github.run_number }}'
     PackageVersion: '0.0.${{ github.run_number }}-beta'
