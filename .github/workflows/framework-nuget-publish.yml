@@ -18,7 +18,7 @@ env:
     Configuration: 'Release'
     
 jobs:
-  beta-publish:
+  rel-publish:
   
     runs-on: [windows-latest]
     
