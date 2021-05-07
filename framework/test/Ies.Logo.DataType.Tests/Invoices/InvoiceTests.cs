@@ -16,7 +16,7 @@ namespace Ies.Logo.DataType.Invoices
         {
             string xml = @"<?xml version=""1.0"" encoding=""ISO-8859-9""?>
 <PURCHASE_INVOICES>
-  <INVOICE DBOP=""UPD"">
+  <INVOICE DBOP=""INS"">
     <NUMBER>Fiş no</NUMBER>
     <TYPE>1</TYPE>
     <DATE_CREATED>25.03.2021</DATE_CREATED>
@@ -25,7 +25,7 @@ namespace Ies.Logo.DataType.Invoices
 
             Invoice invoice = new Invoice()
             {
-                Dbop = Dbop.UPD,
+                Dbop = Dbop.INS,
                 Number = "Fiş no",
                 Type = InvoiceType.Purchase,
                 CreationDate = new DateTime(2021, 3, 25)
