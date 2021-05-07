@@ -2,8 +2,8 @@
 	<PropertyGroup>
 		<PackageIconUrl>http://servis.hekimbilisim.net/ies-logo.png</PackageIconUrl>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/iesyazilim/logo/</RepositoryUrl>
+		<RepositoryUrl>https://github.com/iesyazilim/logo</RepositoryUrl>
 		<Authors>IES Yazılım</Authors>
-		<Description>IES Yazılım Framework</Description>
+		<Description>IES Framework</Description>
 	</PropertyGroup>
 </Project>
