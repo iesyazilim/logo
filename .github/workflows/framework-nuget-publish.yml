@@ -1,0 +1,61 @@
+
+name: "Framework NuGet publish"
+
+on:
+  push:
+    branches: [ rel ]
+    paths:
+      - 'framework/**'
+      
+  workflow_dispatch: 
+
+env:
+    SolutionPath: 'framework/Ies.Logo.sln'
+    PackagePath: '${{ github.workspace }}\packages'
+    BuildVersion: '1.0.${{ github.run_number }}'
+    PackageVersion: '1.0.${{ github.run_number }}'
+    NugetSourceUrl: 'https://api.nuget.org/v3/index.json'
+    Configuration: 'Release'
+    
+jobs:
+  beta-publish:
+  
+    runs-on: [windows-latest]
+    
+    steps:
+      
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      
+      - name: Update project version
+        uses: roryprimrose/set-vs-sdk-project-version@v1
+        with:
+           projectFilter: 'framework/src/**/*.csproj'
+           version: ${{ env.BuildVersion }}
+           assemblyVersion: ${{ env.BuildVersion }}
+           fileVersion: ${{ env.BuildVersion }}
+           informationalVersion: ${{ env.PackageVersion }}
+
+      - name: Restore NuGet
+        run: dotnet restore ${{ env.SolutionPath }}
+      
+      - name: Build Project
+        run: dotnet build ${{ env.SolutionPath }} --no-restore --configuration=${{ env.Configuration }}
+      
+      - name: Test Project
+        run: dotnet test  ${{ env.SolutionPath }} --no-restore --no-build --configuration=${{ env.Configuration }} --verbosity normal
+        
+      - name: Pack project
+        run: dotnet pack ${{ env.SolutionPath }} --no-restore --no-build  --configuration=${{ env.Configuration }} -p:PackageVersion=${{ env.PackageVersion }} --output=${{ env.PackagePath }} 
+
+      - name: Push package
+        run: dotnet nuget push ${{ env.PackagePath }}\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NugetSourceUrl }}
+        
+      - uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          tag: ${{ env.PackageVersion }}
