@@ -6,8 +6,6 @@ on:
     branches: [ rel ]
     paths:
       - 'framework/**'
-      
-  workflow_dispatch: 
 
 env:
     SolutionPath: 'framework/Ies.Logo.sln'
@@ -59,3 +57,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
           tag: ${{ env.PackageVersion }}
+          commit: ${{ github.SHA }}
