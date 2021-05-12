@@ -96,5 +96,35 @@ namespace Ies.Logo.DataType.Items
 
             Assert.IsTrue(items.Any(i => i.Code == "P-2"));
         }
+
+        [TestMethod]
+        public void CustomItemModel()
+        {
+            SpecialItem specialItem = new SpecialItem
+            {
+                Code = "P-1",
+                CardType = ItemCardType.CommercialItem,
+                CustomField1 = 15
+            };
+
+            string xml = specialItem.Serialize();
+            SpecialItem item = xml.Deserialize<SpecialItem>();
+
+            Assert.AreEqual(specialItem.Code, item.Code);
+            StringAssert.Contains(xml, "<MalzemeKodu>");
+            Assert.IsFalse(xml.Contains("<CODE>"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CustomItemModelValidation()
+        {
+            SpecialItem specialItem = new SpecialItem
+            {
+                Code = "U-1",
+                CardType = ItemCardType.CommercialItem,
+                CustomField1 = 15
+            };
+        }
     }
 }
