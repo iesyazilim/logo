@@ -9,6 +9,8 @@ namespace Ies.Logo.DataType.ArpVouchers
     [Serializable]
     public class ArpVoucher : AuditedAggregateRoot, IAuxilCode, IAuthCode, IDivision, IDepartment, INotes, ICancelled, IDataSiteId, IProjectCode, IApprove
     {
+        public static string XmlRoot => "ARP_VOUCHERS";
+
         public virtual string Number { get; set; }
         public virtual Nullable<DateTime> Date { get; set; }
         public virtual string DocNumber { get; set; }
