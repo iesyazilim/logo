@@ -7,7 +7,7 @@ namespace Ies.Logo.DataType.Items
     [Serializable]
     public class SpecialItem : Item
     {
-        public static string XmlRoot => Item.XmlRoot;
+        public static new string XmlRoot => Item.XmlRoot;
 
         public int CustomField1 { get; set; }
 
