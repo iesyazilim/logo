@@ -101,7 +101,6 @@ namespace Ies.Logo.DataType.CqpnRolls
                 .Member(m => m.OhpCode3).Name("OHP_CODE3")
                 .Member(m => m.Clcostref).Name("CLCOSTREF")
                 .Member(m => m.OfferReference).Name("OFFER_REFERENCE")
-                .Member(m => m.TradingGrp).Name("TRADING_GRP")
                 .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
                 .Member(m => m.StatusList).Name("STATUS_LIST")
                 ;

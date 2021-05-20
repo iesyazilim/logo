@@ -7,7 +7,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.CqpnRolls
 {
     [Serializable]
-    public class Transaction : ILogo, ISpecialCode, IDivision, IAuditedObject, ICancelled, IDataSiteId, IDataReference, IProjectCode
+    public class Transaction : ILogo, ISpecialCode, IDivision, IAuditedObject, ICancelled, IDataSiteId, IDataReference, IProjectCode, ITradingGroup
     {
         public virtual Nullable<int> Type { get; set; }
         public virtual Nullable<short> CurrentStatus { get; set; }
@@ -85,7 +85,6 @@ namespace Ies.Logo.DataType.CqpnRolls
         public virtual Nullable<int> Claccref { get; set; }
         public virtual Nullable<int> Clcostref { get; set; }
         public virtual Nullable<int> OfferReference { get; set; }
-        public virtual string TradingGrp { get; set; }
 
         #region Implementation
         public virtual string AuthCode { get; set; }
@@ -105,6 +104,7 @@ namespace Ies.Logo.DataType.CqpnRolls
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
         public virtual string ProjectCode { get; set; }
+        public virtual string TradingGrp { get; set; }
         #endregion
 
         #region SubClasses
