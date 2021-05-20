@@ -8,7 +8,7 @@ namespace Ies.Logo.DataType.DemandVouchers
     [Serializable]
     public class DemandVoucher : AuditedAggregateRoot
     {
-        public static string XmlRoot => "CQPN_TRANSFERS";
+        public static string XmlRoot => "DEMAND_FICHES";
 
         #region Implementation
 
