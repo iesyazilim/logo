@@ -6,12 +6,28 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.DemandVouchers
 {
     [Serializable]
-    public class DemandVoucher : AuditedAggregateRoot
+    public class DemandVoucher : AuditedAggregateRoot, ISpecialCode, ISourceIndex, IDepartment, IProjectCode
     {
         public static string XmlRoot => "DEMAND_FICHES";
 
-        #region Implementation
+        public virtual string Number { get; set; }
+        public virtual Nullable<DateTime> Date { get; set; }
+        public virtual Nullable<int> Time { get; set; }
+        public virtual string DoCode { get; set; }
+        public virtual Nullable<short> FactoryNr { get; set; }
+        public virtual Nullable<short> Branch { get; set; }
+        public virtual Nullable<short> Status { get; set; }
+        public virtual Nullable<short> UserNo { get; set; }
+        public virtual string MpsCode { get; set; }
+        public virtual Nullable<short> LineCnt { get; set; }
+        public virtual string Itext { get; set; }
 
+        #region Implementation
+        public virtual string AuthCode { get; set; }
+        public virtual string AuxilCode { get; set; }
+        public virtual Nullable<short> SourceIndex { get; set; }
+        public virtual Nullable<short> Department { get; set; }
+        public virtual string ProjectCode { get; set; }
         #endregion
 
         #region SubClasses
