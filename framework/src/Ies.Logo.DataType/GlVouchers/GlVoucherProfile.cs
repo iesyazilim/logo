@@ -4,7 +4,7 @@ using Ies.Logo.DataType.Xml;
 
 namespace Ies.Logo.DataType.GlVouchers
 {
-    public class GlVoucherProfile
+    public class GlVoucherProfile : IConfigurationProfile
     {
         public static GlVoucherProfile Default { get; } = new GlVoucherProfile();
 
@@ -25,7 +25,7 @@ namespace Ies.Logo.DataType.GlVouchers
             typeConfigurations.Name<T>("GL_VOUCHER");
 
             typeConfigurations
-                .Member(m => m.).Name("")
+                .Member(m => m.DetList).Name("DETLIST")
                 ;
         }
     }

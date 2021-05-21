@@ -9,6 +9,12 @@ namespace Ies.Logo.DataType.GlVouchers
     {
         public static string XmlRoot => "GL_VOUCHERS";
 
+        #region Implementation
 
+        #endregion
+
+        #region SubClasses
+        public virtual List<DistDetail> DetList { get; set; }
+        #endregion
     }
 }
