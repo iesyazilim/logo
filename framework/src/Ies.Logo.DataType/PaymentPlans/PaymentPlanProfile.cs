@@ -25,6 +25,16 @@ namespace Ies.Logo.DataType.PaymentPlans
             typeConfigurations.Name<T>("PAYMENT_PLAN");
 
             typeConfigurations
+                .Member(m => m.Code).Name("CODE")
+                .Member(m => m.Description).Name("DESCRIPTION")
+                .Member(m => m.EarlyIntrate).Name("EARLY_INTRATE")
+                .Member(m => m.LateIntrate).Name("LATE_INTRATE")
+                .Member(m => m.Counter).Name("COUNTER")
+                .Member(m => m.WorkDays).Name("WORK_DAYS")
+                .Member(m => m.PpGroupCode).Name("PP_GROUP_CODE")
+                .Member(m => m.CrdcardCode).Name("CRDCARD_CODE")
+                .Member(m => m.PpGroupRef).Name("PP_GROUP_REF")
+                .Member(m => m.GlobalCode).Name("GLOBAL_CODE")
                 .Member(m => m.PaymentTerms).Name("PAYMENT_TERMS")
                 .Member(m => m.DiscList).Name("DISCLIST")
                 ;
