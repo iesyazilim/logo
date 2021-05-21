@@ -16,6 +16,7 @@ namespace Ies.Logo.DataType.PaymentPlans
 
         #region SubClasses
         public virtual List<Term> PaymentTerms { get; set; }
+        public virtual List<DiscPayln> DiscList { get; set; }
         #endregion
     }
 }

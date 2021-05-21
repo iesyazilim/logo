@@ -26,6 +26,7 @@ namespace Ies.Logo.DataType.PaymentPlans
 
             typeConfigurations
                 .Member(m => m.PaymentTerms).Name("PAYMENT_TERMS")
+                .Member(m => m.DiscList).Name("DISCLIST")
                 ;
         }
     }
