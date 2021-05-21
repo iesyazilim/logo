@@ -26,6 +26,7 @@ namespace Ies.Logo.DataType.GlVouchers
 
             typeConfigurations
                 .Member(m => m.DetList).Name("DETLIST")
+                .Member(m => m.Transactions).Name("TRANSACTIONS")
                 ;
         }
     }

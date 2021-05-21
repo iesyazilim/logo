@@ -15,6 +15,7 @@ namespace Ies.Logo.DataType.GlVouchers
 
         #region SubClasses
         public virtual List<DistDetail> DetList { get; set; }
+        public virtual List<Transaction> Transactions { get; set; }
         #endregion
     }
 }
