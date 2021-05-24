@@ -4,6 +4,7 @@ using Ies.Logo.DataType.Infrastructure;
 
 namespace Ies.Logo.DataType.Projects
 {
+    [Serializable]
     public class Project : AuditedAggregateRoot, ISpecialCode, IRecordStatus, IDataSiteId
     {
         public static string XmlRoot => "PROJECTS";
