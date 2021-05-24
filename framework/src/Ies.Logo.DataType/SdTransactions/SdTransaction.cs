@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Ies.Logo.DataType.AggregateRoot;
 
 namespace Ies.Logo.DataType.SdTransactions
@@ -16,6 +14,8 @@ namespace Ies.Logo.DataType.SdTransactions
 
         #region SubClasses
         public virtual ArpVouchers.Transaction AttachmentArp { get; set; }
+        public virtual BankVouchers.Transaction AttachmentBank { get; set; }
+        public virtual Invoices.Invoice AttachmentInvoice { get; set; }
         #endregion
     }
 }

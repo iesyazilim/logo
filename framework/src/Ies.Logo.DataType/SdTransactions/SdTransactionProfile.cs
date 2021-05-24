@@ -26,6 +26,8 @@ namespace Ies.Logo.DataType.SdTransactions
 
             typeConfigurations
                 .Member(m => m.AttachmentArp).Name("ATTACHMENT_ARP")
+                .Member(m => m.AttachmentBank).Name("ATTACHMENT_BANK")
+                .Member(m => m.AttachmentInvoice).Name("ATTACHMENT_INVOICE")
                 ;
         }
     }
