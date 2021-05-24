@@ -15,7 +15,7 @@ namespace Ies.Logo.DataType.SdTransactions
         #endregion
 
         #region SubClasses
-        public virtual Transaction AttachmentArp { get; set; }
+        public virtual ArpVouchers.Transaction AttachmentArp { get; set; }
         #endregion
     }
 }
