@@ -17,10 +17,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Orders\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\Ies.Logo.DataType.Auditing\Ies.Logo.DataType.Auditing.csproj" />
 	</ItemGroup>
 
