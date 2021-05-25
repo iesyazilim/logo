@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Ies.Logo.DataType.BankVouchers;
 
 namespace Ies.Logo.DataType.SdTransactions
 {
+    [Serializable]
     public class SdTransactionWithBank : SdTransaction
     {
         public static new string XmlRoot => SdTransaction.XmlRoot;

@@ -8,6 +8,7 @@ using Ies.Logo.DataType.WhParams;
 
 namespace Ies.Logo.DataType.Services
 {
+    [Serializable]
     public class Service : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId
     {
         public virtual ServiceCardType CardType { get; set; }

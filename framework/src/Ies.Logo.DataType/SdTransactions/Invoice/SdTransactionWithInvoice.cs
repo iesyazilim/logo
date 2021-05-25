@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Ies.Logo.DataType.Invoices;
 
 namespace Ies.Logo.DataType.SdTransactions
 {
+    [Serializable]
     public class SdTransactionWithInvoice : SdTransaction
     {
         public static new string XmlRoot => SdTransaction.XmlRoot;
