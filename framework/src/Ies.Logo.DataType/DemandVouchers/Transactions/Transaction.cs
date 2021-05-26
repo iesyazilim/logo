@@ -47,7 +47,7 @@ namespace Ies.Logo.DataType.DemandVouchers
         #endregion
 
         #region SubClasses
-        public virtual List<DefnFld> DefnFldsList { get; set; }
+        public virtual List<DefnFld> DefnFlds { get; set; }
         #endregion
     }
 }

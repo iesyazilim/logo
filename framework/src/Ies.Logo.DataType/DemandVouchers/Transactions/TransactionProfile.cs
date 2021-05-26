@@ -54,7 +54,7 @@ namespace Ies.Logo.DataType.DemandVouchers
                 .Member(m => m.Guid).Name("GUID")
                 .Member(m => m.PrCurr).Name("PR_CURR")
                 .Member(m => m.PrPrice).Name("PR_PRICE")
-                .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
+                .Member(m => m.DefnFlds).Name("DEFNFLDS")
                 ;
         }
     }
