@@ -36,7 +36,7 @@ namespace Ies.Logo.ServiceAdapter
                 throw new Exception(result.errorString);
         }
 
-        public async override Task DeleteDataObjectAsync(int dataReference, int dataType)
+        public async override Task DeleteDataObjectAsync(int dataType, int dataReference)
         {
             SvcClient client = CreateClient();
             var result = await client.DeleteDataObjectAsync(new DeleteDataObjectRequest
@@ -44,6 +44,7 @@ namespace Ies.Logo.ServiceAdapter
                 FirmNr = int.Parse(Option.FirmNumber),
                 securityCode = Option.SecurityCode,
                 dataType = dataType,
+                dataReference = dataReference,
                 LbsLoadPass = Option.Lbsloadpass,
                 //paramXML=
             });
@@ -51,14 +52,16 @@ namespace Ies.Logo.ServiceAdapter
                 throw new Exception(result.errorString);
         }
 
-        public async override Task<string> ReadDataObjectAsync(int dataReference, int dataType)
+        public async override Task<string> ReadDataObjectAsync(int dataType, int dataReference)
         {
             SvcClient client = CreateClient();
+
             var result = await client.ReadDataObjectAsync(new ReadDataObjectRequest
             {
                 FirmNr = int.Parse(Option.FirmNumber),
                 securityCode = Option.SecurityCode,
                 dataType = dataType,
+                dataReference = dataReference,
                 LbsLoadPass = Option.Lbsloadpass,
                 //paramXML=
             });
