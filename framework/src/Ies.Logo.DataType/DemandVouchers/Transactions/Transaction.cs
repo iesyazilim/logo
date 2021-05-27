@@ -41,8 +41,8 @@ namespace Ies.Logo.DataType.DemandVouchers
         #region Implementation
         public virtual string AuthCode { get; set; }
         public virtual string AuxilCode { get; set; }
-        public virtual short? SourceIndex { get; set; }
-        public virtual int? DataReference{ get; set; }
+        public virtual Nullable<short> SourceIndex { get; set; }
+        public virtual Nullable<int> DataReference{ get; set; }
         public virtual string ProjectCode{ get; set; }
         #endregion
 

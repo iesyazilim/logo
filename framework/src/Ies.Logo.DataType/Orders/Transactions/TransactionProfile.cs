@@ -100,7 +100,7 @@ namespace Ies.Logo.DataType.Orders
                 .Member(m => m.OrgPrice).Name("ORG_PRICE")
                 .Member(m => m.AuxilCode2).Name("AUXIL_CODE2")
                 .Member(m => m.ReserveDate).Name("RESERVE_DATE")
-                .Member(m => m.ReserveAmount).Name("?RESERVE_AMOUNT")
+                .Member(m => m.ReserveAmount).Name("RESERVE_AMOUNT")
                 .Member(m => m.Prclistcode).Name("PRCLISTCODE")
                 .Member(m => m.Prclisttype).Name("PRCLISTTYPE")
                 .Member(m => m.DeductionPart1).Name("DEDUCTION_PART1")
