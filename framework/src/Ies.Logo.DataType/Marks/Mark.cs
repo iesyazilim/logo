@@ -1,0 +1,20 @@
+﻿using System;
+using Ies.Logo.DataType.AggregateRoot;
+using Ies.Logo.DataType.Infrastructure;
+
+namespace Ies.Logo.DataType.Marks
+{
+    [Serializable]
+    public class Mark : AuditedAggregateRoot, ISpecialCode
+    {
+        public static string XmlRoot => "MARKS";
+
+        public virtual string Code { get; set; }
+        public virtual string Descr { get; set; }
+
+        #region Implementation
+        public virtual string AuthCode { get; set; }
+        public virtual string AuxilCode { get; set; }
+        #endregion
+    }
+}
