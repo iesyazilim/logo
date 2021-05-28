@@ -17,6 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Ies.Logo.Core\Ies.Logo.Core.csproj" />
 	  <ProjectReference Include="..\Ies.Logo.DataType.Auditing\Ies.Logo.DataType.Auditing.csproj" />
 	</ItemGroup>
 

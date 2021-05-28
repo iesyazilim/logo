@@ -2,6 +2,7 @@
 {
     public enum LogoObjectType
     {
+        UNKNOWN = -1,
         ITEMS,
         MATERIAL_SLIPS,
         PURCHASE_SERVICES,
@@ -113,8 +114,8 @@
         NATIONALIZE,
         EXIMDISTS,
         MARKS,
-        DEF_FIELD_D=112,
-        CATEG_LIST=114,
+        DEF_FIELD_D = 112,
+        CATEG_LIST = 114,
         ROLL_DEFINITIONS,
         W_FLOW_CARDS,
         RESOURCES,

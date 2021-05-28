@@ -1,4 +1,6 @@
-﻿namespace Ies.Logo.DataType.Infrastructure
+﻿using Ies.Logo.Core;
+
+namespace Ies.Logo.DataType.Infrastructure
 {
     public interface ILogo { }
 
@@ -9,6 +11,6 @@
         string LogoId { get; set; }
         string OrgLogoId { get; set; }
 
-        string GetRootElementName();
+        LogoObjectType GetRootElementName();
     }
 }

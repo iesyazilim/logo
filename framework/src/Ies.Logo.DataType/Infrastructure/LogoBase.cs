@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 
 namespace Ies.Logo.DataType.Infrastructure
 {
@@ -11,6 +12,6 @@ namespace Ies.Logo.DataType.Infrastructure
         public virtual string LogoId { get; set; }
         public virtual string OrgLogoId { get; set; }
 
-        public virtual string GetRootElementName() => this.GetType().GetProperty("XmlRoot")?.GetValue(null)?.ToString() ?? string.Empty;
+        public virtual LogoObjectType GetRootElementName() => (LogoObjectType)this.GetType().GetProperty("XmlRoot").GetValue(null);
     }
 }

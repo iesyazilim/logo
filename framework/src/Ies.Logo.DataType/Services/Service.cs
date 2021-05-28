@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.GlLinks;
 using Ies.Logo.DataType.Infrastructure;
@@ -46,20 +47,20 @@ namespace Ies.Logo.DataType.Services
         public virtual List<GlLink> GlLinks { get; set; }
         #endregion
 
-        public override string GetRootElementName()
+        public override LogoObjectType GetRootElementName()
         {
             switch (CardType)
             {
                 case ServiceCardType.Purchase:
                 case ServiceCardType.PurchaseGroup:
-                    return "PURCHASE_SERVICES";
+                    return LogoObjectType.PURCHASE_SERVICES;
 
                 case ServiceCardType.Sales:
                 case ServiceCardType.SalesGroup:
-                    return "SALES_SERVICES";
+                    return LogoObjectType.SALES_SERVICES;
 
                 default:
-                    return "UNKOWN";
+                    return LogoObjectType.UNKNOWN;
             }
         }
     }

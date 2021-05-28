@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Dispatches;
@@ -242,7 +243,7 @@ namespace Ies.Logo.DataType.Invoices
         public virtual List<OkcInfo> OkcInfoList { get; set; }
         #endregion
 
-        public override string GetRootElementName()
+        public override LogoObjectType GetRootElementName()
         {
             switch (Type)
             {
@@ -251,7 +252,7 @@ namespace Ies.Logo.DataType.Invoices
                 case InvoiceType.PurchaseProforma:
                 case InvoiceType.PurchaseReturn:
                 case InvoiceType.PurchasePriceDifference:
-                    return "PURCHASE_INVOICES";
+                    return LogoObjectType.PURCHASE_INVOICES;
 
                 case InvoiceType.SalesRetailReturn:
                 case InvoiceType.SalesWholesaleReturn:
@@ -260,10 +261,10 @@ namespace Ies.Logo.DataType.Invoices
                 case InvoiceType.SalesService:
                 case InvoiceType.SalesProforma:
                 case InvoiceType.SalesPriceDifference:
-                    return "SALES_INVOICES";
+                    return LogoObjectType.SALES_INVOICES;
 
                 default:
-                    return "UNKOWN";
+                    return LogoObjectType.UNKNOWN;
             }
         }
     }

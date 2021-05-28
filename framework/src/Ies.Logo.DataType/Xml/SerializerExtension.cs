@@ -12,7 +12,7 @@ namespace Ies.Logo.DataType.Xml
         {
             if (typeof(T).GetProperty("XmlRoot") == null)
             {
-                return new XDocument(new XElement(data.GetRootElementName(), XDocument.Parse(Serializer.Serialize(data)).Root))
+                return new XDocument(new XElement(data.GetRootElementName().ToString(), XDocument.Parse(Serializer.Serialize(data)).Root))
                                    .ToString()
                                    .Insert(0, "<?xml version=\"1.0\" encoding=\"ISO-8859-9\"?>\n");
             }
@@ -23,7 +23,7 @@ namespace Ies.Logo.DataType.Xml
             if (typeof(T).GetProperty("XmlRoot") == null)
             {
                 var doc = XDocument.Parse(Serializer.Serialize(data));
-                doc.Root.Name = data.FirstOrDefault().GetRootElementName();
+                doc.Root.Name = data.FirstOrDefault().GetRootElementName().ToString();
                 return doc.ToString().Insert(0, "<?xml version=\"1.0\" encoding=\"ISO-8859-9\"?>\n");
             }
             return Serializer.Serialize(data);

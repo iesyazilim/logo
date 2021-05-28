@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
@@ -161,7 +162,7 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual List<DefnFld> DefnFldsList { get; set; }
         #endregion
 
-        public override string GetRootElementName()
+        public override LogoObjectType GetRootElementName()
         {
             switch (Type)
             {
@@ -169,7 +170,7 @@ namespace Ies.Logo.DataType.Dispatches
                 case DispatchType.ConsignmentInDispatch:
                 case DispatchType.PurchaseReturn:
                 case DispatchType.ConsignmentInReturnDispatch:
-                    return "PURCHASE_DISPATCHES";
+                    return LogoObjectType.PURCHASE_DISPATCHES;
 
                 case DispatchType.SalesRetailReturn:
                 case DispatchType.SalesWholesaleReturn:
@@ -177,10 +178,10 @@ namespace Ies.Logo.DataType.Dispatches
                 case DispatchType.SalesRetail:
                 case DispatchType.SalesWholesale:
                 case DispatchType.ConsignmentOutDispatch:
-                    return "SALES_DISPATCHES";
+                    return LogoObjectType.SALES_DISPATCHES;
 
                 default:
-                    return "UNKOWN";
+                    return LogoObjectType.UNKNOWN;
             }
         }
     }

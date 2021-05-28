@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.DemandPeggings;
@@ -99,18 +100,18 @@ namespace Ies.Logo.DataType.Orders
         public virtual List<DemandPegging> DemandPeggings { get; set; }
         #endregion
 
-        public override string GetRootElementName()
+        public override LogoObjectType GetRootElementName()
         {
             switch (IsSales)
             {
                 case false:
-                    return "PURCHASE_ORDERS";
+                    return LogoObjectType.PURCHASE_ORDERS;
 
                 case true:
-                    return "SALES_ORDERS";
+                    return LogoObjectType.SALES_ORDERS;
 
                 default:
-                    return "UNKOWN";
+                    return LogoObjectType.UNKNOWN;
             }
         }
     }
