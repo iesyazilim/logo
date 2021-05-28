@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.DataType.Auditing"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.DataType.Tests", "test\Ies.Logo.DataType.Tests\Ies.Logo.DataType.Tests.csproj", "{3D853B28-EB14-4CCC-9476-FF5A504F74CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.Logo.ServiceAdapter", "src\Ies.Logo.ServiceAdapter\Ies.Logo.ServiceAdapter.csproj", "{F92053BB-68A1-4038-884D-8A649EA1C1DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.ServiceAdapter", "src\Ies.Logo.ServiceAdapter\Ies.Logo.ServiceAdapter.csproj", "{F92053BB-68A1-4038-884D-8A649EA1C1DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.Logo.ServiceAdapter.Tests", "test\Ies.Logo.ServiceAdapter.Tests\Ies.Logo.ServiceAdapter.Tests.csproj", "{2276B04A-7993-4840-802C-6B5793864560}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.ServiceAdapter.Tests", "test\Ies.Logo.ServiceAdapter.Tests\Ies.Logo.ServiceAdapter.Tests.csproj", "{2276B04A-7993-4840-802C-6B5793864560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.Logo.Core", "src\Ies.Logo.Core\Ies.Logo.Core.csproj", "{724C4BA6-EC29-4F2C-A63E-47C09C3BD865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{2276B04A-7993-4840-802C-6B5793864560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2276B04A-7993-4840-802C-6B5793864560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2276B04A-7993-4840-802C-6B5793864560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724C4BA6-EC29-4F2C-A63E-47C09C3BD865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724C4BA6-EC29-4F2C-A63E-47C09C3BD865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724C4BA6-EC29-4F2C-A63E-47C09C3BD865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724C4BA6-EC29-4F2C-A63E-47C09C3BD865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{3D853B28-EB14-4CCC-9476-FF5A504F74CD} = {9D43B634-0A43-4F35-9CE8-85AF7E139DB6}
 		{F92053BB-68A1-4038-884D-8A649EA1C1DC} = {9545684E-DB0E-482D-82A6-7DEE01E8D704}
 		{2276B04A-7993-4840-802C-6B5793864560} = {9D43B634-0A43-4F35-9CE8-85AF7E139DB6}
+		{724C4BA6-EC29-4F2C-A63E-47C09C3BD865} = {9545684E-DB0E-482D-82A6-7DEE01E8D704}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EDAEA7E-C966-4D19-BD94-3CCBFDDF304E}
