@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Ies.Logo.Core.Extensions;
 using LogoObjectService;
 
 namespace Ies.Logo.ServiceAdapter
 {
     public class LogoObjectServiceAdapter : LogoObjectServiceBase
     {
-        public LogoObjectServiceAdapter(Action<LogoObjectServiceOption> option) : base(option) { }
+        private Parameter _parameter;
+        private string _parameterXml;
+        public LogoObjectServiceAdapter(Action<LogoObjectServiceOption> option) : base(option)
+        {
+            _parameter = new Parameter();
+            _parameter.Period = short.Parse(Option.FirmPeriod);
+            _parameterXml = _parameter.Serialize();
+        }
 
         public SvcClient CreateClient()
         {
@@ -28,7 +36,7 @@ namespace Ies.Logo.ServiceAdapter
                 dataXML = xml,
                 dataType = dataType,
                 LbsLoadPass = Option.Lbsloadpass,
-                //paramXML=
+                paramXML = _parameterXml
             });
 
             if (result.status == 3)
@@ -36,7 +44,7 @@ namespace Ies.Logo.ServiceAdapter
             else
                 throw new LogoObjectServiceException(result.errorString, xml);
         }
-       
+
         public async override Task DeleteDataObjectAsync(int dataType, int dataReference)
         {
             SvcClient client = CreateClient();
@@ -46,8 +54,7 @@ namespace Ies.Logo.ServiceAdapter
                 securityCode = Option.SecurityCode,
                 dataType = dataType,
                 dataReference = dataReference,
-                LbsLoadPass = Option.Lbsloadpass,
-                //paramXML=
+                LbsLoadPass = Option.Lbsloadpass
             });
             if (result.status != 3)
                 throw new LogoObjectServiceException(result.errorString);
@@ -64,7 +71,7 @@ namespace Ies.Logo.ServiceAdapter
                 dataType = dataType,
                 dataReference = dataReference,
                 LbsLoadPass = Option.Lbsloadpass,
-                //paramXML=
+                paramXML = _parameterXml
             });
 
             if (result.status == 3)

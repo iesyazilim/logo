@@ -16,7 +16,7 @@ namespace Ies.Logo.ServiceAdapter.Tests
                 o.FirmNumber = "001";
                 o.FirmPeriod = "01";
                 o.SecurityCode = "ac110bc3-7808-49c1-bc34-5007cf6b9024";
-                //o.EndpointAddress = "http://localhost/logoobjectservice";
+                o.EndpointAddress = "http://localhost/LogoObjectService/Service";
             });
         }
 
