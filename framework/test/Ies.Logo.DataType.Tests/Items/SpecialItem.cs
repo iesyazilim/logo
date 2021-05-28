@@ -1,13 +1,14 @@
 ﻿using System;
 using ExtendedXmlSerializer;
 using ExtendedXmlSerializer.Configuration;
+using Ies.Logo.Core;
 
 namespace Ies.Logo.DataType.Items
 {
     [Serializable]
     public class SpecialItem : Item
     {
-        public static new string XmlRoot => Item.XmlRoot;
+        public static new LogoObjectType XmlRoot => Item.XmlRoot;
 
         public int CustomField1 { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -8,7 +9,7 @@ namespace Ies.Logo.DataType.Qproductions
     [Serializable]
     public class QProduction : AuditedAggregateRoot, ISpecialCode, IDepartment, ISourceIndex, IXmlAttribute, IProjectCode, INotes
     {
-        public static string XmlRoot => "QPRODUCTIONS";
+        public static LogoObjectType XmlRoot => LogoObjectType.QPRODUCTIONS;
 
         public virtual string Ficheno { get; set; }
         public virtual Nullable<int> Orderref { get; set; }

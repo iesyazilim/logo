@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
@@ -9,7 +10,7 @@ namespace Ies.Logo.DataType.BankVouchers
     [Serializable]
     public class BankVoucher : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, ICancelled, INotes, IDataSiteId, IProjectCode, IApprove
     {
-        public static string XmlRoot => "BANK_VOUCHERS";
+        public static LogoObjectType XmlRoot => LogoObjectType.BANK_VOUCHERS;
 
         public virtual Nullable<DateTime> Date { get; set; }
         public virtual string Number { get; set; }

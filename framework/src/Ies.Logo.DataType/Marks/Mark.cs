@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.Marks
     [Serializable]
     public class Mark : AuditedAggregateRoot, ISpecialCode
     {
-        public static string XmlRoot => "MARKS";
+        public static LogoObjectType XmlRoot => LogoObjectType.MARKS;
 
         public virtual string Code { get; set; }
         public virtual string Descr { get; set; }

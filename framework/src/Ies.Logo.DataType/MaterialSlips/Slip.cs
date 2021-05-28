@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.DemandPeggings;
@@ -10,7 +11,7 @@ namespace Ies.Logo.DataType.MaterialSlips
     [Serializable]
     public class Slip : AuditedAggregateRoot, ISpecialCode, ICancelled, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IGlobalId
     {
-        public static string XmlRoot => "MATERIAL_SLIPS";
+        public static LogoObjectType XmlRoot => LogoObjectType.MATERIAL_SLIPS;
 
         public virtual Nullable<int> Group { get; set; }
         public virtual Nullable<int> Type { get; set; }

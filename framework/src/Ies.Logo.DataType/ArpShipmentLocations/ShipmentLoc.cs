@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.ArpShipmentLocations
     [Serializable]
     public class ShipmentLoc : AuditedAggregateRoot, ISpecialCode, ITradingGroup, IDataSiteId, IRecordStatus
     {
-        public static string XmlRoot => "ARP_SHIPMENT_LOCATIONS";
+        public static LogoObjectType XmlRoot => LogoObjectType.ARP_SHIPMENT_LOCATIONS;
 
         public virtual string ArpCode { get; set; }
         public virtual string Code { get; set; }

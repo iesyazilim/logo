@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.Projects
     [Serializable]
     public class Project : AuditedAggregateRoot, ISpecialCode, IRecordStatus, IDataSiteId
     {
-        public static string XmlRoot => "PROJECTS";
+        public static LogoObjectType XmlRoot => LogoObjectType.Projects;
 
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }

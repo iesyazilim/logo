@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -8,7 +9,7 @@ namespace Ies.Logo.DataType.PaymentPlans
     [Serializable]
     public class PaymentPlan : AuditedAggregateRoot, IRecordStatus, ISpecialCode, IDataSiteId
     {
-        public static string XmlRoot => "PAYMENT_PLANS";
+        public static LogoObjectType XmlRoot => LogoObjectType.PAYMENT_PLANS;
 
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }

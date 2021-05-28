@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.SdTransactions
     [Serializable]
     public class SdTransaction : AuditedAggregateRoot, IDivision, IDepartment, ISpecialCode, ICancelled, IDataSiteId, ITradingGroup, IProjectCode, IApprove
     {
-        public static string XmlRoot => "SD_TRANSACTIONS";
+        public static LogoObjectType XmlRoot => LogoObjectType.SD_TRANSACTIONS;
 
         public virtual Nullable<int> Type { get; set; }
         public virtual string SdCode { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.CqpnTransfers
     [Serializable]
     public class ChequePn : AuditedAggregateRoot, IAuxilCode
     {
-        public static string XmlRoot => "CQPN_TRANSFERS";
+        public static LogoObjectType XmlRoot => LogoObjectType.CQPN_TRANSFERS;
 
         public virtual Nullable<int> Type { get; set; }
         public virtual Nullable<short> CurrentStatus{ get; set; }

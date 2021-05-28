@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.ArAps
     [Serializable]
     public class ArAp : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, ITradingGroup, IProjectCode, IGlobalId
     {
-        public static string XmlRoot => "AR_APS";
+        public static LogoObjectType XmlRoot => LogoObjectType.AR_APS;
 
         public virtual Nullable<short> AccountType { get; set; }
         public virtual string Code { get; set; }

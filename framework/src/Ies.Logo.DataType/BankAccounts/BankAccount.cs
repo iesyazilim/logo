@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
@@ -9,7 +10,7 @@ namespace Ies.Logo.DataType.BankAccounts
     [Serializable]
     public class BankAccount : AuditedAggregateRoot, IRecordStatus, IAuxilCode, IAuthCode, IGlCodes, IOhpCodes, IDataSiteId
     {
-        public static string XmlRoot => "BANK_ACCOUNTS";
+        public static LogoObjectType XmlRoot => LogoObjectType.BANK_ACCOUNTS;
 
         public virtual Nullable<int> AccountType { get; set; }
         public virtual string Code { get; set; }

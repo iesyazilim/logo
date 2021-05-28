@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.Infrastructure;
 
 namespace Ies.Logo.DataType.GrpCodes
@@ -6,7 +7,7 @@ namespace Ies.Logo.DataType.GrpCodes
     [Serializable]
     public class Codes : LogoBase, IGlobalId, IDataSiteId
     {
-        public static string XmlRoot => "GRP_CODES";
+        public static LogoObjectType XmlRoot => LogoObjectType.GRP_CODES;
 
         public virtual Nullable<int> CodeType{ get; set; }
         public virtual Nullable<int> SpeCodeType{ get; set; }

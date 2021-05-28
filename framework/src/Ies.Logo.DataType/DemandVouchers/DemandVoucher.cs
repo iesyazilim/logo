@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -8,7 +9,7 @@ namespace Ies.Logo.DataType.DemandVouchers
     [Serializable]
     public class DemandVoucher : AuditedAggregateRoot, ISpecialCode, ISourceIndex, IDepartment, IProjectCode
     {
-        public static string XmlRoot => "DEMAND_FICHES";
+        public static LogoObjectType XmlRoot => LogoObjectType.DEMAND_FICHES;
 
         public virtual string Number { get; set; }
         public virtual Nullable<DateTime> Date { get; set; }

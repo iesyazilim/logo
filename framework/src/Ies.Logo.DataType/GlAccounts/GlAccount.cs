@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.GlAccounts
     [Serializable]
     public class GlAccount : AuditedAggregateRoot, IRecordStatus, ISpecialCode, IGroupCode, IDataSiteId
     {
-        public static string XmlRoot => "GL_ACCOUNTS";
+        public static LogoObjectType XmlRoot => LogoObjectType.GL_ACCOUNTS;
 
         public virtual string Code { get; set; }
         public virtual string Description{ get; set; }

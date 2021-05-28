@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
@@ -9,7 +10,7 @@ namespace Ies.Logo.DataType.ArpVouchers
     [Serializable]
     public class ArpVoucher : AuditedAggregateRoot, IAuxilCode, IAuthCode, IDivision, IDepartment, INotes, ICancelled, IDataSiteId, IProjectCode, IApprove
     {
-        public static string XmlRoot => "ARP_VOUCHERS";
+        public static LogoObjectType XmlRoot => LogoObjectType.ARP_VOUCHERS;
 
         public virtual string Number { get; set; }
         public virtual Nullable<DateTime> Date { get; set; }

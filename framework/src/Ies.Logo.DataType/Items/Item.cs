@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.GlLinks;
@@ -12,7 +13,7 @@ namespace Ies.Logo.DataType.Items
     [Serializable]
     public class Item : AuditedAggregateRoot, IRecordStatus, IGroupCode, ISpecialCode, IPaymentCode, IProjectCode, IDetailedAuxilCode, IGlobalId
     {
-        public static string XmlRoot => "ITEMS";
+        public static LogoObjectType XmlRoot => LogoObjectType.ITEMS;
 
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }

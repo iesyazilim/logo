@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
@@ -9,7 +10,7 @@ namespace Ies.Logo.DataType.CqpnRolls
     [Serializable]
     public class CqpnRoll : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, INotes, ICancelled, ITradingGroup, IDataSiteId, IProjectCode, IApprove
     {
-        public static string XmlRoot => "CQPN_ROLLS";
+        public static LogoObjectType XmlRoot => LogoObjectType.CQPN_ROLLS;
 
         public virtual Nullable<int> Type { get; set; }
         public virtual string Number { get; set; }

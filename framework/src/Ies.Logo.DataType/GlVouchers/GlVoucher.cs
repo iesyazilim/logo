@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -8,7 +9,7 @@ namespace Ies.Logo.DataType.GlVouchers
     [Serializable]
     public class GlVoucher : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, INotes, ICancelled, IDataSiteId, IApprove
     {
-        public static string XmlRoot => "GL_VOUCHERS";
+        public static LogoObjectType XmlRoot => LogoObjectType.GL_VOUCHERS;
 
         public virtual Nullable<int> Type{ get; set; }
         public virtual string Number{ get; set; }
