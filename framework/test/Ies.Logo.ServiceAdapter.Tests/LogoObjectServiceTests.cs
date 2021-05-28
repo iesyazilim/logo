@@ -11,7 +11,7 @@ namespace Ies.Logo.ServiceAdapter.Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            logoObjectService = new LogoObjectServiceAdapter(o =>
+            logoObjectService = new LogoObjectServiceConsole(o =>
             {
                 o.FirmNumber = "001";
                 o.FirmPeriod = "01";

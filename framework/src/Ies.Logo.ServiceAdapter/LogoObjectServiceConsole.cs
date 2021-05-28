@@ -9,7 +9,8 @@ namespace Ies.Logo.ServiceAdapter
 
         public override Task<int> AppendDataObjectAsync(string xml, int dataType = -1)
         {
-            Console.WriteLine($"AppendDataObject isteği\nXml={xml}");
+            CheckDataType(xml, ref dataType);
+            Console.WriteLine($"AppendDataObject isteği DataType={dataType}\nXml={xml}");
             return Task.FromResult(1);
         }
 
