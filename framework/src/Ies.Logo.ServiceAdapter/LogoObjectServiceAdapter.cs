@@ -33,7 +33,7 @@ namespace Ies.Logo.ServiceAdapter
             if (result.status == 3)
                 return result.dataReference;
             else
-                throw new Exception(result.errorString);
+                throw new LogoObjectServiceException(result.errorString, xml);
         }
 
         public async override Task DeleteDataObjectAsync(int dataType, int dataReference)
@@ -49,7 +49,7 @@ namespace Ies.Logo.ServiceAdapter
                 //paramXML=
             });
             if (result.status != 3)
-                throw new Exception(result.errorString);
+                throw new LogoObjectServiceException(result.errorString);
         }
 
         public async override Task<string> ReadDataObjectAsync(int dataType, int dataReference)
@@ -69,7 +69,7 @@ namespace Ies.Logo.ServiceAdapter
             if (result.status == 3)
                 return result.dataXML;
             else
-                throw new Exception(result.errorString);
+                throw new LogoObjectServiceException(result.errorString);
         }
     }
 }
