@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using Ies.Logo.Core;
 using LogoObjectService;
 
 namespace Ies.Logo.ServiceAdapter
@@ -19,6 +21,7 @@ namespace Ies.Logo.ServiceAdapter
         public async override Task<int> AppendDataObjectAsync(string xml, int dataType = -1)
         {
             SvcClient client = CreateClient();
+            CheckDataType(xml, ref dataType);
 
             var result = await client.AppendDataObjectAsync(new AppendDataObjectRequest
             {
@@ -34,6 +37,13 @@ namespace Ies.Logo.ServiceAdapter
                 return result.dataReference;
             else
                 throw new LogoObjectServiceException(result.errorString, xml);
+        }
+        void CheckDataType(string xml, ref int dataType)
+        {
+            if (dataType == -1)
+            {
+                dataType = (int)(LogoObjectType)(Enum.Parse(typeof(LogoObjectType), XDocument.Parse(xml).Root.Name.LocalName));
+            }
         }
 
         public async override Task DeleteDataObjectAsync(int dataType, int dataReference)

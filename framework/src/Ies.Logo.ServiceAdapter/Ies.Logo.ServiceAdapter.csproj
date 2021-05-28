@@ -14,6 +14,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Ies.Logo.Core\Ies.Logo.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<WCFMetadata Include="Connected Services" />
 	</ItemGroup>
 
