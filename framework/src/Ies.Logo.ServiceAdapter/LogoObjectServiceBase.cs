@@ -5,9 +5,11 @@ using Ies.Logo.Core;
 
 namespace Ies.Logo.ServiceAdapter
 {
-    public abstract class LogoObjectServiceBase
+    public abstract class LogoObjectServiceBase : ILogoObjectService
     {
-        public LogoObjectServiceOption Option { get; }
+        public string FirmNumber => Option.FirmNumber;
+        public string FirmPeriod => Option.FirmPeriod;
+        protected LogoObjectServiceOption Option { get; }
 
         public LogoObjectServiceBase(Action<LogoObjectServiceOption> option)
         {
