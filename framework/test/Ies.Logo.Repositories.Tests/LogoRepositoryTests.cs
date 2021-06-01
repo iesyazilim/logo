@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Ies.Logo.DataType.Items;
 using Ies.Logo.ServiceAdapter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,7 +14,7 @@ namespace Ies.Logo.Repositories.Tests
         public void TestInitialize()
         {
             logoRepository = new LogoRepository<Item>(
-            new LogoObjectServiceAdapter(o =>
+            new LogoObjectServiceConsole(o =>
             {
                 o.FirmNumber = "001";
                 o.FirmPeriod = "01";
@@ -42,7 +43,30 @@ namespace Ies.Logo.Repositories.Tests
         [TestMethod]
         public void Delete()
         {
-            logoRepository.Delete(1123);
+            logoRepository.Delete(2);
+        }
+
+        [TestMethod]
+        public async Task GetAsync()
+        {
+            Item item = await logoRepository.GetAsync(1);
+        }
+
+        [TestMethod]
+        public async Task AddOrUpdateAsync()
+        {
+            int dataReference = await logoRepository.AddOrUpdateAsync(new Item
+            {
+                Code = "~",
+            });
+
+            Assert.IsTrue(dataReference > 0);
+        }
+
+        [TestMethod]
+        public async Task DeleteAsync()
+        {
+            await logoRepository.DeleteAsync(2);
         }
     }
 }
