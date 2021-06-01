@@ -50,6 +50,8 @@ namespace Ies.Logo.Repositories.Tests
         public async Task GetAsync()
         {
             Item item = await logoRepository.GetAsync(1);
+
+            Assert.IsNotNull(item);
         }
 
         [TestMethod]

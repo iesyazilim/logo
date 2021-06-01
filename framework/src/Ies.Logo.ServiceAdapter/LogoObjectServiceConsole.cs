@@ -23,7 +23,22 @@ namespace Ies.Logo.ServiceAdapter
         public override Task<string> ReadDataObjectAsync(int dataType, int dataReference)
         {
             Console.WriteLine($"ReadDataObject isteği DataType={dataType} DataReference={dataReference}");
-            return Task.FromResult(string.Empty);
+            switch (dataType)
+            {
+                case 0:
+                    return Task.FromResult(@"<?xml version=""1.0"" encoding=""ISO-8859-9""?>
+<ITEMS>
+  <ITEM DBOP=""INS"">
+    <CODE>P-1</CODE>
+    <NAME>Product-1</NAME>
+    <CARD_TYPE>1</CARD_TYPE>
+    <DATE_CREATED>25.03.2021</DATE_CREATED>
+  </ITEM>
+</ITEMS>");
+
+                default:
+                    return Task.FromResult(string.Empty);
+            }
         }
     }
 }
