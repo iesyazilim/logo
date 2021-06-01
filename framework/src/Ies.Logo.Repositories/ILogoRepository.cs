@@ -1,0 +1,18 @@
+﻿using System.Threading.Tasks;
+using Ies.Logo.DataType.Infrastructure;
+
+namespace Ies.Logo.Repositories
+{
+    public interface ILogoRepository { }
+
+    public interface ILogoRepository<TEntity> where TEntity : ILogoBase, new()
+    {
+        TEntity Get(int id);
+        int AddOrUpdate(TEntity entity);
+        void Delete(int id);
+
+        Task<TEntity> GetAsync(int id);
+        Task<int> AddOrUpdateAsync(TEntity entity);
+        Task DeleteAsync(int id);
+    }
+}
