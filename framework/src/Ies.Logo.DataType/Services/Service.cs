@@ -53,14 +53,12 @@ namespace Ies.Logo.DataType.Services
             {
                 case ServiceCardType.Purchase:
                 case ServiceCardType.PurchaseGroup:
+                default:
                     return LogoObjectType.PURCHASE_SERVICES;
 
                 case ServiceCardType.Sales:
                 case ServiceCardType.SalesGroup:
                     return LogoObjectType.SALES_SERVICES;
-
-                default:
-                    return LogoObjectType.UNKNOWN;
             }
         }
     }

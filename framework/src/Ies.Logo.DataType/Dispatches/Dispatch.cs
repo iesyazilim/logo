@@ -170,6 +170,7 @@ namespace Ies.Logo.DataType.Dispatches
                 case DispatchType.ConsignmentInDispatch:
                 case DispatchType.PurchaseReturn:
                 case DispatchType.ConsignmentInReturnDispatch:
+                default:
                     return LogoObjectType.PURCHASE_DISPATCHES;
 
                 case DispatchType.SalesRetailReturn:
@@ -179,9 +180,6 @@ namespace Ies.Logo.DataType.Dispatches
                 case DispatchType.SalesWholesale:
                 case DispatchType.ConsignmentOutDispatch:
                     return LogoObjectType.SALES_DISPATCHES;
-
-                default:
-                    return LogoObjectType.UNKNOWN;
             }
         }
     }

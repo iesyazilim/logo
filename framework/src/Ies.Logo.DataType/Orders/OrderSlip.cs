@@ -105,13 +105,11 @@ namespace Ies.Logo.DataType.Orders
             switch (IsSales)
             {
                 case false:
+                default:
                     return LogoObjectType.PURCHASE_ORDERS;
 
                 case true:
                     return LogoObjectType.SALES_ORDERS;
-
-                default:
-                    return LogoObjectType.UNKNOWN;
             }
         }
     }

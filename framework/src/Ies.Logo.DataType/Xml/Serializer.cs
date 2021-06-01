@@ -80,7 +80,7 @@ namespace Ies.Logo.DataType.Xml
         #region Configuration
         public static IConfigurationContainer CreateConfiguration()
         {
-            var configuration = new ConfigurationContainer();
+            var configuration = new ConfigurationContainer().WithUnknownContent().Continue();
 
             Configure(configuration);
 

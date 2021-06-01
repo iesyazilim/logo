@@ -252,6 +252,7 @@ namespace Ies.Logo.DataType.Invoices
                 case InvoiceType.PurchaseProforma:
                 case InvoiceType.PurchaseReturn:
                 case InvoiceType.PurchasePriceDifference:
+                default:
                     return LogoObjectType.PURCHASE_INVOICES;
 
                 case InvoiceType.SalesRetailReturn:
@@ -263,8 +264,6 @@ namespace Ies.Logo.DataType.Invoices
                 case InvoiceType.SalesPriceDifference:
                     return LogoObjectType.SALES_INVOICES;
 
-                default:
-                    return LogoObjectType.UNKNOWN;
             }
         }
     }
