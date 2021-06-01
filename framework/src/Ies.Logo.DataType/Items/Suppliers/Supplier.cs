@@ -4,7 +4,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.Items
 {
     [Serializable]
-    public class Supplier : ILogo, ITradingGroup
+    public class Supplier : ILogo, ITradingGroup, IInternalReference
     {
         public virtual Nullable<int> SupplyType { get; set; }
         public virtual Nullable<int> Priority { get; set; }
@@ -14,7 +14,7 @@ namespace Ies.Logo.DataType.Items
         public virtual Nullable<decimal> LeadTime { get; set; }
         public virtual Nullable<decimal> MinQuantity { get; set; }
         public virtual Nullable<decimal> MaxQuantity { get; set; }
-        public virtual Nullable<DateTime> BegDate{ get; set; }
+        public virtual Nullable<DateTime> BegDate { get; set; }
         public virtual Nullable<int> Specialized { get; set; }
         public virtual string IcustSupCode { get; set; }
         public virtual string IcustSupName { get; set; }
@@ -30,6 +30,7 @@ namespace Ies.Logo.DataType.Items
 
         #region Implementation
         public virtual string TradingGrp { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         #endregion
     }
 }

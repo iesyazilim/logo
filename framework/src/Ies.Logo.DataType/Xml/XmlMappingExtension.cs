@@ -18,6 +18,13 @@ namespace Ies.Logo.DataType.Xml
             else
                 typeConfigurations.Type<List<T>>().Name(xmlRoot.GetValue(null)?.ToString());
 
+            if (typeof(IInternalReference).IsAssignableFrom(typeof(T)))
+            {
+                typeConfigurations
+                  .Member(GetMemberExpression<T, int?>(nameof(IInternalReference.InternalReference))).Name("INTERNAL_REFERENCE")
+                  ;
+            }
+
             if (typeof(IDataReference).IsAssignableFrom(typeof(T)))
             {
                 typeConfigurations

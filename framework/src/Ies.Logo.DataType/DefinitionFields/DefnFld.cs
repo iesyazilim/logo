@@ -119,6 +119,7 @@ namespace Ies.Logo.DataType.DefinitionFields
         public virtual Nullable<int> XmlAttribute { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         #endregion
     }
 }

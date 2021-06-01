@@ -49,6 +49,7 @@ namespace Ies.Logo.DataType.SlDetails
         #region Implementation
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual string UnitCode { get; set; }
         public virtual Nullable<decimal> UnitConv1 { get; set; }
         public virtual Nullable<decimal> UnitConv2 { get; set; }

@@ -71,6 +71,7 @@ namespace Ies.Logo.DataType.GlVouchers
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual Nullable<short> Department { get; set; }
         #endregion
 

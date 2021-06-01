@@ -109,6 +109,7 @@ namespace Ies.Logo.DataType.Orders
         public virtual Nullable<short> Department { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual Nullable<short> Factory { get; set; }
         public virtual Nullable<short> Cancelled { get; set; }
         public virtual string ProjectCode { get; set; }

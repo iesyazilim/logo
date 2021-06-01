@@ -30,6 +30,7 @@ namespace Ies.Logo.DataType.GlVouchers
         #region Implementation 
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual string ProjectCode { get; set; }
         public virtual Nullable<short> Department { get; set; }
         #endregion

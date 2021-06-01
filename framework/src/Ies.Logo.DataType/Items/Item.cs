@@ -66,6 +66,7 @@ namespace Ies.Logo.DataType.Items
         public virtual string ProdCountry { get; set; }
         public virtual Nullable<int> ExtAccFlags { get; set; }
         public virtual string AddTaxCode { get; set; }
+        public virtual Nullable<decimal> MultiAddTax { get; set; }
         public virtual Nullable<short> Packet { get; set; }
         public virtual Nullable<short> LidConfirmed { get; set; }
         public virtual string GtipCode { get; set; }

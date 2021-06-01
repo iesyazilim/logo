@@ -37,10 +37,11 @@ namespace Ies.Logo.DataType.CqpnRolls
         public virtual string BankCreCode{ get; set; }
 
         #region Implementation
-        public Nullable<short> Cancelled { get; set; }
-        public Nullable<int> DataSiteId { get; set; }
-        public Nullable<int> XmlAttribute { get; set; }
-        public Nullable<int> DataReference { get; set; }
+        public virtual Nullable<short> Cancelled { get; set; }
+        public virtual Nullable<int> DataSiteId { get; set; }
+        public virtual Nullable<int> XmlAttribute { get; set; }
+        public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         #endregion
 
     }

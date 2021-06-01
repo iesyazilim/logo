@@ -39,6 +39,7 @@ namespace Ies.Logo.DataType.Units
 
         #region Implementation
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual string GlobalId { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         #endregion

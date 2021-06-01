@@ -50,6 +50,7 @@ namespace Ies.Logo.DataType.DemandPeggings
         #region Implementation
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual string AuthCode { get; set; }
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<short> SourceIndex { get; set; }

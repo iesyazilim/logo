@@ -29,6 +29,7 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<int> XmlAttribute { get; set; }
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual string ProjectCode { get; set; }
         #endregion
     }

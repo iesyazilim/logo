@@ -43,6 +43,7 @@ namespace Ies.Logo.DataType.DemandVouchers
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<short> SourceIndex { get; set; }
         public virtual Nullable<int> DataReference{ get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual string ProjectCode{ get; set; }
         #endregion
 
