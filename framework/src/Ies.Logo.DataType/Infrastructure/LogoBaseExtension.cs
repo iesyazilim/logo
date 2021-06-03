@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading;
 using Ies.Logo.DataType.Auditing;
 
@@ -36,7 +37,7 @@ namespace Ies.Logo.DataType.Infrastructure
                 createdObject.CreationHour = (short)DateTime.Now.Hour;
                 createdObject.CreationMinute = (short)DateTime.Now.Minute;
                 createdObject.CreationSecond = (short)DateTime.Now.Second;
-                //createdObject.CreatorId=
+                createdObject.CreatorId = Thread.CurrentPrincipal.FindUserNumber();
             }
         }
 
@@ -49,7 +50,7 @@ namespace Ies.Logo.DataType.Infrastructure
                 updatedObject.LastModificationHour = (short)DateTime.Now.Hour;
                 updatedObject.LastModificationMinute = (short)DateTime.Now.Minute;
                 updatedObject.LastModificationSecond = (short)DateTime.Now.Second;
-                //updatedObject.LastModifierId =
+                updatedObject.LastModifierId = Thread.CurrentPrincipal.FindUserNumber();
             }
         }
     }

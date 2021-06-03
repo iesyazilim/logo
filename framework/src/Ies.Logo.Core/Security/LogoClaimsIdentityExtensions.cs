@@ -6,9 +6,11 @@ namespace System.Security.Principal
 {
     public static class LogoClaimsIdentityExtensions
     {
-        public static string FindFirmNumber(this ClaimsPrincipal principal)
+        public static string FindFirmNumber(this IPrincipal principal)
         {
-            var firmNumber = principal.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.FirmNumber);
+            var claimsPrincipal = (principal as ClaimsPrincipal);
+
+            var firmNumber = claimsPrincipal?.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.FirmNumber);
             if (firmNumber == null || string.IsNullOrEmpty(firmNumber.Value))
             {
                 return null;
@@ -17,9 +19,11 @@ namespace System.Security.Principal
             return firmNumber.Value;
         }
 
-        public static string FindFirmPeriod(this ClaimsPrincipal principal)
+        public static string FindFirmPeriod(this IPrincipal principal)
         {
-            var firmPeriod = principal.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.FirmPeriod);
+            var claimsPrincipal = (principal as ClaimsPrincipal);
+
+            var firmPeriod = claimsPrincipal?.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.FirmPeriod);
             if (firmPeriod == null || string.IsNullOrEmpty(firmPeriod.Value))
             {
                 return null;
@@ -28,9 +32,11 @@ namespace System.Security.Principal
             return firmPeriod.Value;
         }
 
-        public static string FindEndpointAddress(this ClaimsPrincipal principal)
+        public static string FindEndpointAddress(this IPrincipal principal)
         {
-            var endpointAddress = principal.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.EndpointAddress);
+            var claimsPrincipal = (principal as ClaimsPrincipal);
+
+            var endpointAddress = claimsPrincipal?.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.EndpointAddress);
             if (endpointAddress == null || string.IsNullOrEmpty(endpointAddress.Value))
             {
                 return null;
@@ -39,9 +45,10 @@ namespace System.Security.Principal
             return endpointAddress.Value;
         }
 
-        public static short? FindUserNumber(this ClaimsPrincipal principal)
+        public static short? FindUserNumber(this IPrincipal principal)
         {
-            var userNumber = principal.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.UserNumber);
+            var claimsPrincipal = (principal as ClaimsPrincipal);
+            var userNumber = claimsPrincipal?.Claims?.FirstOrDefault(c => c.Type == LogoClaimTypes.UserNumber);
 
             if (userNumber == null || string.IsNullOrEmpty(userNumber.Value))
             {
