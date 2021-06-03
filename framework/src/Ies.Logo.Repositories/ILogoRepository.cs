@@ -8,11 +8,11 @@ namespace Ies.Logo.Repositories
     public interface ILogoRepository<TEntity> where TEntity : ILogoBase, new()
     {
         TEntity Get(int id);
-        int AddOrUpdate(TEntity entity);
+        int AddOrUpdate(TEntity entity, bool autoSet = true);
         void Delete(int id);
 
         Task<TEntity> GetAsync(int id);
-        Task<int> AddOrUpdateAsync(TEntity entity);
+        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true);
         Task DeleteAsync(int id);
     }
 }
