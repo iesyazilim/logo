@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Ies.Logo.Core.Configuration;
 using Ies.Logo.DataType.Items;
 using Ies.Logo.ServiceAdapter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
