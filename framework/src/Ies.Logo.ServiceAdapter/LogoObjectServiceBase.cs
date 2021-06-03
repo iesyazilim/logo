@@ -7,14 +7,11 @@ namespace Ies.Logo.ServiceAdapter
 {
     public abstract class LogoObjectServiceBase : ILogoObjectService
     {
-        public string FirmNumber => Option.FirmNumber;
-        public string FirmPeriod => Option.FirmPeriod;
-        protected LogoObjectServiceOption Option { get; }
+        protected ILogoObjectServiceConfiguration Configuration { get; }
 
-        public LogoObjectServiceBase(Action<LogoObjectServiceOption> option)
+        public LogoObjectServiceBase(ILogoObjectServiceConfiguration configuration)
         {
-            Option = new LogoObjectServiceOption();
-            option.Invoke(Option);
+            Configuration = configuration;
         }
 
         public void CheckDataType(string xml, ref int dataType)

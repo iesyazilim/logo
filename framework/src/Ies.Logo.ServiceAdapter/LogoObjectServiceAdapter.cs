@@ -9,18 +9,18 @@ namespace Ies.Logo.ServiceAdapter
     {
         private Parameter _parameter;
         private string _parameterXml;
-        public LogoObjectServiceAdapter(Action<LogoObjectServiceOption> option) : base(option)
+        public LogoObjectServiceAdapter(ILogoObjectServiceConfiguration configuration) : base(configuration)
         {
             _parameter = new Parameter();
-            _parameter.Period = short.Parse(Option.FirmPeriod);
+            _parameter.Period = short.Parse(configuration.FirmPeriod);
             _parameterXml = _parameter.Serialize();
         }
 
         public SvcClient CreateClient()
         {
             SvcClient client = new SvcClient();
-            if (!string.IsNullOrEmpty(Option.EndpointAddress))
-                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(Option.EndpointAddress);
+            if (!string.IsNullOrEmpty(Configuration.EndpointAddress))
+                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(Configuration.EndpointAddress);
             return client;
         }
 
@@ -31,11 +31,11 @@ namespace Ies.Logo.ServiceAdapter
 
             var result = await client.AppendDataObjectAsync(new AppendDataObjectRequest
             {
-                FirmNr = int.Parse(Option.FirmNumber),
-                securityCode = Option.SecurityCode,
+                FirmNr = int.Parse(Configuration.FirmNumber),
+                securityCode = Configuration.SecurityCode,
                 dataXML = xml,
                 dataType = dataType,
-                LbsLoadPass = Option.Lbsloadpass,
+                LbsLoadPass = Configuration.Lbsloadpass,
                 paramXML = _parameterXml
             });
 
@@ -50,11 +50,11 @@ namespace Ies.Logo.ServiceAdapter
             SvcClient client = CreateClient();
             var result = await client.DeleteDataObjectAsync(new DeleteDataObjectRequest
             {
-                FirmNr = int.Parse(Option.FirmNumber),
-                securityCode = Option.SecurityCode,
+                FirmNr = int.Parse(Configuration.FirmNumber),
+                securityCode = Configuration.SecurityCode,
                 dataType = dataType,
                 dataReference = dataReference,
-                LbsLoadPass = Option.Lbsloadpass
+                LbsLoadPass = Configuration.Lbsloadpass
             });
             if (result.status != 3)
                 throw new LogoObjectServiceException(result.errorString);
@@ -66,11 +66,11 @@ namespace Ies.Logo.ServiceAdapter
 
             var result = await client.ReadDataObjectAsync(new ReadDataObjectRequest
             {
-                FirmNr = int.Parse(Option.FirmNumber),
-                securityCode = Option.SecurityCode,
+                FirmNr = int.Parse(Configuration.FirmNumber),
+                securityCode = Configuration.SecurityCode,
                 dataType = dataType,
                 dataReference = dataReference,
-                LbsLoadPass = Option.Lbsloadpass,
+                LbsLoadPass = Configuration.Lbsloadpass,
                 paramXML = _parameterXml
             });
 

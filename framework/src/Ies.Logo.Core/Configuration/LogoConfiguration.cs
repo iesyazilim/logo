@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Ies.Logo.ServiceAdapter
+namespace Ies.Logo.Core.Configuration
 {
-    public class LogoObjectServiceOption
+    public class LogoConfiguration : ILogoConfiguration
     {
         private string firmNumber;
-        public string FirmNumber 
+        public string FirmNumber
         {
             get => firmNumber;
             set
@@ -26,7 +26,7 @@ namespace Ies.Logo.ServiceAdapter
         }
 
         private string firmPeriod;
-        public string FirmPeriod 
+        public string FirmPeriod
         {
             get
             {
@@ -48,12 +48,5 @@ namespace Ies.Logo.ServiceAdapter
                 }
             }
         }
-
-        public string EndpointAddress { get; set; }
-        public string SecurityCode { get; set; }
-        public string Lbsloadpass { get; set; }
-        public bool UseCompressedString { get; set; }
-
-        public override string ToString() => $"{FirmNumber}.{FirmPeriod}.{EndpointAddress}";
     }
 }
