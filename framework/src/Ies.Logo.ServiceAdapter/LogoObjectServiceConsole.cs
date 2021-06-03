@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Ies.Logo.Core.Configuration;
 
 namespace Ies.Logo.ServiceAdapter
 {
     public class LogoObjectServiceConsole : LogoObjectServiceBase
     {
-        public LogoObjectServiceConsole(Action<LogoObjectServiceOption> option) : base(option) { }
+        public LogoObjectServiceConsole(ILogoObjectServiceConfiguration configuration) : base(configuration) { }
 
         public override Task<int> AppendDataObjectAsync(string xml, int dataType = -1)
         {
