@@ -4,12 +4,12 @@ namespace Ies.Logo.DataType.Auditing
 {
     public interface IHasModificationDate
     {
-        Nullable<DateTime> LastModificationDate { get; }
+        Nullable<DateTime> LastModificationDate { get; set; }
     }
     public interface IHasModificationTime : IHasModificationDate
     {
-        Nullable<short> LastModificationHour { get; }
-        Nullable<short> LastModificationMinute { get; }
-        Nullable<short> LastModificationSecond { get; }
+        Nullable<short> LastModificationHour { get; set; }
+        Nullable<short> LastModificationMinute { get; set; }
+        Nullable<short> LastModificationSecond { get; set; }
     }
 }

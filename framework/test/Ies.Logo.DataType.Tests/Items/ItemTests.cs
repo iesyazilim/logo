@@ -32,7 +32,7 @@ namespace Ies.Logo.DataType.Items
                 CreationDate = new DateTime(2021, 3, 25)
             };
 
-            var itemXml = item.Serialize();
+            var itemXml = item.Serialize(false);
 
             Assert.AreEqual(xml.Replace("\r", string.Empty).Replace("\n", " "), itemXml.Replace("\r", string.Empty).Replace("\n", " "));
         }
@@ -69,7 +69,7 @@ namespace Ies.Logo.DataType.Items
   </ITEM>
 </ITEMS>";
             var item = xml.Deserialize<Item>();
-            string itemXml = item.Serialize();
+            string itemXml = item.Serialize(false);
 
             Assert.AreEqual(xml.Replace("\r", string.Empty).Replace("\n", " "), itemXml.Replace("\r", string.Empty).Replace("\n", " "));
         }

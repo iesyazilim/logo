@@ -4,12 +4,12 @@ namespace Ies.Logo.DataType.Auditing
 {
     public interface IHasCreationDate
     {
-        Nullable<DateTime> CreationDate { get; }
+        Nullable<DateTime> CreationDate { get; set; }
     }
     public interface IHasCreationTime : IHasCreationDate
     {
-        Nullable<short> CreationHour { get; }
-        Nullable<short> CreationMinute { get; }
-        Nullable<short> CreationSecond { get; }
+        Nullable<short> CreationHour { get; set; }
+        Nullable<short> CreationMinute { get; set; }
+        Nullable<short> CreationSecond { get; set; }
     }
 }

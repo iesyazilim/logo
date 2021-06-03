@@ -4,6 +4,6 @@ namespace Ies.Logo.DataType.Auditing
 {
     public interface IModificationAuditedObject : IHasModificationTime
     {
-        Nullable<short> LastModifierId { get; }
+        Nullable<short> LastModifierId { get; set; }
     }
 }
