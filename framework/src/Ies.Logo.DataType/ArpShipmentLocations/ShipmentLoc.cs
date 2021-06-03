@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.ArpShipmentLocations
 {
     [Serializable]
-    public class ShipmentLoc : AuditedAggregateRoot, ISpecialCode, ITradingGroup, IDataSiteId, IRecordStatus
+    public class ShipmentLoc : AuditedAggregateRoot, ISpecialCode, ITradingGroup, IDataSiteId, IRecordStatus, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.ARP_SHIPMENT_LOCATIONS;
 
@@ -53,6 +53,7 @@ namespace Ies.Logo.DataType.ArpShipmentLocations
         public virtual string TradingGrp { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<short> RecordStatus { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

@@ -8,7 +8,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.BankAccounts
 {
     [Serializable]
-    public class BankAccount : AuditedAggregateRoot, IRecordStatus, IAuxilCode, IAuthCode, IGlCodes, IOhpCodes, IDataSiteId
+    public class BankAccount : AuditedAggregateRoot, IRecordStatus, IAuxilCode, IAuthCode, IGlCodes, IOhpCodes, IDataSiteId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.BANK_ACCOUNTS;
 
@@ -83,6 +83,7 @@ namespace Ies.Logo.DataType.BankAccounts
         public virtual string OhpCode4 { get; set; }
         public virtual string OhpCode5 { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

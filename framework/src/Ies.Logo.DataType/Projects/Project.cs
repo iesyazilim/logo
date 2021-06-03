@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.Projects
 {
     [Serializable]
-    public class Project : AuditedAggregateRoot, ISpecialCode, IRecordStatus, IDataSiteId
+    public class Project : AuditedAggregateRoot, ISpecialCode, IRecordStatus, IDataSiteId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.Projects;
 
@@ -23,6 +23,7 @@ namespace Ies.Logo.DataType.Projects
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<short> RecordStatus { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

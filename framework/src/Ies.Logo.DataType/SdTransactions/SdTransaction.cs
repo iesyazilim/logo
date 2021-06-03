@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.SdTransactions
 {
     [Serializable]
-    public class SdTransaction : AuditedAggregateRoot, IDivision, IDepartment, ISpecialCode, ICancelled, IDataSiteId, ITradingGroup, IProjectCode, IApprove
+    public class SdTransaction : AuditedAggregateRoot, IDivision, IDepartment, ISpecialCode, ICancelled, IDataSiteId, ITradingGroup, IProjectCode, IApprove, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.SD_TRANSACTIONS;
 
@@ -97,6 +97,7 @@ namespace Ies.Logo.DataType.SdTransactions
         public virtual string ProjectCode { get; set; }
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

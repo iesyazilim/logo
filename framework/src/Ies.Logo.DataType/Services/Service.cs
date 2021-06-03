@@ -10,7 +10,7 @@ using Ies.Logo.DataType.WhParams;
 namespace Ies.Logo.DataType.Services
 {
     [Serializable]
-    public class Service : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId
+    public class Service : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, IDataNo
     {
         public virtual ServiceCardType CardType { get; set; }
         public virtual string Code { get; set; }
@@ -39,6 +39,7 @@ namespace Ies.Logo.DataType.Services
         public virtual string AuthCode { get; set; }
         public virtual string PaymentCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

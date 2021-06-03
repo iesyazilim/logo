@@ -11,7 +11,7 @@ using Ies.Logo.DataType.WhParams;
 namespace Ies.Logo.DataType.Items
 {
     [Serializable]
-    public class Item : AuditedAggregateRoot, IRecordStatus, IGroupCode, ISpecialCode, IPaymentCode, IProjectCode, IDetailedAuxilCode, IGlobalId
+    public class Item : AuditedAggregateRoot, IRecordStatus, IGroupCode, ISpecialCode, IPaymentCode, IProjectCode, IDetailedAuxilCode, IGlobalId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.ITEMS;
 
@@ -161,6 +161,7 @@ namespace Ies.Logo.DataType.Items
         public virtual string PaymentCode { get; set; }
         public virtual string ProjectCode { get; set; }
         public virtual string GlobalId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

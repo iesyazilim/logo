@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.Marks
 {
     [Serializable]
-    public class Mark : AuditedAggregateRoot, ISpecialCode
+    public class Mark : AuditedAggregateRoot, ISpecialCode, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.MARKS;
 
@@ -16,6 +16,7 @@ namespace Ies.Logo.DataType.Marks
         #region Implementation
         public virtual string AuthCode { get; set; }
         public virtual string AuxilCode { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

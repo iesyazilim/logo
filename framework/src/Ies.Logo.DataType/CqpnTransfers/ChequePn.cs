@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.CqpnTransfers
 {
     [Serializable]
-    public class ChequePn : AuditedAggregateRoot, IAuxilCode
+    public class ChequePn : AuditedAggregateRoot, IAuxilCode, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.CQPN_TRANSFERS;
 
@@ -31,6 +31,7 @@ namespace Ies.Logo.DataType.CqpnTransfers
 
         #region Implementation
         public virtual string AuxilCode { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         #endregion
     }
 }

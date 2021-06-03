@@ -9,7 +9,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.MaterialSlips
 {
     [Serializable]
-    public class Slip : AuditedAggregateRoot, ISpecialCode, ICancelled, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IGlobalId
+    public class Slip : AuditedAggregateRoot, ISpecialCode, ICancelled, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IGlobalId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.MATERIAL_SLIPS;
 
@@ -131,6 +131,7 @@ namespace Ies.Logo.DataType.MaterialSlips
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
         public virtual string GlobalId { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

@@ -7,7 +7,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.Qproductions
 {
     [Serializable]
-    public class QProduction : AuditedAggregateRoot, ISpecialCode, IDepartment, ISourceIndex, IXmlAttribute, IProjectCode, INotes
+    public class QProduction : AuditedAggregateRoot, ISpecialCode, IDepartment, ISourceIndex, IXmlAttribute, IProjectCode, INotes, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.QPRODUCTIONS;
 
@@ -37,6 +37,7 @@ namespace Ies.Logo.DataType.Qproductions
         public virtual string Notes2 { get; set; }
         public virtual string Notes3 { get; set; }
         public virtual string Notes4 { get; set; }
+        public string DataNumber { get => Ficheno; set => Ficheno = value; }
         #endregion
 
         #region SubClasses

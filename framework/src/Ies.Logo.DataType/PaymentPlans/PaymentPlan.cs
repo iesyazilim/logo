@@ -7,7 +7,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.PaymentPlans
 {
     [Serializable]
-    public class PaymentPlan : AuditedAggregateRoot, IRecordStatus, ISpecialCode, IDataSiteId
+    public class PaymentPlan : AuditedAggregateRoot, IRecordStatus, ISpecialCode, IDataSiteId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.PAYMENT_PLANS;
 
@@ -27,6 +27,7 @@ namespace Ies.Logo.DataType.PaymentPlans
         public virtual string AuthCode { get; set; }
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

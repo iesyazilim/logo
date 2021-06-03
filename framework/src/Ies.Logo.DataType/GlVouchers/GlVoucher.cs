@@ -7,7 +7,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.GlVouchers
 {
     [Serializable]
-    public class GlVoucher : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, INotes, ICancelled, IDataSiteId, IApprove
+    public class GlVoucher : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, INotes, ICancelled, IDataSiteId, IApprove, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.GL_VOUCHERS;
 
@@ -62,6 +62,7 @@ namespace Ies.Logo.DataType.GlVouchers
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

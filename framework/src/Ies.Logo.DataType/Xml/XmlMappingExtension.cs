@@ -233,6 +233,13 @@ namespace Ies.Logo.DataType.Xml
                   .Member(GetMemberExpression<T, string>(nameof(INotes.Notes4))).Name("NOTES4")
                   ;
             }
+
+            if (typeof(IDataNo).IsAssignableFrom(typeof(T)))
+            {
+                typeConfigurations
+                  .Member(GetMemberExpression<T, string>(nameof(IDataNo.DataNumber))).Ignore()
+                  ;
+            }
         }
         private static Expression<Func<T, TMember>> GetMemberExpression<T, TMember>(string propertOrFieldName)
         {

@@ -7,7 +7,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.DemandVouchers
 {
     [Serializable]
-    public class DemandVoucher : AuditedAggregateRoot, ISpecialCode, ISourceIndex, IDepartment, IProjectCode
+    public class DemandVoucher : AuditedAggregateRoot, ISpecialCode, ISourceIndex, IDepartment, IProjectCode, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.DEMAND_FICHES;
 
@@ -29,6 +29,7 @@ namespace Ies.Logo.DataType.DemandVouchers
         public virtual Nullable<short> SourceIndex { get; set; }
         public virtual Nullable<short> Department { get; set; }
         public virtual string ProjectCode { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.ArAps
 {
     [Serializable]
-    public class ArAp : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, ITradingGroup, IProjectCode, IGlobalId
+    public class ArAp : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, ITradingGroup, IProjectCode, IGlobalId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.AR_APS;
 
@@ -178,7 +178,7 @@ namespace Ies.Logo.DataType.ArAps
         public virtual Nullable<decimal> RepOrdRiskTotalSugg { get; set; }
         public virtual Nullable<decimal> DespRiskTotal { get; set; }
         public virtual Nullable<decimal> RepDespRiskTotal { get; set; }
-        public virtual Nullable<decimal> AccRiskLimit{ get; set; }
+        public virtual Nullable<decimal> AccRiskLimit { get; set; }
         public virtual Nullable<decimal> RepAccRiskLimit { get; set; }
         public virtual Nullable<decimal> CstCsRiskLimit { get; set; }
         public virtual Nullable<decimal> RepCstCsRiskLimit { get; set; }
@@ -273,6 +273,7 @@ namespace Ies.Logo.DataType.ArAps
         public virtual string TradingGrp { get; set; }
         public virtual string ProjectCode { get; set; }
         public virtual string GlobalId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

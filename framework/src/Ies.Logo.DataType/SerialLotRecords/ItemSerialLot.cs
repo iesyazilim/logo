@@ -5,7 +5,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.SerialLotRecords
 {
     [Serializable]
-    public class ItemSerialLot : AuditedAggregateRoot, IDataSiteId
+    public class ItemSerialLot : AuditedAggregateRoot, IDataSiteId, IDataNo
     {
         public static string XmlRoot => "SERIAL_LOT_RECORDS";
 
@@ -18,6 +18,7 @@ namespace Ies.Logo.DataType.SerialLotRecords
 
         #region Implementation
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

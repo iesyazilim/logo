@@ -39,6 +39,13 @@ namespace Ies.Logo.DataType.Infrastructure
                 createdObject.CreationSecond = (short)DateTime.Now.Second;
                 createdObject.CreatorId = Thread.CurrentPrincipal.FindUserNumber();
             }
+
+            if (typeof(IDataNo).IsAssignableFrom(typeof(T)))
+            {
+                var createdObject = data as IDataNo;
+                if (string.IsNullOrWhiteSpace(createdObject.DataNumber))
+                    createdObject.DataNumber = "~";
+            }
         }
 
         private static void SetForUpdate<T>(T data)

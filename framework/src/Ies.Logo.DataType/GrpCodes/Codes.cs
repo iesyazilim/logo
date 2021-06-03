@@ -5,7 +5,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.GrpCodes
 {
     [Serializable]
-    public class Codes : LogoBase, IGlobalId, IDataSiteId
+    public class Codes : LogoBase, IGlobalId, IDataSiteId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.GRP_CODES;
 
@@ -21,6 +21,7 @@ namespace Ies.Logo.DataType.GrpCodes
         #region Implementation
         public virtual string GlobalId { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

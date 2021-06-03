@@ -8,7 +8,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.CqpnRolls
 {
     [Serializable]
-    public class CqpnRoll : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, INotes, ICancelled, ITradingGroup, IDataSiteId, IProjectCode, IApprove
+    public class CqpnRoll : AuditedAggregateRoot, ISpecialCode, IDivision, IDepartment, INotes, ICancelled, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.CQPN_ROLLS;
 
@@ -83,6 +83,7 @@ namespace Ies.Logo.DataType.CqpnRolls
         public string ProjectCode { get; set; }
         public Nullable<short> Approve { get; set; }
         public Nullable<DateTime> ApproveDate { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

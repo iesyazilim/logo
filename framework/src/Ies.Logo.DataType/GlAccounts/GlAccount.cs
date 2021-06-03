@@ -6,7 +6,7 @@ using Ies.Logo.DataType.Infrastructure;
 namespace Ies.Logo.DataType.GlAccounts
 {
     [Serializable]
-    public class GlAccount : AuditedAggregateRoot, IRecordStatus, ISpecialCode, IGroupCode, IDataSiteId
+    public class GlAccount : AuditedAggregateRoot, IRecordStatus, ISpecialCode, IGroupCode, IDataSiteId, IDataNo
     {
         public static LogoObjectType XmlRoot => LogoObjectType.GL_ACCOUNTS;
 
@@ -61,6 +61,7 @@ namespace Ies.Logo.DataType.GlAccounts
         public virtual string AuxilCode { get; set; }
         public virtual string GroupCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }
