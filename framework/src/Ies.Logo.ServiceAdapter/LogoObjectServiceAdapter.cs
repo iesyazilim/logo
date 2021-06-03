@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Ies.Logo.Core.Configuration;
 using Ies.Logo.Core.Extensions;
 using LogoObjectService;
 

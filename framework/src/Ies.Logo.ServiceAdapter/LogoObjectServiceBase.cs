@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Ies.Logo.Core;
+using Ies.Logo.Core.Configuration;
 
 namespace Ies.Logo.ServiceAdapter
 {

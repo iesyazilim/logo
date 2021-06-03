@@ -1,6 +1,4 @@
-﻿using Ies.Logo.Core.Configuration;
-
-namespace Ies.Logo.ServiceAdapter
+﻿namespace Ies.Logo.Core.Configuration
 {
     public interface ILogoObjectServiceConfiguration : ILogoConfiguration
     {
