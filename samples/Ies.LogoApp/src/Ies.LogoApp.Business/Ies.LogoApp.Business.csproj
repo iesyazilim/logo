@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Core\Ies.Logo.Core.csproj" />
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.DataType\Ies.Logo.DataType.csproj" />
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Manager\Ies.Logo.Manager.csproj" />
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Repositories\Ies.Logo.Repositories.csproj" />
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.ServiceAdapter\Ies.Logo.ServiceAdapter.csproj" />
+		<ProjectReference Include="..\Ies.LogoApp.DataAccess\Ies.LogoApp.DataAccess.csproj" />
+		<ProjectReference Include="..\Ies.LogoApp.Entities\Ies.LogoApp.Entities.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DependencyResolvers\Microsoft\" />
+	</ItemGroup>
+</Project>
