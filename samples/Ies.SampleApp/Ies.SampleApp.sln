@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.SampleApp.Business", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.SampleApp.ConsoleUI", "src\Ies.SampleApp.ConsoleUI\Ies.SampleApp.ConsoleUI.csproj", "{66721745-7255-46AC-94B3-E57FED6FD01D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.SampleApp.HttpApi", "src\Ies.SampleApp.HttpApi\Ies.SampleApp.HttpApi.csproj", "{4E4B052A-C3A7-4837-9940-5BE4E8289FD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{66721745-7255-46AC-94B3-E57FED6FD01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66721745-7255-46AC-94B3-E57FED6FD01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66721745-7255-46AC-94B3-E57FED6FD01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4B052A-C3A7-4837-9940-5BE4E8289FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4B052A-C3A7-4837-9940-5BE4E8289FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4B052A-C3A7-4837-9940-5BE4E8289FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4B052A-C3A7-4837-9940-5BE4E8289FD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{B146BF5A-931F-409C-92D4-C9B3C78F1DA0} = {FEAE2FCE-AEE7-42D7-84FA-90F0D5689AE3}
 		{9D4BCF84-21B9-4B7F-A99D-BB71E34B08EC} = {FEAE2FCE-AEE7-42D7-84FA-90F0D5689AE3}
 		{66721745-7255-46AC-94B3-E57FED6FD01D} = {FEAE2FCE-AEE7-42D7-84FA-90F0D5689AE3}
+		{4E4B052A-C3A7-4837-9940-5BE4E8289FD2} = {FEAE2FCE-AEE7-42D7-84FA-90F0D5689AE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48391486-C211-4D3F-91BB-5A7D3E80AEF0}

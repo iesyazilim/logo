@@ -21,7 +21,7 @@ namespace Ies.SampleApp.Items
             {
                 string query = $@"
                 WITH Item AS(
-                SELECT LOGICALREF DataReference, CODE Code, NAME Name, ACTIVE Active FROM  LG_{Configuration.FirmNumber}_ITEMS
+                SELECT LOGICALREF DataReference, CODE Code, NAME Name, ACTIVE Active FROM  LG_{Configuration.FirmNumber}_ITEMS WHERE CARDTYPE<>22
                 ) 
                 SELECT * FROM Item 
                 ";
