@@ -1,23 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<Import Project="..\..\..\resources\common.props" />
+  <Import Project="..\..\..\resources\common.props" />
 
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<Description>Logo xml modeli</Description>
-		<PackageIcon></PackageIcon>
-		<PackageId>Ies.Logo.DataType</PackageId>
-		<AssemblyName>Ies.Logo.DataType</AssemblyName>
-		<RootNamespace>Ies.Logo.DataType</RootNamespace>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>Logo xml modeli</Description>
+    <PackageIcon></PackageIcon>
+    <PackageId>Ies.Logo.DataType</PackageId>
+    <AssemblyName>Ies.Logo.DataType</AssemblyName>
+    <RootNamespace>Ies.Logo.DataType</RootNamespace>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="ExtendedXmlSerializer" Version="3.7.1" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ExtendedXmlSerializer" Version="3.7.1" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Ies.Logo.Core\Ies.Logo.Core.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ies.Logo.Core\Ies.Logo.Core.csproj" />
+  </ItemGroup>
 
 </Project>
