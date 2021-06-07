@@ -9,7 +9,7 @@ namespace Ies.SampleApp.DepedencyResolvers.Microsoft
 {
     public static class Resolver
     {
-        public static void Resolve(this ServiceCollection serviceProvider)
+        public static void Resolve(this IServiceCollection serviceProvider)
         {
             ResolveLogo(serviceProvider);
 
@@ -18,7 +18,7 @@ namespace Ies.SampleApp.DepedencyResolvers.Microsoft
                 .AddSingleton<IItemService, ItemManager>()
                 ;
         }
-        static void ResolveLogo(ServiceCollection serviceProvider)
+        static void ResolveLogo(IServiceCollection serviceProvider)
         {
             serviceProvider
                 .AddSingleton<ILogoConnectionConfiguration, LogoConnectionConfiguration>(o =>
