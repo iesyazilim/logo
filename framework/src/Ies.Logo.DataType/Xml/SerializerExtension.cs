@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using ExtendedXmlSerializer;
 using Ies.Logo.DataType.Infrastructure;
@@ -8,6 +9,7 @@ namespace Ies.Logo.DataType.Xml
 {
     public static class SerializerExtension
     {
+        public static XmlWriterSettings XmlWriterSetting => Serializer.XmlWriterSetting;
         public static string Serialize<T>(this T data, bool autoSet = true) where T : ILogoBase
         {
             if (autoSet)
