@@ -10,6 +10,8 @@ namespace Ies.Logo.DataType.Xml
     public static class SerializerExtension
     {
         public static XmlWriterSettings XmlWriterSetting => Serializer.XmlWriterSetting;
+        public static void EnableEagerLoading() => Serializer.Serializers = Serializer.CreateSerializers();
+
         public static string Serialize<T>(this T data, bool autoSet = true) where T : ILogoBase
         {
             if (autoSet)

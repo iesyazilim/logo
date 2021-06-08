@@ -16,8 +16,8 @@ namespace Ies.Logo.DataType.Xml
         {
             Indent = true
         };
+        public static Dictionary<Type, IExtendedXmlSerializer> Serializers { get; set; } = new Dictionary<Type, IExtendedXmlSerializer>();
         private static IList<Assembly> ReferencedAssemblies { get; } = GetReferencedAssemblies();
-        private static Dictionary<Type, IExtendedXmlSerializer> Serializers { get; } = CreateSerializers();
 
         private static IList<Assembly> GetReferencedAssemblies()
         {
@@ -30,8 +30,15 @@ namespace Ies.Logo.DataType.Xml
         }
 
         #region SerializerInstance
-        public static IExtendedXmlSerializer Get<T>() => Serializers[typeof(T)];
-        private static Dictionary<Type, IExtendedXmlSerializer> CreateSerializers()
+        public static IExtendedXmlSerializer Get<T>()
+        {
+            if (!Serializers.TryGetValue(typeof(T), out IExtendedXmlSerializer serializer))
+            {
+                serializer = CreateSerializer(Serializers, typeof(T));
+            }
+            return serializer;
+        }
+        public static Dictionary<Type, IExtendedXmlSerializer> CreateSerializers()
         {
             var serializers = new Dictionary<Type, IExtendedXmlSerializer>();
 
@@ -43,19 +50,26 @@ namespace Ies.Logo.DataType.Xml
         {
             foreach (Type logoBaseType in ReferencedAssemblies.SelectMany(a => a.GetTypes().Where(w => typeof(ILogoBase).IsAssignableFrom(w) && !w.IsAbstract)))
             {
-                var subClasses = new HashSet<Type>(logoBaseType
-                                     .GetProperties()
-                                     .Select(t => t.PropertyType.IsGenericType ? t.PropertyType.GetGenericArguments().FirstOrDefault() : t.PropertyType)
-                                     .Where(p => p != typeof(string) && p.IsClass)
-                                     );
-                TypeLoop(subClasses).ForEach(f => subClasses.Add(f));
-                subClasses.Add(logoBaseType);
-                subClasses.Add(typeof(List<>).MakeGenericType(logoBaseType));
-
-                var serializer = Serializer.CreateConfiguration().EnableImplicitTyping(subClasses).Create();
-                dictionaries.Add(logoBaseType, serializer);
-                dictionaries.Add(typeof(List<>).MakeGenericType(logoBaseType), serializer);
+                CreateSerializer(dictionaries, logoBaseType);
             }
+        }
+        private static IExtendedXmlSerializer CreateSerializer(Dictionary<Type, IExtendedXmlSerializer> dictionaries, Type logoBaseType)
+        {
+            var subClasses = new HashSet<Type>(logoBaseType
+                                   .GetProperties()
+                                   .Select(t => t.PropertyType.IsGenericType ? t.PropertyType.GetGenericArguments().FirstOrDefault() : t.PropertyType)
+                                   .Where(p => p != typeof(string) && p.IsClass)
+                                   );
+            TypeLoop(subClasses).ForEach(f => subClasses.Add(f));
+            subClasses.Add(logoBaseType);
+            subClasses.Add(typeof(List<>).MakeGenericType(logoBaseType));
+
+            var serializer = CreateConfiguration().EnableImplicitTyping(subClasses).Create();
+
+            dictionaries.Add(logoBaseType, serializer);
+            dictionaries.Add(typeof(List<>).MakeGenericType(logoBaseType), serializer);
+
+            return serializer;
         }
         private static HashSet<Type> TypeLoop(HashSet<Type> loopTypes)
         {
@@ -69,8 +83,8 @@ namespace Ies.Logo.DataType.Xml
                                    );
 
                 if (subTypes.Count > 0)
-                    TypeLoop(subTypes).ForEach(f => mustAddedTypes.Add(f)); 
-                
+                    TypeLoop(subTypes).ForEach(f => mustAddedTypes.Add(f));
+
                 mustAddedTypes.Add(type);
             }
             return mustAddedTypes;
