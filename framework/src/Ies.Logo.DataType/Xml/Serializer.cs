@@ -34,7 +34,11 @@ namespace Ies.Logo.DataType.Xml
         {
             if (!Serializers.TryGetValue(typeof(T), out IExtendedXmlSerializer serializer))
             {
-                serializer = CreateSerializer(Serializers, typeof(T));
+                lock(Serializers)
+                {
+                    if (!Serializers.TryGetValue(typeof(T), out serializer))
+                        serializer = CreateSerializer(Serializers, typeof(T));
+                }
             }
             return serializer;
         }
