@@ -34,7 +34,7 @@ namespace Ies.Logo.DataType.Xml
         {
             if (!Serializers.TryGetValue(typeof(T), out IExtendedXmlSerializer serializer))
             {
-                lock(Serializers)
+                lock (Serializers)
                 {
                     if (!Serializers.TryGetValue(typeof(T), out serializer))
                         serializer = CreateSerializer(Serializers, typeof(T));
@@ -71,7 +71,11 @@ namespace Ies.Logo.DataType.Xml
             var serializer = CreateConfiguration().EnableImplicitTyping(subClasses).Create();
 
             dictionaries.Add(logoBaseType, serializer);
-            dictionaries.Add(typeof(List<>).MakeGenericType(logoBaseType), serializer);
+
+            if (logoBaseType.IsGenericType && (logoBaseType.GetGenericTypeDefinition() == typeof(List<>)))
+                dictionaries.Add(logoBaseType.GetGenericArguments().FirstOrDefault(), serializer);
+            else
+                dictionaries.Add(typeof(List<>).MakeGenericType(logoBaseType), serializer);
 
             return serializer;
         }
