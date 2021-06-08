@@ -15,6 +15,7 @@ namespace Ies.Logo.DataType.Items
     {
         public static LogoObjectType XmlRoot => LogoObjectType.ITEMS;
 
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
         public virtual string Name2 { get; set; }
@@ -161,7 +162,6 @@ namespace Ies.Logo.DataType.Items
         public virtual string PaymentCode { get; set; }
         public virtual string ProjectCode { get; set; }
         public virtual string GlobalId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

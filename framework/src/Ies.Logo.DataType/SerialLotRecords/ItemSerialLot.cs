@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.SerialLotRecords
 
         public virtual string ItemCode { get; set; }
         public virtual Nullable<int> Type { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
         public virtual Nullable<int> WfStatus { get; set; }
@@ -18,7 +19,6 @@ namespace Ies.Logo.DataType.SerialLotRecords
 
         #region Implementation
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

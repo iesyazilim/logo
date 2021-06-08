@@ -13,6 +13,7 @@ namespace Ies.Logo.DataType.BankVouchers
         public static LogoObjectType XmlRoot => LogoObjectType.BANK_VOUCHERS;
 
         public virtual Nullable<DateTime> Date { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual Nullable<int> Type { get; set; }
         public virtual Nullable<int> Sign { get; set; }
@@ -51,7 +52,6 @@ namespace Ies.Logo.DataType.BankVouchers
         public virtual string ProjectCode { get; set; }
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

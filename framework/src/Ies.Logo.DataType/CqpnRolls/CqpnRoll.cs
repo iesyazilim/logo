@@ -13,6 +13,7 @@ namespace Ies.Logo.DataType.CqpnRolls
         public static LogoObjectType XmlRoot => LogoObjectType.CQPN_ROLLS;
 
         public virtual Nullable<int> Type { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual string DocNumber{ get; set; }
         public virtual Nullable<short> MasterModule{ get; set; }
@@ -83,7 +84,6 @@ namespace Ies.Logo.DataType.CqpnRolls
         public string ProjectCode { get; set; }
         public Nullable<short> Approve { get; set; }
         public Nullable<DateTime> ApproveDate { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

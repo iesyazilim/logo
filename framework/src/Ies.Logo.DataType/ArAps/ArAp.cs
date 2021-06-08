@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.ArAps
         public static LogoObjectType XmlRoot => LogoObjectType.AR_APS;
 
         public virtual Nullable<short> AccountType { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Title { get; set; }
         public virtual string Address1 { get; set; }
@@ -273,7 +274,6 @@ namespace Ies.Logo.DataType.ArAps
         public virtual string TradingGrp { get; set; }
         public virtual string ProjectCode { get; set; }
         public virtual string GlobalId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

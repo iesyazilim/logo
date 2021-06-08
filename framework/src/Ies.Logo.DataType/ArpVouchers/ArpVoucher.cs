@@ -12,6 +12,7 @@ namespace Ies.Logo.DataType.ArpVouchers
     {
         public static LogoObjectType XmlRoot => LogoObjectType.ARP_VOUCHERS;
 
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual Nullable<DateTime> Date { get; set; }
         public virtual string DocNumber { get; set; }
@@ -57,7 +58,6 @@ namespace Ies.Logo.DataType.ArpVouchers
         public virtual string ProjectCode { get; set; }
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

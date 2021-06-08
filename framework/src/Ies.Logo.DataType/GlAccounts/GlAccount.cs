@@ -10,6 +10,7 @@ namespace Ies.Logo.DataType.GlAccounts
     {
         public static LogoObjectType XmlRoot => LogoObjectType.GL_ACCOUNTS;
 
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description{ get; set; }
         public virtual string Description2{ get; set; }
@@ -61,7 +62,6 @@ namespace Ies.Logo.DataType.GlAccounts
         public virtual string AuxilCode { get; set; }
         public virtual string GroupCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

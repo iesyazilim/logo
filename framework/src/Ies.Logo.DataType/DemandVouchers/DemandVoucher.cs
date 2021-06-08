@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.DemandVouchers
     {
         public static LogoObjectType XmlRoot => LogoObjectType.DEMAND_FICHES;
 
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual Nullable<DateTime> Date { get; set; }
         public virtual Nullable<int> Time { get; set; }
@@ -29,7 +30,6 @@ namespace Ies.Logo.DataType.DemandVouchers
         public virtual Nullable<short> SourceIndex { get; set; }
         public virtual Nullable<short> Department { get; set; }
         public virtual string ProjectCode { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

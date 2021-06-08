@@ -13,6 +13,7 @@ namespace Ies.Logo.DataType.Services
     public class Service : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, IDataNo
     {
         public virtual ServiceCardType CardType { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
         public virtual string Description2 { get; set; }
@@ -39,7 +40,6 @@ namespace Ies.Logo.DataType.Services
         public virtual string AuthCode { get; set; }
         public virtual string PaymentCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

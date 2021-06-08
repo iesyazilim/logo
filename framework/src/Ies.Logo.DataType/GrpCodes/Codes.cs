@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.GrpCodes
 
         public virtual Nullable<int> CodeType{ get; set; }
         public virtual Nullable<int> SpeCodeType{ get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code{ get; set; }
         public virtual string Definition { get; set; }
         public virtual string Definition2 { get; set; }
@@ -21,7 +22,6 @@ namespace Ies.Logo.DataType.GrpCodes
         #region Implementation
         public virtual string GlobalId { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

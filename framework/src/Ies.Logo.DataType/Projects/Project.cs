@@ -10,6 +10,7 @@ namespace Ies.Logo.DataType.Projects
     {
         public static LogoObjectType XmlRoot => LogoObjectType.Projects;
 
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
         public virtual string ProjRespons { get; set; }
@@ -23,7 +24,6 @@ namespace Ies.Logo.DataType.Projects
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<short> RecordStatus { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

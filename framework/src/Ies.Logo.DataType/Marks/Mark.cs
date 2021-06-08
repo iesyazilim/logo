@@ -10,13 +10,13 @@ namespace Ies.Logo.DataType.Marks
     {
         public static LogoObjectType XmlRoot => LogoObjectType.MARKS;
 
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Descr { get; set; }
 
         #region Implementation
         public virtual string AuthCode { get; set; }
         public virtual string AuxilCode { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
     }
 }

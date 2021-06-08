@@ -25,6 +25,7 @@ namespace Ies.Logo.DataType.SdTransactions
         public virtual Nullable<int> Minute { get; set; }
         public virtual Nullable<int> DestDivision { get; set; }
         public virtual Nullable<int> DestDepartment { get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual string MasterTitle { get; set; }
         public virtual string Description { get; set; }
@@ -97,7 +98,6 @@ namespace Ies.Logo.DataType.SdTransactions
         public virtual string ProjectCode { get; set; }
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

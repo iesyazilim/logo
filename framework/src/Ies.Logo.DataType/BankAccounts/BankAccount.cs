@@ -13,6 +13,7 @@ namespace Ies.Logo.DataType.BankAccounts
         public static LogoObjectType XmlRoot => LogoObjectType.BANK_ACCOUNTS;
 
         public virtual Nullable<int> AccountType { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
         public virtual string BankCode { get; set; }
@@ -83,7 +84,6 @@ namespace Ies.Logo.DataType.BankAccounts
         public virtual string OhpCode4 { get; set; }
         public virtual string OhpCode5 { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

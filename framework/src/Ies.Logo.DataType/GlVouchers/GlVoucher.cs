@@ -12,6 +12,7 @@ namespace Ies.Logo.DataType.GlVouchers
         public static LogoObjectType XmlRoot => LogoObjectType.GL_VOUCHERS;
 
         public virtual Nullable<int> Type{ get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number{ get; set; }
         public virtual Nullable<DateTime> Date{ get; set; }
         public virtual string DocNumber{ get; set; }
@@ -62,7 +63,6 @@ namespace Ies.Logo.DataType.GlVouchers
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

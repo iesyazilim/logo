@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.Qproductions
     {
         public static LogoObjectType XmlRoot => LogoObjectType.QPRODUCTIONS;
 
+        public string DataNumber { get => Ficheno; set => Ficheno = value; }
         public virtual string Ficheno { get; set; }
         public virtual Nullable<int> Orderref { get; set; }
         public virtual string Orderfcno { get; set; }
@@ -37,7 +38,6 @@ namespace Ies.Logo.DataType.Qproductions
         public virtual string Notes2 { get; set; }
         public virtual string Notes3 { get; set; }
         public virtual string Notes4 { get; set; }
-        public string DataNumber { get => Ficheno; set => Ficheno = value; }
         #endregion
 
         #region SubClasses

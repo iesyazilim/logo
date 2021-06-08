@@ -12,6 +12,7 @@ namespace Ies.Logo.DataType.CqpnTransfers
 
         public virtual Nullable<int> Type { get; set; }
         public virtual Nullable<short> CurrentStatus{ get; set; }
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number{ get; set; }
         public virtual string Owing{ get; set; }
         public virtual Nullable<DateTime> DueDate{ get; set; }
@@ -31,7 +32,6 @@ namespace Ies.Logo.DataType.CqpnTransfers
 
         #region Implementation
         public virtual string AuxilCode { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
     }
 }

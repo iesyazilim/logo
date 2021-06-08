@@ -12,6 +12,7 @@ namespace Ies.Logo.DataType.Invoices
     [Serializable]
     public class Invoice : AuditedAggregateRoot, ISpecialCode, ICancelled, INotes, IPaymentCode, IDivision, IDepartment, ITradingGroup, IDataSiteId, IFactory, IProjectCode, IApprove, IGlobalId, IDataNo
     {
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual InvoiceType Type { get; set; }
         public virtual string DocTrackNr { get; set; }
@@ -230,7 +231,6 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
         public virtual string GlobalId { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses

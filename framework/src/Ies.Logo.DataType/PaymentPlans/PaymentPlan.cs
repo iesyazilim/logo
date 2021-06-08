@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.PaymentPlans
     {
         public static LogoObjectType XmlRoot => LogoObjectType.PAYMENT_PLANS;
 
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
         public virtual Nullable<decimal> EarlyIntrate { get; set; }
@@ -27,7 +28,6 @@ namespace Ies.Logo.DataType.PaymentPlans
         public virtual string AuthCode { get; set; }
         public virtual string AuxilCode { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.ArpShipmentLocations
         public static LogoObjectType XmlRoot => LogoObjectType.ARP_SHIPMENT_LOCATIONS;
 
         public virtual string ArpCode { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
         public virtual string Address1 { get; set; }
@@ -53,7 +54,6 @@ namespace Ies.Logo.DataType.ArpShipmentLocations
         public virtual string TradingGrp { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         public virtual Nullable<short> RecordStatus { get; set; }
-        public string DataNumber { get => Code; set => Code = value; }
         #endregion
 
         #region SubClasses

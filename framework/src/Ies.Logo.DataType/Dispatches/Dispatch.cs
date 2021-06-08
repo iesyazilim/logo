@@ -11,6 +11,7 @@ namespace Ies.Logo.DataType.Dispatches
     [Serializable]
     public class Dispatch : AuditedAggregateRoot, ISpecialCode, IFactory, IDivision, IDepartment, ICancelled, INotes, IPaymentCode, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IGlobalId, IDataNo
     {
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual DispatchType Type { get; set; }
         public virtual string DocTrackNr { get; set; }
@@ -155,7 +156,6 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual Nullable<short> Approve { get; set; }
         public virtual Nullable<DateTime> ApproveDate { get; set; }
         public virtual string GlobalId { get; set; }
-        public string DataNumber { get => Number; set => Number = value; }
         #endregion
 
         #region SubClasses
