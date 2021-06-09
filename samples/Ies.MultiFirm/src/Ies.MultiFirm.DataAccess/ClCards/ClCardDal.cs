@@ -31,7 +31,7 @@ namespace Ies.MultiFirm.ClCards
 	                WHERE CARDTYPE<>22
                 )
                 SELECT * FROM ClCards
-                ");
+                ",_configuration.FirmNumber);
 
                 return (await connection.QueryAsync<GetClCardListDto>(query)).ToList();
             }

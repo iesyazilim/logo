@@ -16,14 +16,14 @@ namespace Ies.MultiFirm.ConsoleUI
         {
             using (var scope1 = resolver.CreateScope())
             {
-                Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("001", "01", "http://localhost/LogoObjectService/Service");
+                Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("999", "01", "http://localhost/LogoObjectService/Service");
                 var clCardService = scope1.ServiceProvider.GetRequiredService<IClCardService>();
                 clCardService.PreviousFirmInfo();
             }
 
             using (var scope2 = resolver.CreateScope())
             {
-                Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("002", "01", "http://localhost/LogoObjectService/Service");
+                Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("998", "01", "http://localhost/LogoObjectService/Service");
                 var clCardService2 = scope2.ServiceProvider.GetRequiredService<IClCardService>();
                 clCardService2.PreviousFirmInfo();
             }
