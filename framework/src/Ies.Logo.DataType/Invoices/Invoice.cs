@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Dispatches;
@@ -9,70 +10,71 @@ using Ies.Logo.DataType.Payments;
 namespace Ies.Logo.DataType.Invoices
 {
     [Serializable]
-    public class Invoice : AuditedAggregateRoot, ISpecialCode, ICancelled, INotes, IPaymentCode, IDivision, IDepartment, ITradingGroup, IDataSiteId, IFactory, IProjectCode, IApprove, IGlobalId
+    public class Invoice : AuditedAggregateRoot, ISpecialCode, ICancelled, INotes, IPaymentCode, IDivision, IDepartment, ITradingGroup, IDataSiteId, IFactory, IProjectCode, IApprove, IGlobalId, IDataNo
     {
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual InvoiceType Type { get; set; }
         public virtual string DocTrackNr { get; set; }
-        public Nullable<DateTime> Date { get; set; }
-        public Nullable<int> Time { get; set; }
+        public virtual Nullable<DateTime> Date { get; set; }
+        public virtual Nullable<int> Time { get; set; }
         public virtual string DocNumber { get; set; }
         public virtual string ArpCode { get; set; }
         public virtual string ArpCodeShpm { get; set; }
         public virtual string ShiplocCode { get; set; }
         public virtual string OhpCode { get; set; }
         public virtual string GlCode { get; set; }
-        public Nullable<short> SourceWh { get; set; }
-        public Nullable<int> SourceCostGrp { get; set; }
-        public Nullable<short> GlPosted { get; set; }
-        public Nullable<short> PostFlags { get; set; }
-        public Nullable<decimal> VatRate { get; set; }
-        public Nullable<decimal> AddDiscounts { get; set; }
-        public Nullable<decimal> TotalDiscounts { get; set; }
-        public Nullable<decimal> TotalDiscounted { get; set; }
-        public Nullable<decimal> AddExpenses { get; set; }
-        public Nullable<decimal> TotalExpenses { get; set; }
-        public Nullable<decimal> ExpenseDistrb { get; set; }
-        public Nullable<decimal> TotalDeposited { get; set; }
-        public Nullable<decimal> TotalPromotions { get; set; }
-        public Nullable<decimal> TotalGrossVinc { get; set; }
-        public Nullable<decimal> TotalGross { get; set; }
-        public Nullable<decimal> TotalVat { get; set; }
-        public Nullable<decimal> TotalNet { get; set; }
-        public Nullable<decimal> InterestAccrd { get; set; }
-        public Nullable<short> CurrInvoice { get; set; }
-        public Nullable<decimal> TcXrate { get; set; }
-        public Nullable<decimal> TcNet { get; set; }
-        public Nullable<decimal> RcXrate { get; set; }
-        public Nullable<decimal> RcNet { get; set; }
-        public Nullable<short> SinglePayment { get; set; }
-        public Nullable<int> PrintCounter { get; set; }
-        public Nullable<short> VatIncludedGrs { get; set; }
-        public Nullable<int> AccFicheRef { get; set; }
-        public Nullable<short> PriceUpdNeg { get; set; }
+        public virtual Nullable<short> SourceWh { get; set; }
+        public virtual Nullable<int> SourceCostGrp { get; set; }
+        public virtual Nullable<short> GlPosted { get; set; }
+        public virtual Nullable<short> PostFlags { get; set; }
+        public virtual Nullable<decimal> VatRate { get; set; }
+        public virtual Nullable<decimal> AddDiscounts { get; set; }
+        public virtual Nullable<decimal> TotalDiscounts { get; set; }
+        public virtual Nullable<decimal> TotalDiscounted { get; set; }
+        public virtual Nullable<decimal> AddExpenses { get; set; }
+        public virtual Nullable<decimal> TotalExpenses { get; set; }
+        public virtual Nullable<decimal> ExpenseDistrb { get; set; }
+        public virtual Nullable<decimal> TotalDeposited { get; set; }
+        public virtual Nullable<decimal> TotalPromotions { get; set; }
+        public virtual Nullable<decimal> TotalGrossVinc { get; set; }
+        public virtual Nullable<decimal> TotalGross { get; set; }
+        public virtual Nullable<decimal> TotalVat { get; set; }
+        public virtual Nullable<decimal> TotalNet { get; set; }
+        public virtual Nullable<decimal> InterestAccrd { get; set; }
+        public virtual Nullable<short> CurrInvoice { get; set; }
+        public virtual Nullable<decimal> TcXrate { get; set; }
+        public virtual Nullable<decimal> TcNet { get; set; }
+        public virtual Nullable<decimal> RcXrate { get; set; }
+        public virtual Nullable<decimal> RcNet { get; set; }
+        public virtual Nullable<short> SinglePayment { get; set; }
+        public virtual Nullable<int> PrintCounter { get; set; }
+        public virtual Nullable<short> VatIncludedGrs { get; set; }
+        public virtual Nullable<int> AccFicheRef { get; set; }
+        public virtual Nullable<short> PriceUpdNeg { get; set; }
         public virtual string SalesmanCode { get; set; }
         public virtual string ShipmentType { get; set; }
         public virtual string ShipmentAgent { get; set; }
         public virtual string TrackNr { get; set; }
-        public Nullable<int> CurrselTotals { get; set; }
-        public Nullable<int> CurrselDetails { get; set; }
-        public Nullable<int> TextInc { get; set; }
-        public Nullable<decimal> StopajRate { get; set; }
-        public Nullable<decimal> SsdfRate { get; set; }
-        public Nullable<decimal> BorsaRate { get; set; }
-        public Nullable<decimal> KomisyonRate { get; set; }
-        public Nullable<decimal> KomkdvRate { get; set; }
-        public Nullable<decimal> BagkurRate { get; set; }
-        public Nullable<decimal> Stopaj { get; set; }
-        public Nullable<decimal> Ssdf { get; set; }
-        public Nullable<decimal> Borsa { get; set; }
-        public Nullable<decimal> Komisyon { get; set; }
-        public Nullable<decimal> Komkdv { get; set; }
-        public Nullable<decimal> Bagkur { get; set; }
-        public Nullable<decimal> Ek1Per { get; set; }
-        public Nullable<decimal> Ek1 { get; set; }
-        public Nullable<decimal> Ek2Per { get; set; }
-        public Nullable<decimal> Ek2 { get; set; }
+        public virtual Nullable<int> CurrselTotals { get; set; }
+        public virtual Nullable<int> CurrselDetails { get; set; }
+        public virtual Nullable<int> TextInc { get; set; }
+        public virtual Nullable<decimal> StopajRate { get; set; }
+        public virtual Nullable<decimal> SsdfRate { get; set; }
+        public virtual Nullable<decimal> BorsaRate { get; set; }
+        public virtual Nullable<decimal> KomisyonRate { get; set; }
+        public virtual Nullable<decimal> KomkdvRate { get; set; }
+        public virtual Nullable<decimal> BagkurRate { get; set; }
+        public virtual Nullable<decimal> Stopaj { get; set; }
+        public virtual Nullable<decimal> Ssdf { get; set; }
+        public virtual Nullable<decimal> Borsa { get; set; }
+        public virtual Nullable<decimal> Komisyon { get; set; }
+        public virtual Nullable<decimal> Komkdv { get; set; }
+        public virtual Nullable<decimal> Bagkur { get; set; }
+        public virtual Nullable<decimal> Ek1Per { get; set; }
+        public virtual Nullable<decimal> Ek1 { get; set; }
+        public virtual Nullable<decimal> Ek2Per { get; set; }
+        public virtual Nullable<decimal> Ek2 { get; set; }
         public virtual Nullable<decimal> Ek3Per { get; set; }
         public virtual Nullable<decimal> Ek3 { get; set; }
         public virtual Nullable<decimal> Ek4Per { get; set; }
@@ -242,7 +244,7 @@ namespace Ies.Logo.DataType.Invoices
         public virtual List<OkcInfo> OkcInfoList { get; set; }
         #endregion
 
-        public override string GetRootElementName()
+        public override LogoObjectType GetRootElementName()
         {
             switch (Type)
             {
@@ -251,7 +253,8 @@ namespace Ies.Logo.DataType.Invoices
                 case InvoiceType.PurchaseProforma:
                 case InvoiceType.PurchaseReturn:
                 case InvoiceType.PurchasePriceDifference:
-                    return "PURCHASE_INVOICES";
+                default:
+                    return LogoObjectType.PURCHASE_INVOICES;
 
                 case InvoiceType.SalesRetailReturn:
                 case InvoiceType.SalesWholesaleReturn:
@@ -260,10 +263,8 @@ namespace Ies.Logo.DataType.Invoices
                 case InvoiceType.SalesService:
                 case InvoiceType.SalesProforma:
                 case InvoiceType.SalesPriceDifference:
-                    return "SALES_INVOICES";
+                    return LogoObjectType.SALES_INVOICES;
 
-                default:
-                    return "UNKOWN";
             }
         }
     }

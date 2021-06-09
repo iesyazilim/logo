@@ -53,6 +53,8 @@ namespace Ies.Logo.DataType.Dispatches
                 .Member(m => m.DestDepartment).Name("DEST_DEPARTMENT")
                 .Member(m => m.DestFactory).Name("DEST_FACTORY")
                 .Member(m => m.ProdStatus).Name("PROD_STATUS")
+                .Member(m => m.Invoiced).Name("INVOICED")
+                .Member(m => m.GlPosted).Name("GL_POSTED")
                 .Member(m => m.InvoiceType).Name("INVOICE_TYPE")
                 .Member(m => m.AddDiscounts).Name("ADD_DISCOUNTS")
                 .Member(m => m.TotalDiscounts).Name("TOTAL_DISCOUNTS")

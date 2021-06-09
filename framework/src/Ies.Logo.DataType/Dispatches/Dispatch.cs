@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
@@ -8,8 +9,9 @@ using Ies.Logo.DataType.Invoices;
 namespace Ies.Logo.DataType.Dispatches
 {
     [Serializable]
-    public class Dispatch : AuditedAggregateRoot, ISpecialCode, IFactory, IDivision, IDepartment, ICancelled, INotes, IPaymentCode, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IGlobalId
+    public class Dispatch : AuditedAggregateRoot, ISpecialCode, IFactory, IDivision, IDepartment, ICancelled, INotes, IPaymentCode, ITradingGroup, IDataSiteId, IProjectCode, IApprove, IGlobalId, IDataNo
     {
+        public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual DispatchType Type { get; set; }
         public virtual string DocTrackNr { get; set; }
@@ -161,7 +163,7 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual List<DefnFld> DefnFldsList { get; set; }
         #endregion
 
-        public override string GetRootElementName()
+        public override LogoObjectType GetRootElementName()
         {
             switch (Type)
             {
@@ -169,7 +171,8 @@ namespace Ies.Logo.DataType.Dispatches
                 case DispatchType.ConsignmentInDispatch:
                 case DispatchType.PurchaseReturn:
                 case DispatchType.ConsignmentInReturnDispatch:
-                    return "PURCHASE_DISPATCHES";
+                default:
+                    return LogoObjectType.PURCHASE_DISPATCHES;
 
                 case DispatchType.SalesRetailReturn:
                 case DispatchType.SalesWholesaleReturn:
@@ -177,10 +180,7 @@ namespace Ies.Logo.DataType.Dispatches
                 case DispatchType.SalesRetail:
                 case DispatchType.SalesWholesale:
                 case DispatchType.ConsignmentOutDispatch:
-                    return "SALES_DISPATCHES";
-
-                default:
-                    return "UNKOWN";
+                    return LogoObjectType.SALES_DISPATCHES;
             }
         }
     }

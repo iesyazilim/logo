@@ -31,7 +31,7 @@ namespace Ies.Logo.DataType.Invoices
                 CreationDate = new DateTime(2021, 3, 25)
             };
 
-            var invoiceXml = invoice.Serialize();
+            var invoiceXml = invoice.Serialize(false);
 
             Assert.AreEqual(xml.Replace("\r", string.Empty).Replace("\n", " "), invoiceXml.Replace("\r", string.Empty).Replace("\n", " "));
         }
@@ -66,7 +66,7 @@ namespace Ies.Logo.DataType.Invoices
 </SALES_INVOICES>";
 
             var invoice = xml.Deserialize<Invoice>();
-            var invoiceXml = invoice.Serialize();
+            var invoiceXml = invoice.Serialize(false);
 
             Assert.AreEqual(xml.Replace("\r", string.Empty).Replace("\n", " "), invoiceXml.Replace("\r", string.Empty).Replace("\n", " "));
         }

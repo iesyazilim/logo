@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\resources\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ies.Logo.Core\Ies.Logo.Core.csproj" />
+    <ProjectReference Include="..\Ies.Logo.DataType\Ies.Logo.DataType.csproj" />
+    <ProjectReference Include="..\Ies.Logo.Repositories\Ies.Logo.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

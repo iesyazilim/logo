@@ -21,6 +21,7 @@ namespace Ies.Logo.DataType.Items
 
         #region Implementation
         public virtual Nullable<int> DataReference { get; set; }
+        public virtual Nullable<int> InternalReference { get; set; }
         public virtual Nullable<int> DataSiteId { get; set; }
         #endregion
     }

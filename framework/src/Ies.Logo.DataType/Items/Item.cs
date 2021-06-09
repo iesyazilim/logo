@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.GlLinks;
@@ -10,10 +11,11 @@ using Ies.Logo.DataType.WhParams;
 namespace Ies.Logo.DataType.Items
 {
     [Serializable]
-    public class Item : AuditedAggregateRoot, IRecordStatus, IGroupCode, ISpecialCode, IPaymentCode, IProjectCode, IDetailedAuxilCode, IGlobalId
+    public class Item : AuditedAggregateRoot, IRecordStatus, IGroupCode, ISpecialCode, IPaymentCode, IProjectCode, IDetailedAuxilCode, IGlobalId, IDataNo
     {
-        public static string XmlRoot => "ITEMS";
+        public static LogoObjectType XmlRoot => LogoObjectType.ITEMS;
 
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
         public virtual string Name2 { get; set; }
@@ -65,6 +67,7 @@ namespace Ies.Logo.DataType.Items
         public virtual string ProdCountry { get; set; }
         public virtual Nullable<int> ExtAccFlags { get; set; }
         public virtual string AddTaxCode { get; set; }
+        public virtual Nullable<decimal> MultiAddTax { get; set; }
         public virtual Nullable<short> Packet { get; set; }
         public virtual Nullable<short> LidConfirmed { get; set; }
         public virtual string GtipCode { get; set; }

@@ -76,6 +76,7 @@ namespace Ies.Logo.DataType.Items
                 .Member(m => m.ProdCountry).Name("PROD_COUNTRY")
                 .Member(m => m.ExtAccFlags).Name("EXT_ACC_FLAGS")
                 .Member(m => m.AddTaxCode).Name("ADD_TAX_CODE")
+                .Member(m => m.MultiAddTax).Name("MULTI_ADD_TAX")
                 .Member(m => m.Packet).Name("PACKET")
                 .Member(m => m.LidConfirmed).Name("LID_CONFIRMED")
                 .Member(m => m.GtipCode).Name("GTIPCODE")

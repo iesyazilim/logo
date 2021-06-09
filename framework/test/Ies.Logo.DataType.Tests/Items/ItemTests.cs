@@ -32,7 +32,7 @@ namespace Ies.Logo.DataType.Items
                 CreationDate = new DateTime(2021, 3, 25)
             };
 
-            var itemXml = item.Serialize();
+            var itemXml = item.Serialize(false);
 
             Assert.AreEqual(xml.Replace("\r", string.Empty).Replace("\n", " "), itemXml.Replace("\r", string.Empty).Replace("\n", " "));
         }
@@ -69,7 +69,7 @@ namespace Ies.Logo.DataType.Items
   </ITEM>
 </ITEMS>";
             var item = xml.Deserialize<Item>();
-            string itemXml = item.Serialize();
+            string itemXml = item.Serialize(false);
 
             Assert.AreEqual(xml.Replace("\r", string.Empty).Replace("\n", " "), itemXml.Replace("\r", string.Empty).Replace("\n", " "));
         }
@@ -95,6 +95,36 @@ namespace Ies.Logo.DataType.Items
             var items = xml.DeserializeList<Item>();
 
             Assert.IsTrue(items.Any(i => i.Code == "P-2"));
+        }
+
+        [TestMethod]
+        public void CustomItemModel()
+        {
+            SpecialItem specialItem = new SpecialItem
+            {
+                Code = "P-1",
+                CardType = ItemCardType.CommercialItem,
+                CustomField1 = 15
+            };
+
+            string xml = specialItem.Serialize();
+            SpecialItem item = xml.Deserialize<SpecialItem>();
+
+            Assert.AreEqual(specialItem.Code, item.Code);
+            StringAssert.Contains(xml, "<MalzemeKodu>");
+            Assert.IsFalse(xml.Contains("<CODE>"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CustomItemModelValidation()
+        {
+            SpecialItem specialItem = new SpecialItem
+            {
+                Code = "U-1",
+                CardType = ItemCardType.CommercialItem,
+                CustomField1 = 15
+            };
         }
     }
 }

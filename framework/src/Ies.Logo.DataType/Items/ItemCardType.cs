@@ -2,7 +2,7 @@
 
 namespace Ies.Logo.DataType.Items
 {
-    public enum ItemCardType
+    public enum ItemCardType : short 
     {
         [XmlEnum("1")]
         CommercialItem = 1,

@@ -6,8 +6,6 @@ on:
     branches: [ rel ]
     paths:
       - 'framework/**'
-      
-  workflow_dispatch: 
 
 env:
     SolutionPath: 'framework/Ies.Logo.sln'
@@ -18,7 +16,7 @@ env:
     Configuration: 'Release'
     
 jobs:
-  beta-publish:
+  rel-publish:
   
     runs-on: [windows-latest]
     
@@ -59,3 +57,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
           tag: ${{ env.PackageVersion }}
+          commit: ${{ github.SHA }}

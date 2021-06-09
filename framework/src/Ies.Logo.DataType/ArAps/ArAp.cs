@@ -1,15 +1,17 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
 namespace Ies.Logo.DataType.ArAps
 {
     [Serializable]
-    public class ArAp : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, ITradingGroup, IProjectCode, IGlobalId
+    public class ArAp : AuditedAggregateRoot, IRecordStatus, IDetailedAuxilCode, IAuthCode, IPaymentCode, IDataSiteId, ITradingGroup, IProjectCode, IGlobalId, IDataNo
     {
-        public static string XmlRoot => "AR_APS";
+        public static LogoObjectType XmlRoot => LogoObjectType.AR_APS;
 
         public virtual Nullable<short> AccountType { get; set; }
+        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Title { get; set; }
         public virtual string Address1 { get; set; }
@@ -177,7 +179,7 @@ namespace Ies.Logo.DataType.ArAps
         public virtual Nullable<decimal> RepOrdRiskTotalSugg { get; set; }
         public virtual Nullable<decimal> DespRiskTotal { get; set; }
         public virtual Nullable<decimal> RepDespRiskTotal { get; set; }
-        public virtual Nullable<decimal> AccRiskLimit{ get; set; }
+        public virtual Nullable<decimal> AccRiskLimit { get; set; }
         public virtual Nullable<decimal> RepAccRiskLimit { get; set; }
         public virtual Nullable<decimal> CstCsRiskLimit { get; set; }
         public virtual Nullable<decimal> RepCstCsRiskLimit { get; set; }

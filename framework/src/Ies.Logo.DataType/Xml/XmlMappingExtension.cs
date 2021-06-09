@@ -18,6 +18,13 @@ namespace Ies.Logo.DataType.Xml
             else
                 typeConfigurations.Type<List<T>>().Name(xmlRoot.GetValue(null)?.ToString());
 
+            if (typeof(IInternalReference).IsAssignableFrom(typeof(T)))
+            {
+                typeConfigurations
+                  .Member(GetMemberExpression<T, int?>(nameof(IInternalReference.InternalReference))).Name("INTERNAL_REFERENCE")
+                  ;
+            }
+
             if (typeof(IDataReference).IsAssignableFrom(typeof(T)))
             {
                 typeConfigurations
@@ -46,14 +53,14 @@ namespace Ies.Logo.DataType.Xml
                   ;
             }
 
-            if (typeof(IAuditedObject).IsAssignableFrom(typeof(T)))
+            if (typeof(IModificationAuditedObject).IsAssignableFrom(typeof(T)))
             {
                 typeConfigurations
-                  .Member(GetMemberExpression<T, short?>(nameof(IAuditedObject.LastModifierId))).Name("MODIFIED_BY")
-                  .Member(GetMemberExpression<T, DateTime?>(nameof(IAuditedObject.LastModificationDate))).Name("DATE_MODIFIED")
-                  .Member(GetMemberExpression<T, short?>(nameof(IAuditedObject.LastModificationHour))).Name("HOUR_MODIFIED")
-                  .Member(GetMemberExpression<T, short?>(nameof(IAuditedObject.LastModificationMinute))).Name("MIN_MODIFIED")
-                  .Member(GetMemberExpression<T, short?>(nameof(IAuditedObject.LastModificationSecond))).Name("SEC_MODIFIED")
+                  .Member(GetMemberExpression<T, short?>(nameof(IModificationAuditedObject.LastModifierId))).Name("MODIFIED_BY")
+                  .Member(GetMemberExpression<T, DateTime?>(nameof(IModificationAuditedObject.LastModificationDate))).Name("DATE_MODIFIED")
+                  .Member(GetMemberExpression<T, short?>(nameof(IModificationAuditedObject.LastModificationHour))).Name("HOUR_MODIFIED")
+                  .Member(GetMemberExpression<T, short?>(nameof(IModificationAuditedObject.LastModificationMinute))).Name("MIN_MODIFIED")
+                  .Member(GetMemberExpression<T, short?>(nameof(IModificationAuditedObject.LastModificationSecond))).Name("SEC_MODIFIED")
                   ;
             }
 
@@ -224,6 +231,13 @@ namespace Ies.Logo.DataType.Xml
                   .Member(GetMemberExpression<T, string>(nameof(INotes.Notes2))).Name("NOTES2")
                   .Member(GetMemberExpression<T, string>(nameof(INotes.Notes3))).Name("NOTES3")
                   .Member(GetMemberExpression<T, string>(nameof(INotes.Notes4))).Name("NOTES4")
+                  ;
+            }
+
+            if (typeof(IDataNo).IsAssignableFrom(typeof(T)))
+            {
+                typeConfigurations
+                  .Member(GetMemberExpression<T, string>(nameof(IDataNo.DataNumber))).Ignore()
                   ;
             }
         }
