@@ -1,13 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Ies.MultiFirm</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Ies.MultiFirm</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Ies.MultiFirm.Core\Ies.MultiFirm.Core.csproj" />
-    <ProjectReference Include="..\Ies.MultiFirm.Entities\Ies.MultiFirm.Entities.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.90" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Ies.MultiFirm.Core\Ies.MultiFirm.Core.csproj" />
+		<ProjectReference Include="..\Ies.MultiFirm.Entities\Ies.MultiFirm.Entities.csproj" />
+	</ItemGroup>
 
 </Project>
