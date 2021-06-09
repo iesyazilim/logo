@@ -5,9 +5,9 @@ namespace Ies.MultiFirm.Configuration
 {
     public class LogoExtendedConfiguration : LogoConnectionConfiguration, ILogoExtendedConfiguration
     {
-        public LogoExtendedConfiguration(string connectionString) : base (connectionString)
+        public LogoExtendedConfiguration(string connectionString) : base(connectionString)
         {
-            
+
         }
 
         private string oldFirmNumber;
@@ -16,7 +16,7 @@ namespace Ies.MultiFirm.Configuration
             get => oldFirmNumber;
             set
             {
-                if (value is null)
+                if (string.IsNullOrEmpty(value))
                 {
                     oldFirmNumber = null;
                 }
@@ -40,7 +40,7 @@ namespace Ies.MultiFirm.Configuration
             }
             set
             {
-                if (value is null)
+                if (string.IsNullOrEmpty(value))
                 {
                     oldFirmPeriod = null;
                 }

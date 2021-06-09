@@ -27,8 +27,8 @@ namespace Ies.MultiFirm.ClCards
 
         public void PreviousFirmInfo()
         {
-            Console.WriteLine("Önceki firma no : ", _extendedConfiguration.OldFirmNumber);
-            Console.WriteLine("Önceki firma dönem : ", _extendedConfiguration.OldFirmPeriod);
+            Console.WriteLine("Önceki firma no : {0}", _extendedConfiguration.OldFirmNumber);
+            Console.WriteLine("Önceki firma dönem : {0}", _extendedConfiguration.OldFirmPeriod);
         }
     }
 }
