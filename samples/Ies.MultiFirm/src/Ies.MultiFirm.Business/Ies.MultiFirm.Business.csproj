@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Ies.MultiFirm</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Manager\Ies.Logo.Manager.csproj" />
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Repositories\Ies.Logo.Repositories.csproj" />
+
+		<ProjectReference Include="..\Ies.MultiFirm.Core\Ies.MultiFirm.Core.csproj" />
+		<ProjectReference Include="..\Ies.MultiFirm.DataAccess\Ies.MultiFirm.DataAccess.csproj" />
+		<ProjectReference Include="..\Ies.MultiFirm.Entities\Ies.MultiFirm.Entities.csproj" />
+	</ItemGroup>
+
+</Project>
