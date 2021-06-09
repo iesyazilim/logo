@@ -9,10 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Ies.MultiFirm.Business\Ies.MultiFirm.Business.csproj" />
     <ProjectReference Include="..\Ies.MultiFirm.Entities\Ies.MultiFirm.Entities.csproj" />
   </ItemGroup>
