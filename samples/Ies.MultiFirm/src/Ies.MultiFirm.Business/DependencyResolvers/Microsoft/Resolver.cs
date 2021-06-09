@@ -21,7 +21,7 @@ namespace Ies.MultiFirm.DepedencyResolvers.Microsoft
         static void ResolveLogo(IServiceCollection serviceProvider)
         {
             serviceProvider
-                .AddSingleton<ILogoConnectionConfiguration, LogoConnectionConfiguration>(o =>
+                .AddSingleton<ILogoExtendedConfiguration, LogoExtendedConfiguration>(o =>
                 {
                     //var configuration = new LogoConnectionConfiguration(ConfigurationManager.ConnectionStrings["Default"].ConnectionString)
                     //{
