@@ -29,7 +29,7 @@ namespace Ies.MultiFirm.DepedencyResolvers.Microsoft
             serviceProvider.AddSingleton(o =>
             {
                 var configuration = o.GetService<IConfiguration>();
-                var firms = new List<Firm>();
+                var firms = new List<LogoExtendedConfiguration>();
                 configuration.Bind("Firms", firms);
                 return firms;
             });
@@ -37,26 +37,15 @@ namespace Ies.MultiFirm.DepedencyResolvers.Microsoft
             serviceProvider
                 .AddScoped<ILogoExtendedConfiguration, LogoExtendedConfiguration>(o =>
                 {
-                    var firm = o.GetService<List<Firm>>().FirstOrDefault(f => f.FirmNumber == Thread.CurrentPrincipal.FindFirmNumber()
-                                                                              && f.FirmPeriod == Thread.CurrentPrincipal.FindFirmPeriod()
-                                                                              && f.EndpointAddress == Thread.CurrentPrincipal.FindEndpointAddress()
-                                                                         );
-                    if (firm == null)
+                    var firm = o.GetService<List<LogoExtendedConfiguration>>()
+                                .FirstOrDefault(f => f.FirmNumber == Thread.CurrentPrincipal.FindFirmNumber()
+                                                     && f.FirmPeriod == Thread.CurrentPrincipal.FindFirmPeriod()
+                                                     && f.EndpointAddress == Thread.CurrentPrincipal.FindEndpointAddress());
+
+                    if (firm == null)                
                         throw new Exception("Firma bulunamadı");
 
-                    var configuration = new LogoExtendedConfiguration(firm.ConnectionString)
-                    {
-                        FirmNumber = firm.FirmNumber,
-                        FirmPeriod = firm.FirmPeriod,
-                        OldFirmNumber = firm.OldFirmNumber,
-                        OldFirmPeriod = firm.OldFirmPeriod,
-                        SecurityCode = firm.SecurityCode,
-                        EndpointAddress = firm.EndpointAddress,
-                        Lbsloadpass = firm.Lbsloadpass,
-                        UseCompressedString = firm.UseCompressedString
-                    };
-                    
-                    return configuration;
+                    return firm;
                 })
                 .AddScoped<ILogoConnectionConfiguration, ILogoExtendedConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
                 .AddScoped<ILogoObjectServiceConfiguration, ILogoExtendedConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())

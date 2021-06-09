@@ -5,11 +5,6 @@ namespace Ies.MultiFirm.Configuration
 {
     public class LogoExtendedConfiguration : LogoConnectionConfiguration, ILogoExtendedConfiguration
     {
-        public LogoExtendedConfiguration(string connectionString) : base(connectionString)
-        {
-
-        }
-
         private string oldFirmNumber;
         public string OldFirmNumber
         {

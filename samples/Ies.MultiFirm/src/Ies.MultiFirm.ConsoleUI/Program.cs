@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Ies.Logo.Core.Security;
 using Ies.MultiFirm.ClCards;
 using Ies.MultiFirm.DepedencyResolvers.Microsoft;
@@ -9,19 +10,25 @@ namespace Ies.MultiFirm.ConsoleUI
 {
     class Program
     {
+        static IServiceProvider resolver { get; } = CreateDI();
+
         static void Main(string[] args)
         {
-            var scope1 = CreateDI();
-            Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("001", "01", "http://localhost/LogoObjectService/Service");
-            var clCardService = scope1.GetService<IClCardService>();
-            clCardService.PreviousFirmInfo();
+            using (var scope1 = resolver.CreateScope())
+            {
+                Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("001", "01", "http://localhost/LogoObjectService/Service");
+                var clCardService = scope1.ServiceProvider.GetRequiredService<IClCardService>();
+                clCardService.PreviousFirmInfo();
+            }
 
-            var scope2 = CreateDI();
-            Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("002", "01", "http://localhost/LogoObjectService/Service");
-            var clCardService2 = scope2.GetService<IClCardService>();
-            clCardService2.PreviousFirmInfo();
+            using (var scope2 = resolver.CreateScope())
+            {
+                Thread.CurrentPrincipal = LogoClaimsHelper.CreatePrincipal("002", "01", "http://localhost/LogoObjectService/Service");
+                var clCardService2 = scope2.ServiceProvider.GetRequiredService<IClCardService>();
+                clCardService2.PreviousFirmInfo();
+            }
         }
-        static ServiceProvider CreateDI()
+        static IServiceProvider CreateDI()
         {
             ServiceCollection serviceCollection = new ServiceCollection();
 
