@@ -30,8 +30,8 @@ namespace Ies.MultiFirm.HttpApi.Controllers
     }
     public class PrincipalInfo
     {
-       public string FirmNumber { get; set; }
-       public string FirmPeriod { get; set; }
-       public string EndpointAddress { get; set; }
+        public string FirmNumber { get; set; }
+        public string FirmPeriod { get; set; }
+        public string EndpointAddress { get; set; }
     }
 }

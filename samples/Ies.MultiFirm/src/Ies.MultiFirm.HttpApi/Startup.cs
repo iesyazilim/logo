@@ -1,4 +1,5 @@
 using Ies.MultiFirm.DepedencyResolvers.Microsoft;
+using Ies.MultiFirm.HttpApi.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,11 @@ namespace Ies.MultiFirm.HttpApi
         {
             services.Resolve();
 
-            services.AddControllers();
+            services.AddControllers(option =>
+            {
+                option.Filters.Add(new PrincipalFilterAttribute());
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ies.MultiFirm.HttpApi", Version = "v1" });
