@@ -45,5 +45,4 @@ namespace Ies.MultiFirm.ConsoleUI
             return serviceCollection.BuildServiceProvider();
         }
     }
-
 }
