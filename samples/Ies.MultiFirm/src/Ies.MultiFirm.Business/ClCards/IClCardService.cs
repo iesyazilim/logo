@@ -8,5 +8,6 @@ namespace Ies.MultiFirm.ClCards
     public interface IClCardService : ILogoCrudService<ArAp>
     {
         Task<List<GetClCardListDto>> GetListAsync();
+        void PreviousFirmInfo();
     }
 }
