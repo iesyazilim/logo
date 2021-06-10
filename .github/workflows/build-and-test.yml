@@ -21,12 +21,6 @@ jobs:
 
   build-test:
     runs-on: windows-latest
-  
-    strategy:
-      matrix:
-        include:
-          - SolutionPath: 'framework/Ies.Logo.sln'
-          - SolutionPath: 'modules/logo-app/Ies.LogoApp.sln'
 
     steps:
       - uses: actions/checkout@v2
@@ -36,11 +30,12 @@ jobs:
         with:
           dotnet-version: 5.0.x
           
-      - name: Restore NuGet
-        run: dotnet restore ${{ matrix.SolutionPath }}
+      - name: Build
+        run: .\build.ps1
+        working-directory: .\resources\commands
+        shell: powershell
         
-      - name: Build Project
-        run: dotnet build ${{ matrix.SolutionPath }} --no-restore --configuration=${{ env.Configuration }}
-         
-      - name: Test Project
-        run: dotnet test  ${{ matrix.SolutionPath }} --no-restore --no-build --configuration=${{ env.Configuration }} --verbosity normal
+      - name: Test
+        run: .\test.ps1
+        working-directory: .\resources\commands
+        shell: powershell
