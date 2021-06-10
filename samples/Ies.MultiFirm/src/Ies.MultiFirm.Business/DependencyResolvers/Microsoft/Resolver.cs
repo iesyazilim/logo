@@ -35,7 +35,7 @@ namespace Ies.MultiFirm.DepedencyResolvers.Microsoft
             });
 
             serviceProvider
-                .AddScoped<ILogoExtendedConfiguration, LogoExtendedConfiguration>(o =>
+                .AddScoped<ILogoExtendedConfiguration>(o =>
                 {
                     var firm = o.GetService<List<LogoExtendedConfiguration>>()
                                 .FirstOrDefault(f => f.FirmNumber == Thread.CurrentPrincipal.FindFirmNumber()
@@ -47,9 +47,9 @@ namespace Ies.MultiFirm.DepedencyResolvers.Microsoft
 
                     return firm;
                 })
-                .AddScoped<ILogoConnectionConfiguration, ILogoExtendedConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
-                .AddScoped<ILogoObjectServiceConfiguration, ILogoExtendedConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
-                .AddScoped<ILogoConfiguration, ILogoExtendedConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
+                .AddScoped<ILogoConnectionConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
+                .AddScoped<ILogoObjectServiceConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
+                .AddScoped<ILogoConfiguration>(o => o.GetService<ILogoExtendedConfiguration>())
                 .AddScoped<ILogoObjectService, LogoObjectServiceAdapter>()
                 .AddScoped(typeof(ILogoRepository<>), typeof(LogoRepository<>));
         }

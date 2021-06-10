@@ -21,7 +21,7 @@ namespace Ies.SampleApp.DepedencyResolvers.Microsoft
         static void ResolveLogo(IServiceCollection serviceProvider)
         {
             serviceProvider
-                .AddSingleton<ILogoConnectionConfiguration, LogoConnectionConfiguration>(o =>
+                .AddSingleton<ILogoConnectionConfiguration>(o =>
                 {
                     var configuration = new LogoConnectionConfiguration(ConfigurationManager.ConnectionStrings["Default"].ConnectionString)
                     {
@@ -33,8 +33,8 @@ namespace Ies.SampleApp.DepedencyResolvers.Microsoft
 
                     return configuration;
                 })
-                .AddSingleton<ILogoObjectServiceConfiguration, ILogoConnectionConfiguration>(o => o.GetService<ILogoConnectionConfiguration>())
-                .AddSingleton<ILogoConfiguration, ILogoConnectionConfiguration>(o => o.GetService<ILogoConnectionConfiguration>())
+                .AddSingleton<ILogoObjectServiceConfiguration>(o => o.GetService<ILogoConnectionConfiguration>())
+                .AddSingleton<ILogoConfiguration>(o => o.GetService<ILogoConnectionConfiguration>())
                 .AddSingleton<ILogoObjectService, LogoObjectServiceAdapter>()
                 .AddSingleton(typeof(ILogoRepository<>), typeof(LogoRepository<>));
         }
