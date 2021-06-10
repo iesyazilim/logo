@@ -6,24 +6,27 @@ on:
     branches: [ dev ]
     paths:
       - 'framework/**'
+      - 'modules/**'
 
   pull_request:
     branches: [ dev ]
     paths:
       - 'framework/**'
+      - 'modules/**'
       
 env:
-    SolutionPath: 'framework/Ies.Logo.sln'
     Configuration: 'Debug'
     
 jobs:
+
   build-test:
-    
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
   
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        include:
+          - SolutionPath: 'framework/Ies.Logo.sln'
+          - SolutionPath: 'modules/logo-app/Ies.LogoApp.sln'
 
     steps:
       - uses: actions/checkout@v2
@@ -34,10 +37,10 @@ jobs:
           dotnet-version: 5.0.x
           
       - name: Restore NuGet
-        run: dotnet restore ${{ env.SolutionPath }}
+        run: dotnet restore ${{ matrix.SolutionPath }}
         
       - name: Build Project
-        run: dotnet build ${{ env.SolutionPath }} --no-restore --configuration=${{ env.Configuration }}
+        run: dotnet build ${{ matrix.SolutionPath }} --no-restore --configuration=${{ env.Configuration }}
          
       - name: Test Project
-        run: dotnet test  ${{ env.SolutionPath }} --no-restore --no-build --configuration=${{ env.Configuration }} --verbosity normal
+        run: dotnet test  ${{ matrix.SolutionPath }} --no-restore --no-build --configuration=${{ env.Configuration }} --verbosity normal
