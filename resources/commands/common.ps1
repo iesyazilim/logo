@@ -8,7 +8,6 @@ $solutionPaths =
     "modules/logo-app"
 )
 
-
 if (!$configuration) 
 { 
    $configuration="Debug"
