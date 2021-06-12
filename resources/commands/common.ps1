@@ -3,20 +3,24 @@ $full = $args[1]
 
 $rootFolder = (Get-Item -Path "../../" -Verbose).FullName
 $commandFolder = (Get-Item -Path "./" -Verbose).FullName
+$solutionPaths = @("framework")
 
-$solutionPaths = 
-@(
-    "framework",
-    "modules/logo-app"
-)
+function AddSolutions([string] $subFolder)
+{
+    Set-Location (Join-Path $rootFolder $subFolder)
+    $paths = @()
+    foreach ($csproj in $(Get-ChildItem -Recurse . -Filter *.sln) )
+    { 
+        $paths += (( $csproj.Directory -split '\\' | select -last 2 ) -join '/')
+    }
+    return $paths
+}
+
+$solutionPaths+=AddSolutions('modules')
 
 if ($full -eq "-f")
 {
-	$solutionPaths += 
-    (
-		"samples/Ies.SampleApp",
-		"samples/Ies.MultiFirm"
-	) 
+	$solutionPaths+=AddSolutions('samples')
 }
 
 if (!$configuration) 
@@ -26,7 +30,8 @@ if (!$configuration)
 elseif(!($configuration -eq "Release"))
 {
     Write-Host ("Configuration must be Debug or Release current configuration: " + $configuration)
+    Set-Location $commandFolder
     exit
 }
 
-Write-Host $solutionPaths
+Set-Location $commandFolder
