@@ -1,8 +1,9 @@
 $configuration = $args[0] 
 $assemblyVersion = $args[1]
 $packageVersion = $args[2]
+$full = $args[3]
 
-. ".\common.ps1" $configuration
+. ".\common.ps1" $configuration $full
 
 if (!$assemblyVersion) 
 { 

@@ -1,6 +1,7 @@
 $configuration = $args[0] 
+$full = $args[1]
 
-. ".\common.ps1" $configuration
+. ".\common.ps1" $configuration $full
 
 foreach ($solutionPath in $solutionPaths) 
 {    
