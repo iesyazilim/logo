@@ -17,4 +17,5 @@ foreach ($solutionPath in $solutionPaths)
         exit $LASTEXITCODE
     }
 }
+
 Set-Location $commandFolder
