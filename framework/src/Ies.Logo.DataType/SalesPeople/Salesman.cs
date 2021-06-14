@@ -6,9 +6,8 @@ using Ies.Logo.DataType.Infrastructure;
 
 namespace Ies.Logo.DataType.SalesPeople
 {
-    public class Salesman : AuditedAggregateRoot, IDataNo, IAuxilCode, IAuthCode, IRecordStatus
+    public class Salesman : AuditedAggregateRoot, IAuxilCode, IAuthCode, IRecordStatus
     {
-        public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Name { get; set; }
         public virtual string Position { get; set; }
@@ -23,7 +22,7 @@ namespace Ies.Logo.DataType.SalesPeople
         #endregion
 
         #region SubClasses
-        public virtual List<Cls> ClList { get; }
+        public virtual List<Cls> ClList { get; set; }
         #endregion
 
         public override LogoObjectType GetRootElementName()
