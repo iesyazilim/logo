@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Ies.Logo.Core;
 
 namespace Ies.Logo.ServiceAdapter
 {
-    public class LogoObjectServiceException : Exception
+    public class LogoObjectServiceException : LogoException
     {
         public string Xml { get; private set; }
 
