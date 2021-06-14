@@ -30,6 +30,7 @@ namespace Ies.Logo.DataType.SalesPeople
                 .Member(m => m.Position).Name("POSITION")
                 .Member(m => m.FirmNo).Name("FIRM_NO")
                 .Member(m => m.Targets).Name("TARGETS")
+                .Member(m => m.ClList).Name("CL_LIST")
                 ;
         }
     }

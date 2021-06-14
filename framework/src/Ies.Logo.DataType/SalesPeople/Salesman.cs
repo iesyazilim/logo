@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
@@ -22,7 +23,7 @@ namespace Ies.Logo.DataType.SalesPeople
         #endregion
 
         #region SubClasses
-
+        public virtual List<Cls> ClList { get; }
         #endregion
 
         public override LogoObjectType GetRootElementName()
