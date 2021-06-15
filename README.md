@@ -6,7 +6,7 @@
 
 ## Framework Sağladığı Kolaylıklar
 - Güçlü nesne tabanlı yaklaşımı.
-- İş kodlarını soyutlayarak katmanlar arası bağımlılığı minumuma düşürmek.
+- İş kodlarını soyutlayarak katmanlar arası bağımlılığı minimuma düşürmek.
 - Logo modülleri standartlaştırarak sürdürülebilir hale getirmek.
 
 ## Hızlı Başlangıç
