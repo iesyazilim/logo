@@ -1,12 +1,9 @@
-﻿using System.Threading.Tasks;
-using Allegory.Standart.Filter.Concrete;
-using Ies.LogoApp.Core.Entities;
+﻿using Ies.LogoApp.Abstract;
 
 namespace Ies.LogoApp.Items
 {
-    public interface IItemDal : IDal
+    public interface IItemDal : IListDal<GetItemListDto>
     {
-        Task<PagedResultDto<GetItemListDto>> GetListAsync(PagedRequestDto pagedRequest);
-        Task<long> CountAsync(Condition conditions);
+
     }
 }

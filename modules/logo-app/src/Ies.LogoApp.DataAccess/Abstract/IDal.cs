@@ -1,6 +1,6 @@
 ﻿using Ies.Logo.Core.Configuration;
 
-namespace Ies.LogoApp
+namespace Ies.LogoApp.Abstract
 {
     public interface IDal
     {

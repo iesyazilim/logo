@@ -1,23 +1,25 @@
-﻿using System;
-using System.Threading.Tasks;
-using Allegory.Standart.Filter.Concrete;
-using Ies.Logo.Core.Configuration;
-using Ies.LogoApp.Core.Entities;
+﻿using Ies.Logo.Core.Configuration;
+using Ies.LogoApp.Abstract;
 
 namespace Ies.LogoApp.Items
 {
-    public class ItemDal : DalBase, IItemDal
+    public class ItemDal : ListDalBase<GetItemListDto>, IItemDal
     {
-        public ItemDal(ILogoConnectionConfiguration configuration) : base(configuration) { }
-
-        public Task<long> CountAsync(Condition conditions)
+        public ItemDal(ILogoConnectionConfiguration configuration) : base(configuration)
         {
-            throw new NotImplementedException();
+            QueryBase = @"
+            WITH List AS
+            (
+                SELECT 
+                 LOGICALREF Id
+                ,CODE Code
+                ,NAME Name
+                ,NAME3 Name2
+                ,NAME4 Name3
+                ,ACTIVE Active
+                FROM LG_{0}_ITEMS
+            )";
         }
 
-        public Task<PagedResultDto<GetItemListDto>> GetListAsync(PagedRequestDto pagedRequest)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
