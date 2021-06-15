@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Ies.Logo.ModuleCore.Entities
+namespace Ies.LogoApp.Core.Entities
 {
     [Serializable]
     public class PagedRequestDto : IDto

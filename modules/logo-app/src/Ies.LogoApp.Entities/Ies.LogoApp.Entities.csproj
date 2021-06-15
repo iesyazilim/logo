@@ -7,4 +7,8 @@
 		<RootNamespace>Ies.LogoApp</RootNamespace>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\Ies.LogoApp.Core\Ies.LogoApp.Core.csproj" />
+	</ItemGroup>
+
 </Project>

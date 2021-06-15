@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ies.Logo.ModuleCore
+namespace Ies.LogoApp.Core
 {
     public class BusinessException : Exception
     {
