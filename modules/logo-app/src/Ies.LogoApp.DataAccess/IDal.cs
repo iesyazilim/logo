@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Ies.Logo.Core.Configuration;
 
 namespace Ies.LogoApp
 {
     public interface IDal
     {
-
+        ILogoConnectionConfiguration Configuration { get; }
     }
 }

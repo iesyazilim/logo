@@ -2,9 +2,9 @@
 
 namespace Ies.LogoApp
 {
-    public class DalBase : IDal
+    public abstract class DalBase : IDal
     {
-        protected ILogoConnectionConfiguration Configuration { get; }
+        public ILogoConnectionConfiguration Configuration { get; }
         public DalBase(ILogoConnectionConfiguration configuration)
         {
             Configuration = configuration;

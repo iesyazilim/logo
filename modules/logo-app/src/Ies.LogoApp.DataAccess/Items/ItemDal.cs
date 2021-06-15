@@ -1,14 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
+using Allegory.Standart.Filter.Concrete;
+using Ies.Logo.Core.Configuration;
+using Ies.LogoApp.Core.Entities;
 
 namespace Ies.LogoApp.Items
 {
-    public class ItemDal : IItemDal
+    public class ItemDal : DalBase, IItemDal
     {
-        public ItemDal()
-        {
+        public ItemDal(ILogoConnectionConfiguration configuration) : base(configuration) { }
 
+        public Task<long> CountAsync(Condition conditions)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<PagedResultDto<GetItemListDto>> GetListAsync(PagedRequestDto pagedRequest)
+        {
+            throw new NotImplementedException();
         }
     }
 }
