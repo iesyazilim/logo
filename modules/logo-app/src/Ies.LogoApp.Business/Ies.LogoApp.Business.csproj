@@ -9,10 +9,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Manager\Ies.Logo.Manager.csproj" />
-		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Repositories\Ies.Logo.Repositories.csproj" />
-		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.DataType\Ies.Logo.DataType.csproj" />
-
-		<ProjectReference Include="..\Ies.LogoApp.Core\Ies.LogoApp.Core.csproj" />
 
 		<ProjectReference Include="..\Ies.LogoApp.DataAccess\Ies.LogoApp.DataAccess.csproj" />
 	</ItemGroup>

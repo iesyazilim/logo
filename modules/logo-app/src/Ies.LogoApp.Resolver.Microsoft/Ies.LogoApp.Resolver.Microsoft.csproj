@@ -13,10 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Core\Ies.Logo.Core.csproj" />
-
 		<ProjectReference Include="..\Ies.LogoApp.Business\Ies.LogoApp.Business.csproj" />
-		<ProjectReference Include="..\Ies.LogoApp.DataAccess\Ies.LogoApp.DataAccess.csproj" />
 	</ItemGroup>
 
 </Project>
