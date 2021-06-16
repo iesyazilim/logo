@@ -15,12 +15,12 @@ namespace Ies.LogoApp.Abstract
         where TEntity : ILogoBase, new()
         where TGetListDto : IDto
     {
-        IListDal<TGetListDto> _dal;
+        private readonly ILogoAppListDal<TGetListDto> _dal;
 
         public LogoAppManagerBase(
             ILogoConnectionConfiguration configuration,
             ILogoRepository<TEntity> repository,
-            IListDal<TGetListDto> dal) 
+            ILogoAppListDal<TGetListDto> dal) 
             : base(configuration, repository)
         {
             _dal = dal;

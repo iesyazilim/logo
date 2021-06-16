@@ -5,18 +5,19 @@ using System.Threading.Tasks;
 using Allegory.Standart.Filter.Concrete;
 using Dapper;
 using Ies.Logo.Core.Configuration;
+using Ies.LogoApp.Core;
 using Ies.LogoApp.Core.Entities;
 
 namespace Ies.LogoApp.Abstract
 {
-    public abstract class ListDalBase<TGetListDto> : DalBase, IListDal<TGetListDto>
+    public abstract class LogoAppListDalBase<TGetListDto> : LogoAppDalBase, ILogoAppListDal<TGetListDto> where TGetListDto : IDto
     {
         protected virtual string QueryBase { get; set; }
         protected virtual string ListQuery { get; set; }
         protected virtual string CountQuery { get; set; }
         protected virtual string DefaultOrder { get; set; }
 
-        public ListDalBase(ILogoConnectionConfiguration configuration) : base(configuration)
+        public LogoAppListDalBase(ILogoConnectionConfiguration configuration) : base(configuration)
         {
             ListQuery = "SELECT * FROM List {where} {order} {offset}";
             CountQuery = "SELECT COUNT(*) FROM List {where}";

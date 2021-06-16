@@ -3,7 +3,7 @@ using Ies.LogoApp.Abstract;
 
 namespace Ies.LogoApp.Items
 {
-    public class ItemDal : ListDalBase<GetItemListDto>, IItemDal
+    public class ItemDal : LogoAppListDalBase<GetItemListDto>, IItemDal
     {
         public ItemDal(ILogoConnectionConfiguration configuration) : base(configuration)
         {

@@ -2,7 +2,7 @@
 
 namespace Ies.LogoApp.Items
 {
-    public interface IItemDal : IListDal<GetItemListDto>
+    public interface IItemDal : ILogoAppListDal<GetItemListDto>
     {
 
     }
