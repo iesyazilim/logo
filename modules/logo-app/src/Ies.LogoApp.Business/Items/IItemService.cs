@@ -1,9 +1,9 @@
 ﻿using Ies.Logo.DataType.Items;
-using Ies.Logo.Manager;
+using Ies.LogoApp.Abstract;
 
 namespace Ies.LogoApp.Items
 {
-    public interface IItemService : ILogoCrudService<Item>
+    public interface IItemService : IService<Item,GetItemListDto>
     {
 
     }

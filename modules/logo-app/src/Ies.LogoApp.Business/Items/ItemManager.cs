@@ -1,11 +1,11 @@
 ﻿using Ies.Logo.Core.Configuration;
 using Ies.Logo.DataType.Items;
-using Ies.Logo.Manager;
 using Ies.Logo.Repositories;
+using Ies.LogoApp.Abstract;
 
 namespace Ies.LogoApp.Items
 {
-    public class ItemManager : LogoCrudManager<Item>
+    public class ItemManager : ManagerBase<Item, GetItemListDto>, IItemService
     {
         protected IItemDal ItemDal { get; }
 
@@ -13,7 +13,7 @@ namespace Ies.LogoApp.Items
            ILogoConnectionConfiguration configuration,
            ILogoRepository<Item> repository,
            IItemDal itemDal)
-           : base(configuration, repository)
+           : base(configuration, repository, itemDal)
         {
             ItemDal = itemDal;
         }
