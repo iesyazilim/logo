@@ -10,14 +10,14 @@ using Ies.LogoApp.Core.Entities;
 
 namespace Ies.LogoApp.Abstract
 {
-    public abstract class ManagerBase<TEntity,TGetListDto> 
-        : LogoCrudManager<TEntity>, IService<TEntity, TGetListDto>
+    public abstract class LogoAppManagerBase<TEntity,TGetListDto> 
+        : LogoCrudManager<TEntity>, ILogoAppService<TEntity, TGetListDto>
         where TEntity : ILogoBase, new()
         where TGetListDto : IDto
     {
         IListDal<TGetListDto> _dal;
 
-        public ManagerBase(
+        public LogoAppManagerBase(
             ILogoConnectionConfiguration configuration,
             ILogoRepository<TEntity> repository,
             IListDal<TGetListDto> dal) 

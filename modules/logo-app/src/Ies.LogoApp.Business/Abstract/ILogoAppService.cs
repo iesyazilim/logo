@@ -8,7 +8,7 @@ using Ies.LogoApp.Core.Entities;
 
 namespace Ies.LogoApp.Abstract
 {
-    public interface IService<TEntity, TGetListDto> 
+    public interface ILogoAppService<TEntity, TGetListDto> 
         : ILogoCrudService<TEntity> 
         where TEntity : ILogoBase, new()
         where TGetListDto : IDto

@@ -5,7 +5,7 @@ using Ies.LogoApp.Abstract;
 
 namespace Ies.LogoApp.Items
 {
-    public class ItemManager : ManagerBase<Item, GetItemListDto>, IItemService
+    public class ItemManager : LogoAppManagerBase<Item, GetItemListDto>, IItemService
     {
         protected IItemDal ItemDal { get; }
 
