@@ -21,21 +21,23 @@ namespace Ies.LogoApp.Abstract
             CountQuery = "SELECT COUNT(*) FROM List {where}";
         }
 
-        public async Task<long> CountAsync(Condition conditions = null)
+        public async Task<List<TGetListDto>> GetListAsync(ListRequestDto listRequest)
         {
             using (var connection = Configuration.Create())
             {
-                string query = string.Concat(QueryBase, CountQuery);
+                string query = string.Concat(QueryBase, ListQuery);
 
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
-                             .Replace("{where}", conditions.GetFilterQuery(out IDictionary<string, object> parameters));
+                             .Replace("{where}", listRequest.Conditions.GetFilterQuery(out IDictionary<string, object> parameters))
+                             .Replace("{order}", string.IsNullOrEmpty(listRequest.OrderBy) ? string.Empty : "ORDER BY " + listRequest.OrderBy)
+                             .Replace("{offset}", string.Empty);
 
-                return await connection.QueryFirstOrDefaultAsync<long>(query, parameters);
+                return (await connection.QueryAsync<TGetListDto>(query, parameters)).ToList();
             }
         }
 
-        public async Task<PagedResultDto<TGetListDto>> GetListAsync(DetailedPagedRequestDto detailedPagedRequest)
+        public async Task<PagedResultDto<TGetListDto>> GetPageListAsync(DetailedPagedRequestDto detailedPagedRequest)
         {
             using (var connection = Configuration.Create())
             {
@@ -45,8 +47,7 @@ namespace Ies.LogoApp.Abstract
                              .Replace("{period}", Configuration.FirmPeriod)
                              .Replace("{where}", detailedPagedRequest.Conditions.GetFilterQuery(out IDictionary<string, object> parameters))
                              .Replace("{order}", "ORDER BY " + (string.IsNullOrEmpty(detailedPagedRequest.OrderBy) ? "Id" : detailedPagedRequest.OrderBy))
-                             .Replace("{offset}", "OFFSET (@Page-1)*@PageSize ROWS FETCH NEXT @PageSize ROWS ONLY")
-                             ;
+                             .Replace("{offset}", "OFFSET (@Page-1)*@PageSize ROWS FETCH NEXT @PageSize ROWS ONLY");
 
                 parameters = parameters ?? new Dictionary<string, object>();
                 parameters.Add("Page", detailedPagedRequest.Page);
@@ -61,8 +62,21 @@ namespace Ies.LogoApp.Abstract
                             (int)Math.Ceiling((decimal)totalCount / detailedPagedRequest.PageSize),
                             detailedPagedRequest.PageSize,
                             totalCount,
-                            items
-                            );
+                            items);
+            }
+        }
+
+        public async Task<long> CountAsync(Condition conditions = null)
+        {
+            using (var connection = Configuration.Create())
+            {
+                string query = string.Concat(QueryBase, CountQuery);
+
+                query = query.Replace("{firm}", Configuration.FirmNumber)
+                             .Replace("{period}", Configuration.FirmPeriod)
+                             .Replace("{where}", conditions.GetFilterQuery(out IDictionary<string, object> parameters));
+
+                return await connection.QueryFirstOrDefaultAsync<long>(query, parameters);
             }
         }
     }
