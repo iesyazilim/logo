@@ -21,7 +21,7 @@ namespace Ies.LogoApp.Abstract
             CountQuery = "SELECT COUNT(*) FROM List {where}";
         }
 
-        public async Task<List<TGetListDto>> GetListAsync(ListRequestDto listRequest)
+        public virtual async Task<List<TGetListDto>> GetListAsync(ListRequestDto listRequest)
         {
             using (var connection = Configuration.Create())
             {
@@ -37,7 +37,7 @@ namespace Ies.LogoApp.Abstract
             }
         }
 
-        public async Task<PagedResultDto<TGetListDto>> GetPageListAsync(DetailedPagedRequestDto detailedPagedRequest)
+        public virtual async Task<PagedResultDto<TGetListDto>> GetPageListAsync(DetailedPagedRequestDto detailedPagedRequest)
         {
             using (var connection = Configuration.Create())
             {
@@ -66,7 +66,7 @@ namespace Ies.LogoApp.Abstract
             }
         }
 
-        public async Task<long> CountAsync(Condition conditions = null)
+        public virtual async Task<long> CountAsync(Condition conditions = null)
         {
             using (var connection = Configuration.Create())
             {
