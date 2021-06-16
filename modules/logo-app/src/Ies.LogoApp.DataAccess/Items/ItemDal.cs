@@ -7,8 +7,7 @@ namespace Ies.LogoApp.Items
     {
         public ItemDal(ILogoConnectionConfiguration configuration) : base(configuration)
         {
-            QueryBase = @"
-            WITH List AS
+            QueryBase = @"WITH List AS
             (
                 SELECT 
                  LOGICALREF Id
@@ -17,7 +16,7 @@ namespace Ies.LogoApp.Items
                 ,NAME3 Name2
                 ,NAME4 Name3
                 ,ACTIVE Active
-                FROM LG_{0}_ITEMS
+                FROM LG_{firm}_ITEMS
             )";
         }
 

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Allegory.Standart.Filter.Concrete;
 using Dapper;
@@ -15,8 +17,8 @@ namespace Ies.LogoApp.Abstract
 
         public ListDalBase(ILogoConnectionConfiguration configuration) : base(configuration)
         {
-            ListQuery = "SELECT * FROM List";
-            CountQuery = "SELECT COUNT(*) FROM List";
+            ListQuery = "SELECT * FROM List {where} {order} {offset}";
+            CountQuery = "SELECT COUNT(*) FROM List {where}";
         }
 
         public async Task<long> CountAsync(Condition conditions = null)
@@ -24,27 +26,44 @@ namespace Ies.LogoApp.Abstract
             using (var connection = Configuration.Create())
             {
                 string query = string.Concat(QueryBase, CountQuery);
-                query = string.Format(query, Configuration.FirmNumber, Configuration.FirmPeriod, conditions.GetFilterQuery(out IDictionary<string, object> parameters));
+
+                query = query.Replace("{firm}", Configuration.FirmNumber)
+                             .Replace("{period}", Configuration.FirmPeriod)
+                             .Replace("{where}", conditions.GetFilterQuery(out IDictionary<string, object> parameters));
 
                 return await connection.QueryFirstOrDefaultAsync<long>(query, parameters);
             }
         }
 
-        public Task<PagedResultDto<TGetListDto>> GetListAsync(DetailedPagedRequestDto detailedPagedRequest)
+        public async Task<PagedResultDto<TGetListDto>> GetListAsync(DetailedPagedRequestDto detailedPagedRequest)
         {
             using (var connection = Configuration.Create())
             {
                 string query = string.Concat(QueryBase, ListQuery);
-                query = string.Format(query, 
-                                      Configuration.FirmNumber,
-                                      Configuration.FirmPeriod,
-                                      detailedPagedRequest.Conditions.GetFilterQuery(out IDictionary<string, object> parameters));
 
+                query = query.Replace("{firm}", Configuration.FirmNumber)
+                             .Replace("{period}", Configuration.FirmPeriod)
+                             .Replace("{where}", detailedPagedRequest.Conditions.GetFilterQuery(out IDictionary<string, object> parameters))
+                             .Replace("{order}", "ORDER BY " + (string.IsNullOrEmpty(detailedPagedRequest.OrderBy) ? "Id" : detailedPagedRequest.OrderBy))
+                             .Replace("{offset}", "OFFSET (@Page-1)*@PageSize ROWS FETCH NEXT @PageSize ROWS ONLY")
+                             ;
 
-                //return await connection.QueryFirstOrDefaultAsync<long>(query, parameters);
+                parameters = parameters ?? new Dictionary<string, object>();
+                parameters.Add("Page", detailedPagedRequest.Page);
+                parameters.Add("PageSize", detailedPagedRequest.PageSize);
+
+                var items = (await connection.QueryAsync<TGetListDto>(query, parameters)).ToList();
+
+                var totalCount = await CountAsync(detailedPagedRequest.Conditions);
+
+                return new PagedResultDto<TGetListDto>(
+                            detailedPagedRequest.Page,
+                            (int)Math.Ceiling((decimal)totalCount / detailedPagedRequest.PageSize),
+                            detailedPagedRequest.PageSize,
+                            totalCount,
+                            items
+                            );
             }
-
-            throw new System.NotImplementedException();
         }
     }
 }
