@@ -15,13 +15,12 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Ies.MultiFirm.Business\Ies.MultiFirm.Business.csproj" />
-		<ProjectReference Include="..\Ies.MultiFirm.Core\Ies.MultiFirm.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="appsettings.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>
