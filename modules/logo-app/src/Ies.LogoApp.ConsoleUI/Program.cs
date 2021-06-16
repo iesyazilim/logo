@@ -20,7 +20,7 @@ namespace Ies.LogoApp.ConsoleUI
         }
         static async Task Items()
         {
-            var itemService = resolver.GetService<IItemService>();
+            var itemService = resolver.GetRequiredService<IItemService>();
             var items = await itemService.GetListAsync(new Core.Entities.ListRequestDto());
             var itemPagedList = await itemService.GetPageListAsync(new Core.Entities.DetailedPagedRequestDto());
         }
@@ -37,7 +37,7 @@ namespace Ies.LogoApp.ConsoleUI
                     .Build();
             });
 
-            serviceCollection.ResolveLogoApp(ServiceLifetime.Scoped, null);
+            serviceCollection.ResolveLogoApp(ServiceLifetime.Scoped);
 
             return serviceCollection.BuildServiceProvider();
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using Ies.Logo.Core.Configuration;
+using Ies.Logo.Manager;
 using Ies.Logo.Repositories;
 using Ies.Logo.ServiceAdapter;
 using Ies.LogoApp.Items;
@@ -60,6 +61,7 @@ namespace Ies.LogoApp.Resolver.Microsoft
             serviceProvider.Add(new ServiceDescriptor(typeof(ILogoConfiguration), o => o.GetService<ILogoConnectionConfiguration>(), serviceLifetime));
             serviceProvider.Add(new ServiceDescriptor(typeof(ILogoObjectService), typeof(LogoObjectServiceAdapter), serviceLifetime));
             serviceProvider.Add(new ServiceDescriptor(typeof(ILogoRepository<>), typeof(LogoRepository<>), serviceLifetime));
+            serviceProvider.Add(new ServiceDescriptor(typeof(ILogoCrudService<>), typeof(LogoCrudManager<>), serviceLifetime));
         }
         static void ItemsResolve(this IServiceCollection serviceProvider, ServiceLifetime serviceLifetime)
         {
