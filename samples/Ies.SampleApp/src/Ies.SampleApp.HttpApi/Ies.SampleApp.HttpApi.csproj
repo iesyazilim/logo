@@ -9,12 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Manager\Ies.Logo.Manager.csproj" />
-		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Repositories\Ies.Logo.Repositories.csproj" />
-
 		<ProjectReference Include="..\Ies.SampleApp.Business\Ies.SampleApp.Business.csproj" />
-		<ProjectReference Include="..\Ies.SampleApp.DataAccess\Ies.SampleApp.DataAccess.csproj" />
-		<ProjectReference Include="..\Ies.SampleApp.Entities\Ies.SampleApp.Entities.csproj" />
 	</ItemGroup>
 
 </Project>
