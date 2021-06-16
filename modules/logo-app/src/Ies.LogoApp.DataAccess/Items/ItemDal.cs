@@ -16,7 +16,8 @@ namespace Ies.LogoApp.Items
                 ,NAME3 Name2
                 ,NAME4 Name3
                 ,ACTIVE Active
-                FROM LG_{firm}_ITEMS
+                FROM LG_{firm}_ITEMS 
+                WHERE CARDTYPE<>22
             )";
         }
 

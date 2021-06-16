@@ -16,7 +16,7 @@ namespace Ies.LogoApp.Resolver.Microsoft
     {
         public static void ResolveLogoApp(this IServiceCollection serviceProvider, ServiceLifetime serviceLifetime, params LogoConnectionConfiguration[] configurations)
         {
-            if(configurations == null)
+            if (configurations == null || configurations.Length == 0)
             {
                 serviceProvider.AddSingleton(o =>
                 {
@@ -42,7 +42,7 @@ namespace Ies.LogoApp.Resolver.Microsoft
         {
             serviceProvider.Add(new ServiceDescriptor(
                 typeof(ILogoConnectionConfiguration),
-                o => 
+                o =>
                 {
                     var firm = o.GetService<List<LogoConnectionConfiguration>>()
                              .FirstOrDefault(f => f.FirmNumber == Thread.CurrentPrincipal.FindFirmNumber()
