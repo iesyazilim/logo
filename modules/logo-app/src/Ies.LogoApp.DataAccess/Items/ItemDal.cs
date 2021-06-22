@@ -25,12 +25,12 @@ namespace Ies.LogoApp.Items
                 ,ISNULL(GNTOTST.RESERVED,0) ReservedStock
                 ,ITEMS.ACTIVE Active
 
-                FROM LG_{firm}_ITEMS 
+                FROM LG_{firm}_ITEMS ITEMS
                 LEFT JOIN LG_{firm}_UNITSETF UNITF ON UNITF.LOGICALREF=ITEMS.UNITSETREF
                 LEFT JOIN LG_{firm}_UNITSETL UNITL ON UNITF.LOGICALREF=UNITL.UNITSETREF AND UNITL.MAINUNIT=1
                 LEFT JOIN LV_{firm}_{period}_GNTOTST GNTOTST ON  ITEMS.LOGICALREF=GNTOTST.STOCKREF AND INVENNO=-1 
 
-                WHERE CARDTYPE<>22
+                WHERE ITEMS.CARDTYPE<>22
             )";
         }
 
