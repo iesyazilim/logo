@@ -46,7 +46,7 @@ namespace Ies.LogoApp.Resolver.Microsoft
                 o =>
                 {
                     var firm = o.GetService<List<LogoConnectionConfiguration>>()
-                             .FirstOrDefault(f => f.FirmNumber == Thread.CurrentPrincipal.FindFirmNumber()
+                                .FirstOrDefault(f => f.FirmNumber == Thread.CurrentPrincipal.FindFirmNumber()
                                                   && f.FirmPeriod == Thread.CurrentPrincipal.FindFirmPeriod()
                                                   && f.EndpointAddress == Thread.CurrentPrincipal.FindEndpointAddress());
 
