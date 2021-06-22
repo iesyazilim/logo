@@ -1,3 +1,4 @@
+using Ies.LogoApp.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,11 @@ namespace Ies.LogoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.ResolveLogoApp(ServiceLifetime.Scoped);
+
+            services.AddControllers(option =>
+            {
+                option.Filters.Add(new PrincipalFilterAttribute());
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
