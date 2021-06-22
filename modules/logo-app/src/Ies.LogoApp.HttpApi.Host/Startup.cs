@@ -18,6 +18,7 @@ namespace Ies.LogoApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ResolveLogoApp(ServiceLifetime.Scoped);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
