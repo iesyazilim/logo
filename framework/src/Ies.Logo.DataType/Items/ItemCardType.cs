@@ -2,7 +2,7 @@
 
 namespace Ies.Logo.DataType.Items
 {
-    public enum ItemCardType : short 
+    public enum ItemCardType : short
     {
         [XmlEnum("1")]
         CommercialItem = 1,
@@ -17,10 +17,10 @@ namespace Ies.Logo.DataType.Items
         FixedAsset = 4,
 
         [XmlEnum("10")]
-        RawMaterial,
+        RawMaterial = 10,
 
         [XmlEnum("11")]
-        SemiItem,
+        SemiItem = 11,
 
         [XmlEnum("12")]
         EndItem = 12,
@@ -30,7 +30,7 @@ namespace Ies.Logo.DataType.Items
 
         [XmlEnum("20")]
         GeneralMaterialClass = 20,
-        
+
         [XmlEnum("21")]
         TableMaterialClass = 21
     }
