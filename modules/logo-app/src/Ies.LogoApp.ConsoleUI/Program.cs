@@ -3,11 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ies.Logo.Core.Security;
 using Ies.LogoApp.Items;
-using Ies.LogoApp.Resolver.Microsoft;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Ies.LogoApp.ConsoleUI
+namespace Ies.LogoApp
 {
     class Program
     {
@@ -21,8 +20,8 @@ namespace Ies.LogoApp.ConsoleUI
         static async Task Items()
         {
             var itemService = resolver.GetRequiredService<IItemService>();
-            var items = await itemService.GetListAsync(new Core.Entities.ListRequestDto());
-            var itemPagedList = await itemService.GetPageListAsync(new Core.Entities.DetailedPagedRequestDto());
+            var items = await itemService.GetListAsync(new Entities.ListRequestDto());
+            var itemPagedList = await itemService.GetPageListAsync(new Entities.DetailedPagedRequestDto());
         }
 
         static IServiceProvider CreateDI()

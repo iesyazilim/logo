@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Allegory.Standart.Filter.Concrete;
 using Dapper;
 using Ies.Logo.Core.Configuration;
-using Ies.LogoApp.Core;
-using Ies.LogoApp.Core.Entities;
+using Ies.LogoApp.Entities;
 
 namespace Ies.LogoApp.Abstract
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Allegory.Standart.Filter.Concrete;
 
-namespace Ies.LogoApp.Core.Entities
+namespace Ies.LogoApp.Entities
 {
     [Serializable]
     public class ListRequestDto : IDto

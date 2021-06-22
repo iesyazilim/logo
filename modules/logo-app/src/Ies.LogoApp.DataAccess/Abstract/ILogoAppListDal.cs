@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Allegory.Standart.Filter.Concrete;
-using Ies.LogoApp.Core;
-using Ies.LogoApp.Core.Entities;
+using Ies.LogoApp.Entities;
 
 namespace Ies.LogoApp.Abstract
 {

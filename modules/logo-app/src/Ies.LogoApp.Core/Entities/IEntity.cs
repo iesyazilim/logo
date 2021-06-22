@@ -1,4 +1,4 @@
-﻿namespace Ies.LogoApp.Core
+﻿namespace Ies.LogoApp
 {
     public interface IEntity { }
 }

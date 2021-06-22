@@ -5,8 +5,7 @@ using Ies.Logo.Core.Configuration;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.Manager;
 using Ies.Logo.Repositories;
-using Ies.LogoApp.Core;
-using Ies.LogoApp.Core.Entities;
+using Ies.LogoApp.Entities;
 
 namespace Ies.LogoApp.Abstract
 {

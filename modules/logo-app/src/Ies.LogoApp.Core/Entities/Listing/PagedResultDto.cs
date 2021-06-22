@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Ies.LogoApp.Core.Entities
+namespace Ies.LogoApp.Entities
 {
     [Serializable]
     public class PagedResultDto<T> : IDto

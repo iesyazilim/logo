@@ -1,6 +1,4 @@
-﻿using Ies.LogoApp.Core;
-
-namespace Ies.LogoApp.Items
+﻿namespace Ies.LogoApp.Items
 {
     public class GetItemListDto : IDto
     {

@@ -3,8 +3,7 @@ using System.Threading.Tasks;
 using Allegory.Standart.Filter.Concrete;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.Manager;
-using Ies.LogoApp.Core;
-using Ies.LogoApp.Core.Entities;
+using Ies.LogoApp.Entities;
 
 namespace Ies.LogoApp.Abstract
 {

@@ -11,7 +11,7 @@ using Ies.LogoApp.Items;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Ies.LogoApp.Resolver.Microsoft
+namespace Ies.LogoApp
 {
     public static class Resolver
     {
