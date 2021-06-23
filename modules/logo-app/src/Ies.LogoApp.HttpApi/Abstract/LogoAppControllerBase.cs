@@ -38,21 +38,21 @@ namespace Ies.LogoApp.Abstract
 
         [HttpPost]
         [Route("list")]
-        public virtual async Task<IActionResult> List(IListRequestDto listRequestDto)
+        public virtual async Task<IActionResult> List(ListRequestDto listRequestDto)
         {
             return Ok(await _logoAppService.GetListAsync(listRequestDto));
         }
 
         [HttpPost]
         [Route("page-list")]
-        public virtual async Task<IActionResult> PageList(IDetailedPagedRequestDto detailedPagedListRequestDto)
+        public virtual async Task<IActionResult> PageList(DetailedPagedRequestDto detailedPagedListRequestDto)
         {
             return Ok(await _logoAppService.GetPageListAsync(detailedPagedListRequestDto));
         }
 
         [HttpPost]
         [Route("count")]
-        public virtual async Task<IActionResult> Count(IFilterDto filter)
+        public virtual async Task<IActionResult> Count(FilterDto filter)
         {
             return Ok(await _logoAppService.CountAsync(filter));
         }
