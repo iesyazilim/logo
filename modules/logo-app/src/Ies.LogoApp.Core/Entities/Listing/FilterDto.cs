@@ -4,10 +4,8 @@ using Allegory.Standart.Filter.Concrete;
 namespace Ies.LogoApp.Entities
 {
     [Serializable]
-    public class ListRequestDto : IListRequestDto
+    public class FilterDto : IFilterDto
     {
-        public string OrderBy { get; set; }
-
         public Condition Conditions { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using Allegory.Standart.Filter.Concrete;
 namespace Ies.LogoApp.Entities
 {
     [Serializable]
-    public class DetailedPagedRequestDto : PagedRequestDto
+    public class DetailedPagedRequestDto : PagedRequestDto, IDetailedPagedRequestDto
     {
         public string OrderBy { get; set; }
 

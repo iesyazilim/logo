@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ies.LogoApp.Entities
 {
     [Serializable]
-    public class PagedRequestDto : IDto
+    public class PagedRequestDto : IPagedRequestDto
     {
         public static int DefaultPageSize { get; set; } = 10;
 
