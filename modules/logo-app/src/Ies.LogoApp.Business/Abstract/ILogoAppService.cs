@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Allegory.Standart.Filter.Concrete;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.Manager;
 using Ies.LogoApp.Entities;
@@ -12,8 +11,8 @@ namespace Ies.LogoApp.Abstract
         where TEntity : ILogoBase, new()
         where TGetListDto : IDto
     {
-        Task<List<TGetListDto>> GetListAsync(ListRequestDto listRequest);
-        Task<PagedResultDto<TGetListDto>> GetPageListAsync(DetailedPagedRequestDto detailedPagedRequest);
-        Task<long> CountAsync(Condition conditions = null);
+        Task<List<TGetListDto>> GetListAsync(IListRequestDto listRequest);
+        Task<PagedResultDto<TGetListDto>> GetPageListAsync(IDetailedPagedRequestDto detailedPagedRequest);
+        Task<long> CountAsync(IFilterDto filter = null);
     }
 }

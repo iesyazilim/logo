@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Allegory.Standart.Filter.Concrete;
 using Ies.Logo.Core.Configuration;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.Manager;
@@ -25,10 +24,10 @@ namespace Ies.LogoApp.Abstract
             _dal = dal;
         }
 
-        public virtual async Task<long> CountAsync(Condition conditions = null) => await _dal.CountAsync(conditions);
+        public virtual async Task<long> CountAsync(IFilterDto filter = null) => await _dal.CountAsync(filter);
 
-        public virtual async Task<List<TGetListDto>> GetListAsync(ListRequestDto listRequest) => await _dal.GetListAsync(listRequest);
+        public virtual async Task<List<TGetListDto>> GetListAsync(IListRequestDto listRequest) => await _dal.GetListAsync(listRequest);
 
-        public virtual async Task<PagedResultDto<TGetListDto>> GetPageListAsync(DetailedPagedRequestDto detailedPagedRequest) => await _dal.GetPageListAsync(detailedPagedRequest);
+        public virtual async Task<PagedResultDto<TGetListDto>> GetPageListAsync(IDetailedPagedRequestDto detailedPagedRequest) => await _dal.GetPageListAsync(detailedPagedRequest);
     }
 }

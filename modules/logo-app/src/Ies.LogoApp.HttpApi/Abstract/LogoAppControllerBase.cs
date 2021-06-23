@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Allegory.Standart.Filter.Concrete;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.LogoApp.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -39,23 +38,23 @@ namespace Ies.LogoApp.Abstract
 
         [HttpPost]
         [Route("list")]
-        public virtual async Task<IActionResult> List(ListRequestDto listRequestDto)
+        public virtual async Task<IActionResult> List(IListRequestDto listRequestDto)
         {
             return Ok(await _logoAppService.GetListAsync(listRequestDto));
         }
 
         [HttpPost]
         [Route("page-list")]
-        public virtual async Task<IActionResult> PageList(DetailedPagedRequestDto detailedPagedListRequestDto)
+        public virtual async Task<IActionResult> PageList(IDetailedPagedRequestDto detailedPagedListRequestDto)
         {
             return Ok(await _logoAppService.GetPageListAsync(detailedPagedListRequestDto));
         }
 
         [HttpPost]
         [Route("count")]
-        public virtual async Task<IActionResult> Count(Condition condition = null)
+        public virtual async Task<IActionResult> Count(IFilterDto filter)
         {
-            return Ok(await _logoAppService.CountAsync(condition));
+            return Ok(await _logoAppService.CountAsync(filter));
         }
     }
 }

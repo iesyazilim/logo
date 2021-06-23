@@ -23,7 +23,7 @@ namespace Ies.LogoApp.Abstract
             DefaultOrder = "Id";
         }
 
-        public virtual async Task<List<TGetListDto>> GetListAsync(ListRequestDto listRequest)
+        public virtual async Task<List<TGetListDto>> GetListAsync(IListRequestDto listRequest)
         {
             using (var connection = Configuration.Create())
             {
@@ -39,7 +39,7 @@ namespace Ies.LogoApp.Abstract
             }
         }
 
-        public virtual async Task<PagedResultDto<TGetListDto>> GetPageListAsync(DetailedPagedRequestDto detailedPagedRequest)
+        public virtual async Task<PagedResultDto<TGetListDto>> GetPageListAsync(IDetailedPagedRequestDto detailedPagedRequest)
         {
             using (var connection = Configuration.Create())
             {
@@ -56,8 +56,8 @@ namespace Ies.LogoApp.Abstract
                 parameters.Add("PageSize", detailedPagedRequest.PageSize);
 
                 var items = (await connection.QueryAsync<TGetListDto>(query, parameters)).ToList();
-
-                var totalCount = await CountAsync(detailedPagedRequest.Conditions);
+                
+                var totalCount = await CountAsync(detailedPagedRequest);
 
                 return new PagedResultDto<TGetListDto>(
                             detailedPagedRequest.Page,
@@ -68,7 +68,7 @@ namespace Ies.LogoApp.Abstract
             }
         }
 
-        public virtual async Task<long> CountAsync(Condition conditions = null)
+        public virtual async Task<long> CountAsync(IFilterDto filter = null)
         {
             using (var connection = Configuration.Create())
             {
@@ -76,7 +76,7 @@ namespace Ies.LogoApp.Abstract
 
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
-                             .Replace("{where}", conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters));
+                             .Replace("{where}", filter.Conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters));
 
                 return await connection.QueryFirstOrDefaultAsync<long>(query, parameters);
             }
