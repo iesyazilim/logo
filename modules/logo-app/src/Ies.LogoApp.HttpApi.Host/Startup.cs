@@ -26,7 +26,8 @@ namespace Ies.LogoApp
                 option.Filters.Add(new PrincipalFilterAttribute());
             });
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
+      
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ies.LogoApp.HttpApi.Host", Version = "v1" });

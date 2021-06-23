@@ -31,7 +31,7 @@ namespace Ies.LogoApp.Abstract
 
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
-                             .Replace("{where}", listRequest.Conditions.GetFilterQuery(out IDictionary<string, object> parameters))
+                             .Replace("{where}", listRequest.Conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters))
                              .Replace("{order}", string.IsNullOrEmpty(listRequest.OrderBy) ? string.Empty : "ORDER BY " + listRequest.OrderBy)
                              .Replace("{offset}", string.Empty);
 
@@ -47,7 +47,7 @@ namespace Ies.LogoApp.Abstract
 
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
-                             .Replace("{where}", detailedPagedRequest.Conditions.GetFilterQuery(out IDictionary<string, object> parameters))
+                             .Replace("{where}", detailedPagedRequest.Conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters))
                              .Replace("{order}", "ORDER BY " + (string.IsNullOrEmpty(detailedPagedRequest.OrderBy) ? DefaultOrder : detailedPagedRequest.OrderBy))
                              .Replace("{offset}", "OFFSET (@Page-1)*@PageSize ROWS FETCH NEXT @PageSize ROWS ONLY");
 
@@ -76,7 +76,7 @@ namespace Ies.LogoApp.Abstract
 
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
-                             .Replace("{where}", conditions.GetFilterQuery(out IDictionary<string, object> parameters));
+                             .Replace("{where}", conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters));
 
                 return await connection.QueryFirstOrDefaultAsync<long>(query, parameters);
             }
