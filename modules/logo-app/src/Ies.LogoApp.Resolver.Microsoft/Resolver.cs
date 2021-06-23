@@ -8,6 +8,7 @@ using Ies.Logo.Manager;
 using Ies.Logo.Repositories;
 using Ies.Logo.ServiceAdapter;
 using Ies.LogoApp.Items;
+using Ies.LogoApp.Projects;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -37,6 +38,7 @@ namespace Ies.LogoApp
 
             serviceProvider.LogoResolve(serviceLifetime);
             serviceProvider.ItemsResolve(serviceLifetime);
+            serviceProvider.ProjectsResolve(serviceLifetime);
         }
 
         static void LogoResolve(this IServiceCollection serviceProvider, ServiceLifetime serviceLifetime)
@@ -67,6 +69,11 @@ namespace Ies.LogoApp
         {
             serviceProvider.Add(new ServiceDescriptor(typeof(IItemDal), typeof(ItemDal), serviceLifetime));
             serviceProvider.Add(new ServiceDescriptor(typeof(IItemService), typeof(ItemManager), serviceLifetime));
+        }
+        static void ProjectsResolve(this IServiceCollection serviceProvider, ServiceLifetime serviceLifetime)
+        {
+            serviceProvider.Add(new ServiceDescriptor(typeof(IProjectDal), typeof(ProjectDal), serviceLifetime));
+            serviceProvider.Add(new ServiceDescriptor(typeof(IProjectService), typeof(ProjectManager), serviceLifetime));
         }
     }
 }

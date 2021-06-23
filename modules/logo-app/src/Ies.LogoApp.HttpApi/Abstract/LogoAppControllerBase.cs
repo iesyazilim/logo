@@ -18,9 +18,9 @@ namespace Ies.LogoApp.Abstract
         }
 
         [HttpGet]
-        public virtual async Task<IActionResult> Get(int dataReference)
+        public virtual async Task<IActionResult> Get(int id)
         {
-            return Ok(await _logoAppService.GetAsync(dataReference));
+            return Ok(await _logoAppService.GetAsync(id));
         }
 
         [HttpPost]
@@ -30,9 +30,9 @@ namespace Ies.LogoApp.Abstract
         }
 
         [HttpDelete]
-        public virtual async Task<IActionResult> Delete(int dataReference)
+        public virtual async Task<IActionResult> Delete(int id)
         {
-            await _logoAppService.DeleteAsync(dataReference);
+            await _logoAppService.DeleteAsync(id);
             return Ok();
         }
 
