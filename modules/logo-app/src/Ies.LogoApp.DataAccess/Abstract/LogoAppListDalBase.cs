@@ -14,13 +14,13 @@ namespace Ies.LogoApp.Abstract
         protected virtual string QueryBase { get; set; }
         protected virtual string ListQuery { get; set; }
         protected virtual string CountQuery { get; set; }
-        protected virtual string DefaultOrder { get; set; }
+        protected virtual Sort DefaultOrder { get; set; }
 
         public LogoAppListDalBase(ILogoConnectionConfiguration configuration) : base(configuration)
         {
             ListQuery = "SELECT * FROM List {where} {order} {offset}";
             CountQuery = "SELECT COUNT(*) FROM List {where}";
-            DefaultOrder = "Id";
+            DefaultOrder = new Sort("Id");
         }
 
         public virtual async Task<List<TGetListDto>> GetListAsync(IListRequestDto listRequest)
@@ -32,7 +32,7 @@ namespace Ies.LogoApp.Abstract
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
                              .Replace("{where}", listRequest.Conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters))
-                             .Replace("{order}", string.IsNullOrEmpty(listRequest.OrderBy) ? string.Empty : "ORDER BY " + listRequest.OrderBy)
+                             .Replace("{order}", listRequest.OrderBy.GetFilterQuery<TGetListDto>())
                              .Replace("{offset}", string.Empty);
 
                 return (await connection.QueryAsync<TGetListDto>(query, parameters)).ToList();
@@ -48,7 +48,7 @@ namespace Ies.LogoApp.Abstract
                 query = query.Replace("{firm}", Configuration.FirmNumber)
                              .Replace("{period}", Configuration.FirmPeriod)
                              .Replace("{where}", detailedPagedRequest.Conditions.GetFilterQuery<TGetListDto>(out IDictionary<string, object> parameters))
-                             .Replace("{order}", "ORDER BY " + (string.IsNullOrEmpty(detailedPagedRequest.OrderBy) ? DefaultOrder : detailedPagedRequest.OrderBy))
+                             .Replace("{order}", detailedPagedRequest.OrderBy.GetFilterQuery<TGetListDto>()?? DefaultOrder.GetFilterQuery<TGetListDto>())
                              .Replace("{offset}", "OFFSET (@Page-1)*@PageSize ROWS FETCH NEXT @PageSize ROWS ONLY");
 
                 parameters = parameters ?? new Dictionary<string, object>();
