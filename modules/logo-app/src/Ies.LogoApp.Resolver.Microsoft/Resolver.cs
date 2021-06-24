@@ -7,6 +7,7 @@ using Ies.Logo.Core.Configuration;
 using Ies.Logo.Manager;
 using Ies.Logo.Repositories;
 using Ies.Logo.ServiceAdapter;
+using Ies.LogoApp.ClCards;
 using Ies.LogoApp.Items;
 using Ies.LogoApp.Projects;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +40,7 @@ namespace Ies.LogoApp
             serviceProvider.LogoResolve(serviceLifetime);
             serviceProvider.ItemsResolve(serviceLifetime);
             serviceProvider.ProjectsResolve(serviceLifetime);
+            serviceProvider.ClCardsResolve(serviceLifetime);
         }
 
         static void LogoResolve(this IServiceCollection serviceProvider, ServiceLifetime serviceLifetime)
@@ -74,6 +76,11 @@ namespace Ies.LogoApp
         {
             serviceProvider.Add(new ServiceDescriptor(typeof(IProjectDal), typeof(ProjectDal), serviceLifetime));
             serviceProvider.Add(new ServiceDescriptor(typeof(IProjectService), typeof(ProjectManager), serviceLifetime));
+        }
+        static void ClCardsResolve(this IServiceCollection serviceProvider, ServiceLifetime serviceLifetime)
+        {
+            serviceProvider.Add(new ServiceDescriptor(typeof(IClCardDal), typeof(ClCardDal), serviceLifetime));
+            serviceProvider.Add(new ServiceDescriptor(typeof(IClCardService), typeof(ClCardManager), serviceLifetime));
         }
     }
 }
