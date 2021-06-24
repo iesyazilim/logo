@@ -6,7 +6,7 @@ namespace Ies.LogoApp.Entities
     [Serializable]
     public class ListRequestDto : IListRequestDto
     {
-        public string OrderBy { get; set; }
+        public Sort OrderBy { get; set; }
 
         public Condition Conditions { get; set; }
     }

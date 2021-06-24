@@ -6,7 +6,7 @@ namespace Ies.LogoApp.Entities
     [Serializable]
     public class DetailedPagedRequestDto : PagedRequestDto, IDetailedPagedRequestDto
     {
-        public string OrderBy { get; set; }
+        public Sort OrderBy { get; set; }
 
         public Condition Conditions { get; set; }
     }
