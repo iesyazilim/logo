@@ -2,7 +2,6 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<IsPackable>false</IsPackable>
 		<TargetFrameworks>net5.0;net472</TargetFrameworks>
 		<RootNamespace>Ies.Logo.ServiceAdapter</RootNamespace>
 	</PropertyGroup>
