@@ -12,7 +12,7 @@ namespace Ies.Logo.ServiceAdapter
         public LogoObjectServiceAdapter(ILogoObjectServiceConfiguration configuration) : base(configuration)
         {
             _parameter = new Parameter();
-            _parameter.Period = short.Parse(configuration.FirmPeriod);
+            //_parameter.Period = short.Parse(configuration.FirmPeriod);
             _parameterXml = _parameter.Serialize();
         }
 
@@ -71,7 +71,7 @@ namespace Ies.Logo.ServiceAdapter
                 dataType = dataType,
                 dataReference = dataReference,
                 LbsLoadPass = Configuration.Lbsloadpass,
-                paramXML = _parameterXml
+                //paramXML = _parameterXml
             });
 
             if (result.status == 3)
