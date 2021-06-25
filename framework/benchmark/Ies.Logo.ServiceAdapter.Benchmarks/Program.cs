@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
 
 namespace Ies.Logo.ServiceAdapter
 {
@@ -6,7 +6,7 @@ namespace Ies.Logo.ServiceAdapter
     {
         static void Main(string[] args)
         {
-           
+            BenchmarkRunner.Run<LogoObjectServiceBenchmarks>();
         }
     }
 }
