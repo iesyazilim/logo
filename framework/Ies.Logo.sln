@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.Repositories.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.Manager", "src\Ies.Logo.Manager\Ies.Logo.Manager.csproj", "{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{42BE9E02-CB1B-414A-B7E3-88C85EB043B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.Logo.ServiceAdapter.Benchmarks", "benchmark\Ies.Logo.ServiceAdapter.Benchmarks\Ies.Logo.ServiceAdapter.Benchmarks.csproj", "{90DD8678-A763-4C65-B96D-55E10DBF2EF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,10 @@ Global
 		{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90DD8678-A763-4C65-B96D-55E10DBF2EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90DD8678-A763-4C65-B96D-55E10DBF2EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90DD8678-A763-4C65-B96D-55E10DBF2EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90DD8678-A763-4C65-B96D-55E10DBF2EF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +82,7 @@ Global
 		{2F389223-CD91-405C-A12D-FB6238C55B3F} = {9545684E-DB0E-482D-82A6-7DEE01E8D704}
 		{86164AD5-A673-4AE3-8D06-8A0DD4DB9BBC} = {9D43B634-0A43-4F35-9CE8-85AF7E139DB6}
 		{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172} = {9545684E-DB0E-482D-82A6-7DEE01E8D704}
+		{90DD8678-A763-4C65-B96D-55E10DBF2EF0} = {42BE9E02-CB1B-414A-B7E3-88C85EB043B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EDAEA7E-C966-4D19-BD94-3CCBFDDF304E}

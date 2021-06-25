@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Ies.Logo.Core.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Ies.Logo.ServiceAdapter.Tests
+namespace Ies.Logo.ServiceAdapter
 {
     [TestClass]
     public class LogoObjectServiceTests
