@@ -6,24 +6,18 @@ on:
     branches: [ dev ]
     paths:
       - 'framework/**'
+      - 'modules/**'
 
   pull_request:
     branches: [ dev ]
     paths:
       - 'framework/**'
-      
-env:
-    SolutionPath: 'framework/Ies.Logo.sln'
-    Configuration: 'Debug'
+      - 'modules/**'
     
 jobs:
+
   build-test:
-    
-    runs-on: ${{ matrix.os }}
-  
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -33,11 +27,12 @@ jobs:
         with:
           dotnet-version: 5.0.x
           
-      - name: Restore NuGet
-        run: dotnet restore ${{ env.SolutionPath }}
+      - name: Build
+        run: .\build.ps1
+        working-directory: .\resources\commands
+        shell: powershell
         
-      - name: Build Project
-        run: dotnet build ${{ env.SolutionPath }} --no-restore --configuration=${{ env.Configuration }}
-         
-      - name: Test Project
-        run: dotnet test  ${{ env.SolutionPath }} --no-restore --no-build --configuration=${{ env.Configuration }} --verbosity normal
+      - name: Test
+        run: .\test.ps1
+        working-directory: .\resources\commands
+        shell: powershell

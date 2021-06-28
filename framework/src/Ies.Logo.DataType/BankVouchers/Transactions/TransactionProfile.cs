@@ -35,6 +35,7 @@ namespace Ies.Logo.DataType.BankVouchers
                 .Member(m => m.OhpCode2).Name("OHP_CODE2")
                 .Member(m => m.Sourcefref).Name("SOURCEFREF")
                 .Member(m => m.Date).Name("DATE")
+                .Member(m => m.Time).Name("TIME")
                 .Member(m => m.Sign).Name("SIGN")
                 .Member(m => m.Trcode).Name("TRCODE")
                 .Member(m => m.Modulenr).Name("MODULENR")

@@ -6,7 +6,6 @@ on:
   workflow_dispatch: 
 
 env:
-    SolutionPath: 'framework/Ies.Logo.sln'
     PackagePath: '${{ github.workspace }}\packages'
     BuildVersion: '0.0.${{ github.run_number }}'
     PackageVersion: '0.0.${{ github.run_number }}-beta'
@@ -16,7 +15,7 @@ env:
 jobs:
   beta-publish:
   
-    runs-on: [windows-latest]
+    runs-on: windows-latest
     
     steps:
       
@@ -26,27 +25,21 @@ jobs:
         with:
           dotnet-version: '5.0.x'
       
-      - name: Update project version
-        uses: roryprimrose/set-vs-sdk-project-version@v1
-        with:
-           projectFilter: 'framework/src/**/*.csproj'
-           version: ${{ env.BuildVersion }}
-           assemblyVersion: ${{ env.BuildVersion }}
-           fileVersion: ${{ env.BuildVersion }}
-           informationalVersion: ${{ env.PackageVersion }}
-
-      - name: Restore NuGet
-        run: dotnet restore ${{ env.SolutionPath }}
-      
-      - name: Build Project
-        run: dotnet build ${{ env.SolutionPath }} --no-restore --configuration=${{ env.Configuration }}
-      
-      - name: Test Project
-        run: dotnet test  ${{ env.SolutionPath }} --no-restore --no-build --configuration=${{ env.Configuration }} --verbosity normal
+      - name: Build
+        run: .\build.ps1 ${{ env.Configuration }} ${{ env.BuildVersion }} ${{ env.PackageVersion }}
+        working-directory: .\resources\commands
+        shell: powershell
         
-      - name: Pack project
-        run: dotnet pack ${{ env.SolutionPath }} --no-restore --no-build  --configuration=${{ env.Configuration }} -p:PackageVersion=${{ env.PackageVersion }} --output=${{ env.PackagePath }} 
+      - name: Test
+        run: .\test.ps1 ${{ env.Configuration }}
+        working-directory: .\resources\commands
+        shell: powershell
 
+      - name: Pack
+        run: .\pack.ps1 ${{ env.Configuration }} ${{ env.PackageVersion }} ${{ env.PackagePath }}
+        working-directory: .\resources\commands
+        shell: powershell
+        
       - name: Push package
         run: dotnet nuget push ${{ env.PackagePath }}\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NugetSourceUrl }}
         

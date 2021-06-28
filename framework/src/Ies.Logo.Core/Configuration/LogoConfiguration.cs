@@ -20,7 +20,7 @@ namespace Ies.Logo.Core.Configuration
                     if (value.Length == 3 && int.TryParse(value, out _))
                         firmNumber = value;
                     else
-                        throw new Exception("FirmNumber casting exception", new Exception("Firma numarası 1-999 arasında bir değer olmalıdır."));
+                        throw new LogoException("FirmNumber casting exception", new Exception("Firma numarası 1-999 arasında bir değer olmalıdır."));
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace Ies.Logo.Core.Configuration
                     if (value.Length == 2 && int.TryParse(value, out _))
                         firmPeriod = value;
                     else
-                        throw new Exception("FirmPeriod casting exception", new Exception("Firma dönemi 1-99 arasında bir değer olmalıdır."));
+                        throw new LogoException("FirmPeriod casting exception", new Exception("Firma dönemi 1-99 arasında bir değer olmalıdır."));
                 }
             }
         }

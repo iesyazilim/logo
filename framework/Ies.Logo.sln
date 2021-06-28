@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.Repositories", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.Repositories.Tests", "test\Ies.Logo.Repositories.Tests\Ies.Logo.Repositories.Tests.csproj", "{86164AD5-A673-4AE3-8D06-8A0DD4DB9BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ies.Logo.Manager", "src\Ies.Logo.Manager\Ies.Logo.Manager.csproj", "{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ies.Logo.Manager", "src\Ies.Logo.Manager\Ies.Logo.Manager.csproj", "{17496D9C-666F-4E4B-BCF2-7DFDDCBF2172}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

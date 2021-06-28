@@ -13,6 +13,7 @@ namespace Ies.Logo.DataType.BankVouchers
         public static LogoObjectType XmlRoot => LogoObjectType.BANK_VOUCHERS;
 
         public virtual Nullable<DateTime> Date { get; set; }
+        public virtual Nullable<int> Time { get; set; }
         public string DataNumber { get => Number; set => Number = value; }
         public virtual string Number { get; set; }
         public virtual Nullable<int> Type { get; set; }

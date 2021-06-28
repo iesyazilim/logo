@@ -25,6 +25,7 @@ namespace Ies.Logo.DataType.BankVouchers
 
             typeConfigurations
                 .Member(m => m.Date).Name("DATE")
+                .Member(m => m.Time).Name("TIME")
                 .Member(m => m.Number).Name("NUMBER")
                 .Member(m => m.Type).Name("TYPE")
                 .Member(m => m.Sign).Name("SIGN")

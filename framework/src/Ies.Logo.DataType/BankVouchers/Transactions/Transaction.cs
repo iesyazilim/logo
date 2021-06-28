@@ -19,6 +19,7 @@ namespace Ies.Logo.DataType.BankVouchers
         public virtual string OhpCode2{ get; set; }
         public virtual Nullable<int> Sourcefref{ get; set; }
         public virtual Nullable<DateTime> Date{ get; set; }
+        public virtual Nullable<int> Time { get; set; }
         public virtual Nullable<int> Sign{ get; set; }
         public virtual Nullable<int> Trcode{ get; set; }
         public virtual Nullable<int> Modulenr{ get; set; }

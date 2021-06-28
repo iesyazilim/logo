@@ -4,7 +4,7 @@ using Ies.Logo.DataType.Items;
 using Ies.Logo.ServiceAdapter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Ies.Logo.Repositories.Tests
+namespace Ies.Logo.Repositories
 {
     [TestClass]
     public class LogoRepositoryTests

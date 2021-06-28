@@ -142,6 +142,5 @@
         STOP_CAUSES,
         SLSOPPORTUNITIES,
         SLSACTIVITIES
-
     }
 }

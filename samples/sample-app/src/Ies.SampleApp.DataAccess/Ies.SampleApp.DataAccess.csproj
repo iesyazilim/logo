@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Ies.SampleApp</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.90" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\framework\src\Ies.Logo.Core\Ies.Logo.Core.csproj" />
+
+		<ProjectReference Include="..\Ies.SampleApp.Entities\Ies.SampleApp.Entities.csproj" />
+	</ItemGroup>
+
+</Project>

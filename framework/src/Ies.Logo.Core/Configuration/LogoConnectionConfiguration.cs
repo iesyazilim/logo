@@ -4,7 +4,9 @@ namespace Ies.Logo.Core.Configuration
 {
     public class LogoConnectionConfiguration : LogoObjectServiceConfiguration, ILogoConnectionConfiguration
     {
-        protected string ConnectionString { get; }
+        public string ConnectionString { get; set; }
+
+        public LogoConnectionConfiguration() { }
 
         public LogoConnectionConfiguration(string connectionString)
         {
