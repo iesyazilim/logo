@@ -260,7 +260,9 @@ namespace Ies.Logo.DataType.ArAps
                  .Member(m => m.EinvoiceId).Name("EINVOICEID")
                  .Member(m => m.ProfileId).Name("PROFILE_ID")
                  .Member(m => m.PurchOrderStatus).Name("PURC_ORDER_STATUS")
-                 .Member(m => m.PurcOrderPrice).Name("PURC_ORDER_PRICE")
+                 .Member(m => m.PurcOrderPrice).Name("PURC_ORDER_PRICE");
+
+            typeConfigurations
                  .Member(m => m.EinvoiceType).Name("EINVOICE_TYPE")
                  .Member(m => m.Title2).Name("TITLE2")
                  .Member(m => m.TelephoneExtension1).Name("TELEPHONE_EXTENSION1")
