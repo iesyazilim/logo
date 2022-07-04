@@ -233,7 +233,9 @@ namespace Ies.Logo.DataType.ArAps
                  .Member(m => m.BankIban7).Name("BANK_IBAN7")
                  .Member(m => m.BankBic1).Name("BANK_BIC1")
                  .Member(m => m.BankBic2).Name("BANK_BIC2")
-                 .Member(m => m.BankBic3).Name("BANK_BIC3")
+                 .Member(m => m.BankBic3).Name("BANK_BIC3");
+
+            typeConfigurations
                  .Member(m => m.BankBic4).Name("BANK_BIC4")
                  .Member(m => m.BankBic5).Name("BANK_BIC5")
                  .Member(m => m.BankBic6).Name("BANK_BIC6")
