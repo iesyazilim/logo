@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Ies.Logo.Core.Configuration;
 using Ies.Logo.Core.Extensions;
 using LogoObjectService;
@@ -21,6 +22,10 @@ namespace Ies.Logo.ServiceAdapter
             SvcClient client = new SvcClient();
             if (!string.IsNullOrEmpty(Configuration.EndpointAddress))
                 client.Endpoint.Address = new System.ServiceModel.EndpointAddress(Configuration.EndpointAddress);
+            client.Endpoint.Binding.CloseTimeout = new TimeSpan(0, 10, 0);
+            client.Endpoint.Binding.OpenTimeout = new TimeSpan(0, 10, 0);
+            client.Endpoint.Binding.ReceiveTimeout = new TimeSpan(0, 10, 0);
+            client.Endpoint.Binding.SendTimeout = new TimeSpan(0, 10, 0);
             return client;
         }
 
