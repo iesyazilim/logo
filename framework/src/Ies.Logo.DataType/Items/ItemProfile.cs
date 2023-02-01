@@ -117,7 +117,7 @@ namespace Ies.Logo.DataType.Items
                 .Member(m => m.DeprClassType).Name("DEPRCLASSTYPE")
                 .Member(m => m.WflowCardRef).Name("WflowCardRef")
                 .Member(m => m.CodeChanged).Name("CODE_CHANGED")
-                .Member(m => m.AvrWhDuration).Name("AVR_WH_DURATION")
+                .Member(m => m.AvrWhDuration).Name("AVR_WH_DURAITON")
                 .Member(m => m.ImageInc).Name("IMAGEINC")
                 .Member(m => m.Image1Size).Name("IMAGE1_SIZE")
                 .Member(m => m.Image2Size).Name("IMAGE2_SIZE")
