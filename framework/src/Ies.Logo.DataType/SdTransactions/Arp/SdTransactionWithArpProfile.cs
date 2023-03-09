@@ -23,7 +23,6 @@ namespace Ies.Logo.DataType.SdTransactions
             SdTransactionProfile.Configure(typeConfigurations);
 
             typeConfigurations
-                .Member(m => m.AttachmentArp).Ignore()
                 .Member(m => m.AttachmentArps).Name("ATTACHMENT_ARP")
                 ;
         }

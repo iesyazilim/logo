@@ -10,7 +10,6 @@ namespace Ies.Logo.DataType.SdTransactions
     {
         public static new LogoObjectType XmlRoot => SdTransaction.XmlRoot;
 
-        public List<Transaction> AttachmentArps => new List<Transaction> { AttachmentArp };
-        public virtual Transaction AttachmentArp { get; set; }
+        public List<Transaction> AttachmentArps { get; set; }
     }
 }
