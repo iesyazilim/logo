@@ -19,5 +19,7 @@ namespace Ies.Logo.Manager
         public virtual async Task DeleteAsync(int id) => await Repository.DeleteAsync(id);
 
         public virtual async Task<TEntity> GetAsync(int id) => await Repository.GetAsync(id);
+
+        public virtual async Task<string> GetXmlAsync(int id) => await Repository.GetXmlAsync(id);
     }
 }

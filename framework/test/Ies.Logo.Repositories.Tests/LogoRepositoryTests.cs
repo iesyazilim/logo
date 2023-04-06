@@ -31,6 +31,13 @@ namespace Ies.Logo.Repositories
         }
 
         [TestMethod]
+        public void GetXml()
+        {
+            string itemXml = logoRepository.GetXml(1);
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(itemXml));
+        }
+
+        [TestMethod]
         public void AddOrUpdate()
         {
             int dataReference = logoRepository.AddOrUpdate(new Item
@@ -53,6 +60,14 @@ namespace Ies.Logo.Repositories
             Item item = await logoRepository.GetAsync(1);
 
             Assert.IsNotNull(item);
+        }
+
+        [TestMethod]
+        public async Task GetXmlAsync()
+        {
+            string itemXml = await logoRepository.GetXmlAsync(1);
+
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(itemXml));
         }
 
         [TestMethod]
