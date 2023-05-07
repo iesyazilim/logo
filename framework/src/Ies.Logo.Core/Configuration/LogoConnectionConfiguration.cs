@@ -1,4 +1,10 @@
-﻿using System.Data.SqlClient;
+﻿using IesGatewayGeneral;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Ies.Logo.Core.Configuration
 {
@@ -18,6 +24,42 @@ namespace Ies.Logo.Core.Configuration
             SqlConnection connection = new SqlConnection(ConnectionString);
             connection.Open();
             return connection;
+        }
+
+        public async Task<T> QueryFirstAsync<T>(string query)
+        {
+            var result = await GetQueryAsync(query);
+            return JsonConvert.DeserializeObject<List<T>>(result).FirstOrDefault();
+        }
+
+        public async Task<List<T>> QueryListAsync<T>(string query)
+        {
+            var result = await GetQueryAsync(query);
+            return JsonConvert.DeserializeObject<List<T>>(result);
+        }
+
+        private GeneralSvcClient CreateClient()
+        {
+            GeneralSvcClient client = new GeneralSvcClient();
+            if (!string.IsNullOrEmpty(GeneralEndpointAddress))
+                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(GeneralEndpointAddress);
+            client.Endpoint.Binding.CloseTimeout = new TimeSpan(1, 0, 0);
+            client.Endpoint.Binding.OpenTimeout = new TimeSpan(1, 0, 0);
+            client.Endpoint.Binding.ReceiveTimeout = new TimeSpan(1, 0, 0);
+            client.Endpoint.Binding.SendTimeout = new TimeSpan(1, 0, 0);
+            return client;
+        }
+
+        private async Task<string> GetQueryAsync(string query)
+        {
+            var client = CreateClient();
+
+            var result = await client.GetQueryAsync(query);
+
+            if (!result.IsSuccess)
+                throw new Exception(result.Error);
+
+            return result.Value;
         }
     }
 }
