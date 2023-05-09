@@ -10,10 +10,6 @@
     "namespaceMappings": [
       "*, IesGatewayGeneral"
     ],
-    "references": [
-      "Newtonsoft.Json, {Newtonsoft.Json, 13.0.3}",
-      "System.Data.SqlClient, {System.Data.SqlClient, 4.8.2}"
-    ],
     "sync": true,
     "targetFramework": "netstandard2.0",
     "typeReuseMode": "All"

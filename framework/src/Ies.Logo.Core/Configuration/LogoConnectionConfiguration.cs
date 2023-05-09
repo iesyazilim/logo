@@ -1,5 +1,6 @@
 ﻿using IesGatewayGeneral;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -26,16 +27,39 @@ namespace Ies.Logo.Core.Configuration
             return connection;
         }
 
-        public async Task<T> QueryFirstAsync<T>(string query)
+        public async Task<T> QueryFirstAsync<T>(string query, string paramaters)
         {
-            var result = await GetQueryAsync(query);
+            var result = await GetQueryAsync(query, paramaters);
             return JsonConvert.DeserializeObject<List<T>>(result).FirstOrDefault();
         }
 
-        public async Task<List<T>> QueryListAsync<T>(string query)
+        public async Task<List<T>> QueryListAsync<T>(string query, string paramaters)
         {
-            var result = await GetQueryAsync(query);
+            var result = await GetQueryAsync(query, paramaters);
             return JsonConvert.DeserializeObject<List<T>>(result);
+        }
+
+        public async Task<List<string>> GetQueryMultipleAsync(string query, string paramaters)
+        {
+            var client = CreateClient();
+
+            var result = await client.GetMultipleQueryAsync(query, paramaters);
+
+            if (!result.IsSuccess)
+                throw new Exception(result.Error);
+
+            return result.Value;
+        }
+
+        public async Task<PagedQueryResponse<T>> QueryPagedRequestAsync<T>(string query, string paramaters)
+        {
+            var results = await GetQueryMultipleAsync(query, paramaters);
+            var rows = JsonConvert.DeserializeObject<List<T>>(results.FirstOrDefault());
+            return new PagedQueryResponse<T>()
+            {
+                Rows = rows,
+                TotalCount = (int)(JArray.Parse(results.LastOrDefault())).FirstOrDefault()["TotalCount"]
+            };
         }
 
         private GeneralSvcClient CreateClient()
@@ -50,11 +74,11 @@ namespace Ies.Logo.Core.Configuration
             return client;
         }
 
-        private async Task<string> GetQueryAsync(string query)
+        private async Task<string> GetQueryAsync(string query, string paramaters)
         {
             var client = CreateClient();
 
-            var result = await client.GetQueryAsync(query);
+            var result = await client.GetQueryAsync(query, paramaters);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
