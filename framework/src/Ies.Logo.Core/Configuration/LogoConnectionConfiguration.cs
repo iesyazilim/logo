@@ -27,23 +27,53 @@ namespace Ies.Logo.Core.Configuration
             return connection;
         }
 
-        public async Task<T> QueryFirstAsync<T>(string query, string paramaters)
+        public async Task<T> QueryFirstAsync<T>(string query, string parameters = null)
         {
-            var result = await GetQueryAsync(query, paramaters);
+            var result = await GetQueryAsync(query, parameters);
             return JsonConvert.DeserializeObject<List<T>>(result).FirstOrDefault();
         }
 
-        public async Task<List<T>> QueryListAsync<T>(string query, string paramaters)
+        public async Task<List<T>> QueryListAsync<T>(string query, string parameters = null)
         {
-            var result = await GetQueryAsync(query, paramaters);
+            var result = await GetQueryAsync(query, parameters);
             return JsonConvert.DeserializeObject<List<T>>(result);
         }
 
-        public async Task<List<string>> GetQueryMultipleAsync(string query, string paramaters)
+        public async Task<T> QueryScalarAsync<T>(string query, string parameters = null)
+        {
+            var result = await GetQueryAsync(query, parameters);
+
+            var reponse = JsonConvert.DeserializeObject<List<JObject>>(result).ToList();
+
+            if (reponse.Count <= 0)
+            {
+                return default(T);
+            }
+
+            return reponse.FirstOrDefault().Properties().FirstOrDefault().Value.ToObject<T>();
+        }
+
+        public async Task<List<T>> QueryListScalarAsync<T>(string query, string parameters = null)
+        {
+            var result = await GetQueryAsync(query, parameters);
+
+            var list = new List<T>();
+
+            var reponse = JsonConvert.DeserializeObject<List<JObject>>(result).ToList();
+
+            foreach (var item in reponse)
+            {
+                list.Add(item.Properties().FirstOrDefault().Value.ToObject<T>());
+            }
+
+            return list;
+        }
+
+        public async Task<List<string>> GetQueryMultipleAsync(string query, string parameters = null)
         {
             var client = CreateClient();
 
-            var result = await client.GetMultipleQueryAsync(query, paramaters);
+            var result = await client.GetMultipleQueryAsync(query, parameters);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
@@ -51,9 +81,9 @@ namespace Ies.Logo.Core.Configuration
             return result.Value;
         }
 
-        public async Task<PagedQueryResponse<T>> QueryPagedRequestAsync<T>(string query, string paramaters)
+        public async Task<PagedQueryResponse<T>> QueryPagedRequestAsync<T>(string query, string parameters = null)
         {
-            var results = await GetQueryMultipleAsync(query, paramaters);
+            var results = await GetQueryMultipleAsync(query, parameters);
             var rows = JsonConvert.DeserializeObject<List<T>>(results.FirstOrDefault());
             return new PagedQueryResponse<T>()
             {
@@ -74,11 +104,11 @@ namespace Ies.Logo.Core.Configuration
             return client;
         }
 
-        private async Task<string> GetQueryAsync(string query, string paramaters)
+        private async Task<string> GetQueryAsync(string query, string parameters = null)
         {
             var client = CreateClient();
 
-            var result = await client.GetQueryAsync(query, paramaters);
+            var result = await client.GetQueryAsync(query, parameters);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
