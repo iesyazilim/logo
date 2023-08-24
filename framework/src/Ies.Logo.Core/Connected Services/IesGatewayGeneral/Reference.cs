@@ -13,16 +13,17 @@ namespace IesGatewayGeneral
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="QueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
-    public partial class QueryResponse : object
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(IesGatewayGeneral.MultipleQueryResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(IesGatewayGeneral.ExecuteResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(IesGatewayGeneral.QueryResponse))]
+    public partial class ResponseBase : object
     {
         
         private string ErrorField;
         
         private bool IsSuccessField;
-        
-        private string ValueField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Error
@@ -47,60 +48,17 @@ namespace IesGatewayGeneral
             set
             {
                 this.IsSuccessField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value
-        {
-            get
-            {
-                return this.ValueField;
-            }
-            set
-            {
-                this.ValueField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MultipleQueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
-    public partial class MultipleQueryResponse : object
+    public partial class MultipleQueryResponse : IesGatewayGeneral.ResponseBase
     {
         
-        private string ErrorField;
-        
-        private bool IsSuccessField;
-        
         private System.Collections.Generic.List<string> ValueField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Error
-        {
-            get
-            {
-                return this.ErrorField;
-            }
-            set
-            {
-                this.ErrorField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsSuccess
-        {
-            get
-            {
-                return this.IsSuccessField;
-            }
-            set
-            {
-                this.IsSuccessField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.List<string> Value
@@ -116,7 +74,51 @@ namespace IesGatewayGeneral
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExecuteResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
+    public partial class ExecuteResponse : IesGatewayGeneral.ResponseBase
+    {
+        
+        private int ValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                this.ValueField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
+    public partial class QueryResponse : IesGatewayGeneral.ResponseBase
+    {
+        
+        private string ValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                this.ValueField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IesGatewayGeneral.IGeneralSvc")]
     public interface IGeneralSvc
     {
@@ -132,15 +134,21 @@ namespace IesGatewayGeneral
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/GetMultipleQuery", ReplyAction="http://tempuri.org/IGeneralSvc/GetMultipleQueryResponse")]
         System.Threading.Tasks.Task<IesGatewayGeneral.MultipleQueryResponse> GetMultipleQueryAsync(string query, string paramaters);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/Execute", ReplyAction="http://tempuri.org/IGeneralSvc/ExecuteResponse")]
+        IesGatewayGeneral.ExecuteResponse Execute(string query, string paramaters);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/Execute", ReplyAction="http://tempuri.org/IGeneralSvc/ExecuteResponse")]
+        System.Threading.Tasks.Task<IesGatewayGeneral.ExecuteResponse> ExecuteAsync(string query, string paramaters);
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     public interface IGeneralSvcChannel : IesGatewayGeneral.IGeneralSvc, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     public partial class GeneralSvcClient : System.ServiceModel.ClientBase<IesGatewayGeneral.IGeneralSvc>, IesGatewayGeneral.IGeneralSvc
     {
         
@@ -202,6 +210,16 @@ namespace IesGatewayGeneral
         public System.Threading.Tasks.Task<IesGatewayGeneral.MultipleQueryResponse> GetMultipleQueryAsync(string query, string paramaters)
         {
             return base.Channel.GetMultipleQueryAsync(query, paramaters);
+        }
+        
+        public IesGatewayGeneral.ExecuteResponse Execute(string query, string paramaters)
+        {
+            return base.Channel.Execute(query, paramaters);
+        }
+        
+        public System.Threading.Tasks.Task<IesGatewayGeneral.ExecuteResponse> ExecuteAsync(string query, string paramaters)
+        {
+            return base.Channel.ExecuteAsync(query, paramaters);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
