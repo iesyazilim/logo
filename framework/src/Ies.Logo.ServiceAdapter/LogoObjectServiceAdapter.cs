@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using Ies.Logo.Core.Configuration;
 using Ies.Logo.Core.Extensions;
@@ -19,13 +20,24 @@ namespace Ies.Logo.ServiceAdapter
 
         public SvcClient CreateClient()
         {
+            var binding = new BasicHttpBinding
+            {
+                CloseTimeout = new TimeSpan(5, 0, 0),
+                OpenTimeout = new TimeSpan(5, 0, 0),
+                ReceiveTimeout = new TimeSpan(5, 0, 0),
+                SendTimeout = new TimeSpan(5, 0, 0)
+            };
+
             SvcClient client = new SvcClient();
             if (!string.IsNullOrEmpty(Configuration.EndpointAddress))
-                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(Configuration.EndpointAddress);
-            client.Endpoint.Binding.CloseTimeout = new TimeSpan(5, 0, 0);
-            client.Endpoint.Binding.OpenTimeout = new TimeSpan(5, 0, 0);
-            client.Endpoint.Binding.ReceiveTimeout = new TimeSpan(5, 0, 0);
-            client.Endpoint.Binding.SendTimeout = new TimeSpan(5, 0, 0);
+            {
+                client.Endpoint.Address = new EndpointAddress(Configuration.EndpointAddress);
+                binding.Security.Mode = Configuration.EndpointAddress.IndexOf("HTTPS", StringComparison.OrdinalIgnoreCase) >= 0
+                    ? BasicHttpSecurityMode.Transport
+                    : BasicHttpSecurityMode.None;
+            }
+
+            client.Endpoint.Binding = binding;
             return client;
         }
 
