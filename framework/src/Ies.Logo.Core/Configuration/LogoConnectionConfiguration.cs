@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading.Tasks;
 
 namespace Ies.Logo.Core.Configuration
@@ -163,13 +164,26 @@ namespace Ies.Logo.Core.Configuration
         #region GatewayRequest
         private GeneralSvcClient CreateClient()
         {
+            var binding = new BasicHttpBinding
+            {
+                CloseTimeout = new TimeSpan(1, 0, 0),
+                OpenTimeout = new TimeSpan(1, 0, 0),
+                ReceiveTimeout = new TimeSpan(1, 0, 0),
+                SendTimeout = new TimeSpan(1, 0, 0),
+                MaxReceivedMessageSize = int.MaxValue
+            };
+
             GeneralSvcClient client = new GeneralSvcClient();
+
             if (!string.IsNullOrEmpty(GeneralEndpointAddress))
-                client.Endpoint.Address = new System.ServiceModel.EndpointAddress(GeneralEndpointAddress);
-            client.Endpoint.Binding.CloseTimeout = new TimeSpan(1, 0, 0);
-            client.Endpoint.Binding.OpenTimeout = new TimeSpan(1, 0, 0);
-            client.Endpoint.Binding.ReceiveTimeout = new TimeSpan(1, 0, 0);
-            client.Endpoint.Binding.SendTimeout = new TimeSpan(1, 0, 0);
+            {
+                client.Endpoint.Address = new EndpointAddress(GeneralEndpointAddress);
+                binding.Security.Mode = GeneralEndpointAddress.IndexOf("HTTPS", StringComparison.OrdinalIgnoreCase) >= 0
+                    ? BasicHttpSecurityMode.Transport
+                    : BasicHttpSecurityMode.None;
+            }
+
+            client.Endpoint.Binding = binding;
             return client;
         }
 
