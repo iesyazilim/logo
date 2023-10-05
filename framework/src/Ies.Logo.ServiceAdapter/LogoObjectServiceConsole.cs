@@ -6,9 +6,9 @@ namespace Ies.Logo.ServiceAdapter
 {
     public class LogoObjectServiceConsole : LogoObjectServiceBase
     {
-        public LogoObjectServiceConsole(ILogoObjectServiceConfiguration configuration) : base(configuration) { }
+        public LogoObjectServiceConsole(ILogoObjectServiceConfiguration configuration, IParameterConfiguration parameter) : base(configuration, parameter) { }
 
-        public override Task<int> AppendDataObjectAsync(string xml, int dataType = -1)
+        public override Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null)
         {
             CheckDataType(xml, ref dataType);
             Console.WriteLine($"AppendDataObject isteği DataType={dataType}\nXml={xml}");

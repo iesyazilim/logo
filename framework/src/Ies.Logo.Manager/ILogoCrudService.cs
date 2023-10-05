@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Ies.Logo.DataType.Infrastructure;
+using Ies.Logo.ServiceAdapter;
 
 namespace Ies.Logo.Manager
 {
@@ -7,7 +8,7 @@ namespace Ies.Logo.Manager
     {
         Task<TEntity> GetAsync(int id);
         Task<string> GetXmlAsync(int id);
-        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true);
+        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null);
         Task DeleteAsync(int id);
     }
 }
