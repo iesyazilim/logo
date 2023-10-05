@@ -2,6 +2,7 @@
 using Ies.Logo.Core.Configuration;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.Repositories;
+using Ies.Logo.ServiceAdapter;
 
 namespace Ies.Logo.Manager
 {
@@ -14,7 +15,7 @@ namespace Ies.Logo.Manager
             Repository = repository;
         }
 
-        public virtual async Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true) => await Repository.AddOrUpdateAsync(entity, autoSet);
+        public virtual async Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null) => await Repository.AddOrUpdateAsync(entity, autoSet, parameter);
 
         public virtual async Task DeleteAsync(int id) => await Repository.DeleteAsync(id);
 

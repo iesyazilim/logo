@@ -9,12 +9,27 @@ namespace Ies.Logo.ServiceAdapter
 {
     public class LogoObjectServiceAdapter : LogoObjectServiceBase
     {
-        private Parameter _parameter;
         private string _parameterXml;
-        public LogoObjectServiceAdapter(ILogoObjectServiceConfiguration configuration) : base(configuration)
+        public LogoObjectServiceAdapter(ILogoObjectServiceConfiguration configuration, IParameterConfiguration parameter) : base(configuration, parameter)
         {
-            _parameter = new Parameter();
-            //_parameter.Period = short.Parse(configuration.FirmPeriod);
+            if (parameter == null)
+                parameter = new Parameter()
+                {
+                    ReplicMode = 1,
+                    FillAccCodes = 1
+                };
+
+            var _parameter = new Parameter()
+            {
+                ApplyCampaign = parameter.ApplyCampaign,
+                ApplyCondition = parameter.ApplyCondition,
+                CheckParams = parameter.CheckParams,
+                CheckRight = parameter.CheckRight,
+                FillAccCodes = parameter.FillAccCodes,
+                FormSeriLotLines = parameter.FormSeriLotLines,
+                ReplicMode = parameter.ReplicMode,
+                SetClientInfo = parameter.SetClientInfo
+            };
             _parameterXml = _parameter.Serialize();
         }
 
@@ -41,7 +56,7 @@ namespace Ies.Logo.ServiceAdapter
             return client;
         }
 
-        public async override Task<int> AppendDataObjectAsync(string xml, int dataType = -1)
+        public async override Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null)
         {
             SvcClient client = CreateClient();
             CheckDataType(xml, ref dataType);
@@ -53,7 +68,7 @@ namespace Ies.Logo.ServiceAdapter
                 dataXML = xml,
                 dataType = dataType,
                 LbsLoadPass = Configuration.Lbsloadpass,
-                paramXML = _parameterXml
+                paramXML = CheckParamterXml(parameter, _parameterXml)
             });
 
             if (result.status == 3)

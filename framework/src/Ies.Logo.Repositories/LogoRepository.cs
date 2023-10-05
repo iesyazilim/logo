@@ -14,7 +14,7 @@ namespace Ies.Logo.Repositories
             LogoObjectService = logoObjectService;
         }
 
-        public virtual int AddOrUpdate(TEntity entity, bool autoSet = true) => LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName()).GetAwaiter().GetResult();
+        public virtual int AddOrUpdate(TEntity entity, bool autoSet = true, Parameter parameter = null) => LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName(), parameter).GetAwaiter().GetResult();
         public virtual void Delete(int id) => LogoObjectService.DeleteDataObjectAsync((int)new TEntity().GetRootElementName(), id).GetAwaiter().GetResult();
         public virtual TEntity Get(int id)
         {
@@ -23,7 +23,7 @@ namespace Ies.Logo.Repositories
         }
         public string GetXml(int id) => LogoObjectService.ReadDataObjectAsync((int)new TEntity().GetRootElementName(), id).GetAwaiter().GetResult();
 
-        public async virtual Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true) => await LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName());
+        public async virtual Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null) => await LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName(), parameter);
         public async virtual Task DeleteAsync(int id) => await LogoObjectService.DeleteDataObjectAsync((int)new TEntity().GetRootElementName(), id);
         public async virtual Task<TEntity> GetAsync(int id)
         {

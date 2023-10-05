@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Ies.Logo.DataType.Infrastructure;
+using Ies.Logo.ServiceAdapter;
 
 namespace Ies.Logo.Repositories
 {
@@ -9,12 +10,12 @@ namespace Ies.Logo.Repositories
     {
         TEntity Get(int id);
         string GetXml(int id);
-        int AddOrUpdate(TEntity entity, bool autoSet = true);
+        int AddOrUpdate(TEntity entity, bool autoSet = true, Parameter parameter = null);
         void Delete(int id);
 
         Task<TEntity> GetAsync(int id);
         Task<string> GetXmlAsync(int id);
-        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true);
+        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null);
         Task DeleteAsync(int id);
     }
 }

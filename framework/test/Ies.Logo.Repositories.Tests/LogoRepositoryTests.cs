@@ -21,6 +21,10 @@ namespace Ies.Logo.Repositories
                 FirmPeriod = "01",
                 SecurityCode = "ac110bc3-7808-49c1-bc34-5007cf6b9024",
                 EndpointAddress = "http://localhost/LogoObjectService/Service"
+            }, new ParameterConfiguration()
+            {
+                ReplicMode = 1,
+                FillAccCodes = 1
             }));
         }
 
