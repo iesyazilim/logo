@@ -40,7 +40,8 @@ namespace Ies.Logo.ServiceAdapter
                 CloseTimeout = new TimeSpan(5, 0, 0),
                 OpenTimeout = new TimeSpan(5, 0, 0),
                 ReceiveTimeout = new TimeSpan(5, 0, 0),
-                SendTimeout = new TimeSpan(5, 0, 0)
+                SendTimeout = new TimeSpan(5, 0, 0),
+                MaxReceivedMessageSize = int.MaxValue
             };
 
             SvcClient client = new SvcClient();
