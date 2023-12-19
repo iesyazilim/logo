@@ -1,4 +1,5 @@
 ﻿using System;
+using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.Infrastructure;
 
@@ -7,7 +8,7 @@ namespace Ies.Logo.DataType.SerialLotRecords
     [Serializable]
     public class ItemSerialLot : AuditedAggregateRoot, IDataSiteId, IDataNo
     {
-        public static string XmlRoot => "SERIAL_LOT_RECORDS";
+        public static LogoObjectType XmlRoot => LogoObjectType.SERIAL_LOT_RECORDS;
 
         public virtual string ItemCode { get; set; }
         public virtual Nullable<int> Type { get; set; }
