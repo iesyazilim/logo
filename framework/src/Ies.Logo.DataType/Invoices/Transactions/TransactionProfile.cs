@@ -187,6 +187,7 @@ namespace Ies.Logo.DataType.Invoices
                 .Member(m => m.AddTaxExceptReason).Name("ADDTAXEXCEPT_REASON")
                 .Member(m => m.AddTaxExceptCode).Name("ADDTAXEXCEPT_CODE")
                 .Member(m => m.Barcode).Name("BARCODE")
+                .Member(m => m.ParentLnRef).Name("PARENTLNREF")
                 ;
         }
     }
