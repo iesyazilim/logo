@@ -117,6 +117,7 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<int> EximFileLineNr { get; set; }
         public virtual string EximWhFicheNo { get; set; }
         public virtual Nullable<int> EximWhFicheLnno { get; set; }
+        public virtual Nullable<int> ParentLnRef { get; set; }
         public virtual string DiibCode { get; set; }
         public virtual Nullable<int> Month { get; set; }
         public virtual Nullable<int> Year { get; set; }
