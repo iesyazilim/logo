@@ -121,6 +121,12 @@ namespace Ies.Logo.DataType.MaterialSlips
         public virtual string EbookExplain { get; set; }
         public virtual string EbookPaytype { get; set; }
         public virtual Nullable<short> EbookNopay { get; set; }
+        public virtual Nullable<short> Edespatch { get; set; }
+        public virtual string EinvoiceDriverName1 { get; set; }
+        public virtual string EinvoiceDriverSurname1 { get; set; }
+        public virtual string EinvoiceDriverTckno1 { get; set; }
+        public virtual string EinvoicePlateNum1 { get; set; }
+        public virtual string EinvoiceChassisNum1 { get; set; }
 
         #region Implementation
         public virtual string AuthCode { get; set; }
