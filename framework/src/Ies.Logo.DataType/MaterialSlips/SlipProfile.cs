@@ -135,6 +135,12 @@ namespace Ies.Logo.DataType.MaterialSlips
                 .Member(m => m.Transactions).Name("TRANSACTIONS")
                 .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
                 .Member(m => m.DemandPeggings).Name("DEMANDPEGGINGS")
+                .Member(m => m.Edespatch).Name("EDESPATCH")
+                .Member(m => m.EinvoiceDriverName1).Name("EINVOICE_DRIVERNAME1")
+                .Member(m => m.EinvoiceDriverSurname1).Name("EINVOICE_DRIVERSURNAME1")
+                .Member(m => m.EinvoiceDriverTckno1).Name("EINVOICE_DRIVERTCKNO1")
+                .Member(m => m.EinvoicePlateNum1).Name("EINVOICE_PLATENUM1")
+                .Member(m => m.EinvoiceChassisNum1).Name("EINVOICE_CHASSISNUM1")
                 ;
         }
     }
