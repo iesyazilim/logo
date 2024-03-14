@@ -28,6 +28,7 @@ namespace Ies.Logo.DataType.ArpShipmentLocations
                 .Member(m => m.ArpCode).Name("ARP_CODE")
                 .Member(m => m.Code).Name("CODE")
                 .Member(m => m.Description).Name("DESCRIPTION")
+                .Member(m => m.Title).Name("TITLE")
                 .Member(m => m.Address1).Name("ADDRESS1")
                 .Member(m => m.Address2).Name("ADDRESS2")
                 .Member(m => m.DistrictCode).Name("DISTRICT_CODE")
