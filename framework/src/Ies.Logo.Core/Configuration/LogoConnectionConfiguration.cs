@@ -191,7 +191,7 @@ namespace Ies.Logo.Core.Configuration
         {
             var client = CreateClient();
 
-            var result = await client.GetQueryAsync(query, parameters);
+            var result = await client.GetQueryAsync(query, parameters, ServiceKey);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
@@ -203,7 +203,7 @@ namespace Ies.Logo.Core.Configuration
         {
             var client = CreateClient();
 
-            var result = client.GetQuery(query, parameters);
+            var result = client.GetQuery(query, parameters, ServiceKey);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
@@ -215,7 +215,7 @@ namespace Ies.Logo.Core.Configuration
         {
             var client = CreateClient();
 
-            var result = await client.GetMultipleQueryAsync(query, parameters);
+            var result = await client.GetMultipleQueryAsync(query, parameters, ServiceKey);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
@@ -227,7 +227,7 @@ namespace Ies.Logo.Core.Configuration
         {
             var client = CreateClient();
 
-            var result = client.GetMultipleQuery(query, parameters);
+            var result = client.GetMultipleQuery(query, parameters, ServiceKey);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
@@ -239,7 +239,7 @@ namespace Ies.Logo.Core.Configuration
         {
             var client = CreateClient();
 
-            var result = await client.ExecuteAsync(query, parameters);
+            var result = await client.ExecuteAsync(query, parameters, ServiceKey);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);
@@ -251,7 +251,7 @@ namespace Ies.Logo.Core.Configuration
         {
             var client = CreateClient();
 
-            var result = client.Execute(query, parameters);
+            var result = client.Execute(query, parameters, ServiceKey);
 
             if (!result.IsSuccess)
                 throw new Exception(result.Error);

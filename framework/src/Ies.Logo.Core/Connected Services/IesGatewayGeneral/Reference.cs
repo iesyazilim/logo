@@ -13,7 +13,7 @@ namespace IesGatewayGeneral
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ResponseBase", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(IesGatewayGeneral.MultipleQueryResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(IesGatewayGeneral.ExecuteResponse))]
@@ -53,7 +53,7 @@ namespace IesGatewayGeneral
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MultipleQueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
     public partial class MultipleQueryResponse : IesGatewayGeneral.ResponseBase
     {
@@ -75,7 +75,7 @@ namespace IesGatewayGeneral
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ExecuteResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
     public partial class ExecuteResponse : IesGatewayGeneral.ResponseBase
     {
@@ -97,7 +97,7 @@ namespace IesGatewayGeneral
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     [System.Runtime.Serialization.DataContractAttribute(Name="QueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Ies.Gateway.Service")]
     public partial class QueryResponse : IesGatewayGeneral.ResponseBase
     {
@@ -118,37 +118,37 @@ namespace IesGatewayGeneral
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IesGatewayGeneral.IGeneralSvc")]
     public interface IGeneralSvc
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/GetQuery", ReplyAction="http://tempuri.org/IGeneralSvc/GetQueryResponse")]
-        IesGatewayGeneral.QueryResponse GetQuery(string query, string paramaters);
+        IesGatewayGeneral.QueryResponse GetQuery(string query, string paramaters, string serviceKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/GetQuery", ReplyAction="http://tempuri.org/IGeneralSvc/GetQueryResponse")]
-        System.Threading.Tasks.Task<IesGatewayGeneral.QueryResponse> GetQueryAsync(string query, string paramaters);
+        System.Threading.Tasks.Task<IesGatewayGeneral.QueryResponse> GetQueryAsync(string query, string paramaters, string serviceKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/GetMultipleQuery", ReplyAction="http://tempuri.org/IGeneralSvc/GetMultipleQueryResponse")]
-        IesGatewayGeneral.MultipleQueryResponse GetMultipleQuery(string query, string paramaters);
+        IesGatewayGeneral.MultipleQueryResponse GetMultipleQuery(string query, string paramaters, string serviceKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/GetMultipleQuery", ReplyAction="http://tempuri.org/IGeneralSvc/GetMultipleQueryResponse")]
-        System.Threading.Tasks.Task<IesGatewayGeneral.MultipleQueryResponse> GetMultipleQueryAsync(string query, string paramaters);
+        System.Threading.Tasks.Task<IesGatewayGeneral.MultipleQueryResponse> GetMultipleQueryAsync(string query, string paramaters, string serviceKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/Execute", ReplyAction="http://tempuri.org/IGeneralSvc/ExecuteResponse")]
-        IesGatewayGeneral.ExecuteResponse Execute(string query, string paramaters);
+        IesGatewayGeneral.ExecuteResponse Execute(string query, string paramaters, string serviceKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneralSvc/Execute", ReplyAction="http://tempuri.org/IGeneralSvc/ExecuteResponse")]
-        System.Threading.Tasks.Task<IesGatewayGeneral.ExecuteResponse> ExecuteAsync(string query, string paramaters);
+        System.Threading.Tasks.Task<IesGatewayGeneral.ExecuteResponse> ExecuteAsync(string query, string paramaters, string serviceKey);
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     public interface IGeneralSvcChannel : IesGatewayGeneral.IGeneralSvc, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
     public partial class GeneralSvcClient : System.ServiceModel.ClientBase<IesGatewayGeneral.IGeneralSvc>, IesGatewayGeneral.IGeneralSvc
     {
         
@@ -192,34 +192,34 @@ namespace IesGatewayGeneral
         {
         }
         
-        public IesGatewayGeneral.QueryResponse GetQuery(string query, string paramaters)
+        public IesGatewayGeneral.QueryResponse GetQuery(string query, string paramaters, string serviceKey)
         {
-            return base.Channel.GetQuery(query, paramaters);
+            return base.Channel.GetQuery(query, paramaters, serviceKey);
         }
         
-        public System.Threading.Tasks.Task<IesGatewayGeneral.QueryResponse> GetQueryAsync(string query, string paramaters)
+        public System.Threading.Tasks.Task<IesGatewayGeneral.QueryResponse> GetQueryAsync(string query, string paramaters, string serviceKey)
         {
-            return base.Channel.GetQueryAsync(query, paramaters);
+            return base.Channel.GetQueryAsync(query, paramaters, serviceKey);
         }
         
-        public IesGatewayGeneral.MultipleQueryResponse GetMultipleQuery(string query, string paramaters)
+        public IesGatewayGeneral.MultipleQueryResponse GetMultipleQuery(string query, string paramaters, string serviceKey)
         {
-            return base.Channel.GetMultipleQuery(query, paramaters);
+            return base.Channel.GetMultipleQuery(query, paramaters, serviceKey);
         }
         
-        public System.Threading.Tasks.Task<IesGatewayGeneral.MultipleQueryResponse> GetMultipleQueryAsync(string query, string paramaters)
+        public System.Threading.Tasks.Task<IesGatewayGeneral.MultipleQueryResponse> GetMultipleQueryAsync(string query, string paramaters, string serviceKey)
         {
-            return base.Channel.GetMultipleQueryAsync(query, paramaters);
+            return base.Channel.GetMultipleQueryAsync(query, paramaters, serviceKey);
         }
         
-        public IesGatewayGeneral.ExecuteResponse Execute(string query, string paramaters)
+        public IesGatewayGeneral.ExecuteResponse Execute(string query, string paramaters, string serviceKey)
         {
-            return base.Channel.Execute(query, paramaters);
+            return base.Channel.Execute(query, paramaters, serviceKey);
         }
         
-        public System.Threading.Tasks.Task<IesGatewayGeneral.ExecuteResponse> ExecuteAsync(string query, string paramaters)
+        public System.Threading.Tasks.Task<IesGatewayGeneral.ExecuteResponse> ExecuteAsync(string query, string paramaters, string serviceKey)
         {
-            return base.Channel.ExecuteAsync(query, paramaters);
+            return base.Channel.ExecuteAsync(query, paramaters, serviceKey);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
