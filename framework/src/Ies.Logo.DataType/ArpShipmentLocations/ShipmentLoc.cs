@@ -14,6 +14,7 @@ namespace Ies.Logo.DataType.ArpShipmentLocations
         public string DataNumber { get => Code; set => Code = value; }
         public virtual string Code { get; set; }
         public virtual string Description { get; set; }
+        public virtual string Title { get; set; }
         public virtual string Address1 { get; set; }
         public virtual string Address2 { get; set; }
         public virtual string DistrictCode { get; set; }
