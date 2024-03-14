@@ -260,6 +260,7 @@ namespace Ies.Logo.DataType.ArAps
         public virtual string Surname { get; set; }
         public virtual Nullable<short> LabelInfo { get; set; }
         public virtual Nullable<short> InsteadOfDispatch { get; set; }
+        public virtual Nullable<short> EArchiveSendeMode { get; set; }
 
         #region Implementation
         public virtual Nullable<short> RecordStatus { get; set; }

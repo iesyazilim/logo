@@ -275,6 +275,7 @@ namespace Ies.Logo.DataType.ArAps
                  .Member(m => m.Surname).Name("SURNAME")
                  .Member(m => m.LabelInfo).Name("LABEL_INFO")
                  .Member(m => m.InsteadOfDispatch).Name("INSTEAD_OF_DISPATCH")
+                 .Member(m => m.EArchiveSendeMode).Name("EARCHIVE_SEND_MODE")
                  ;
         }
     }
