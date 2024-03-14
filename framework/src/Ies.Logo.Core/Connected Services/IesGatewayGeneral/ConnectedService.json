@@ -12,7 +12,7 @@
     ],
     "references": [
       "Newtonsoft.Json, {Newtonsoft.Json, 13.0.3}",
-      "System.Data.SqlClient, {System.Data.SqlClient, 4.8.2}",
+      "System.Data.SqlClient, {System.Data.SqlClient, 4.8.6}",
       "System.ServiceModel, {System.ServiceModel.Primitives, 4.4.4}",
       "System.ServiceModel.Duplex, {System.ServiceModel.Duplex, 4.4.4}",
       "System.ServiceModel.Http, {System.ServiceModel.Http, 4.4.4}",
