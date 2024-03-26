@@ -54,6 +54,7 @@ namespace Ies.Logo.DataType.Orders
         public virtual Nullable<int> OfferAltnr { get; set; }
         public virtual Nullable<short> CurrTranactin { get; set; }
         public virtual Nullable<short> Einvoice { get; set; }
+        public virtual Nullable<short> EinvoiceProfileId { get; set; }
         public virtual Nullable<short> EarchivedetrSendmod { get; set; }
         public virtual Nullable<short> EarchivedetrIntpaymenttype { get; set; }
         public virtual Nullable<short> EarchivedetrInsteadofdesp { get; set; }
