@@ -66,6 +66,7 @@ namespace Ies.Logo.DataType.Orders
                 .Member(m => m.OfferAltnr).Name("OFFER_ALTNR")
                 .Member(m => m.CurrTranactin).Name("CURR_TRANSACTIN")
                 .Member(m => m.Einvoice).Name("EINVOICE")
+                .Member(m => m.EinvoiceProfileId).Name("EINVOICE_PROFILEID")
                 .Member(m => m.EarchivedetrSendmod).Name("EARCHIVEDETR_SENDMOD")
                 .Member(m => m.EarchivedetrIntpaymenttype).Name("EARCHIVEDETR_INTPAYMENTTYPE")
                 .Member(m => m.EarchivedetrInsteadofdesp).Name("EARCHIVEDETR_INSTEADOFDESP")
