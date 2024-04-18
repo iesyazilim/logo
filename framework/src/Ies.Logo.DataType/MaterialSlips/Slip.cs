@@ -19,7 +19,9 @@ namespace Ies.Logo.DataType.MaterialSlips
         public virtual string Number { get; set; }
         public virtual string DocTrackNr { get; set; }
         public virtual Nullable<DateTime> Date { get; set; }
+        public virtual Nullable<DateTime> DocDate { get; set; }
         public virtual Nullable<int> Time { get; set; }
+        public virtual Nullable<int> DocTime { get; set; }
         public virtual string DocNumber { get; set; }
         public virtual Nullable<short> SourceType { get; set; }
         public virtual Nullable<int> SourceWh { get; set; }
