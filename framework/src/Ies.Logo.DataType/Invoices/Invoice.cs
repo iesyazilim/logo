@@ -166,6 +166,7 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<short> AutofillSlDetails { get; set; }
         public virtual Nullable<short> Einvoice { get; set; }
         public virtual Nullable<short> EarchivedetrInsteadofdesp { get; set; }
+        public virtual Nullable<short> EInstedOfDispatch { get; set; }
         public virtual string EarchivedetrDrivername1 { get; set; }
         public virtual string EinvoiceDrivername1 { get; set; }
         public virtual string EarchivedetrDriverSurname1 { get; set; }
