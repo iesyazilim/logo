@@ -186,6 +186,7 @@ namespace Ies.Logo.DataType.Invoices
                 .Member(m => m.AutofillSlDetails).Name("AUTOFILL_SLDETAILS")
                 .Member(m => m.Einvoice).Name("EINVOICE")
                 .Member(m => m.EarchivedetrInsteadofdesp).Name("EARCHIVEDETR_INSTEADOFDESP")
+                .Member(m => m.EInstedOfDispatch).Name("EINSTEAD_OF_DISPATCH")
                 .Member(m => m.EarchivedetrDrivername1).Name("EARCHIVEDETR_DRIVERNAME1")
                 .Member(m => m.EinvoiceDrivername1).Name("EINVOICE_DRIVERNAME1")
                 .Member(m => m.EarchivedetrDriverSurname1).Name("EARCHIVEDETR_DRIVERSURNAME1")
