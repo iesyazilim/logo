@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ies.Logo.DataType.PriceCards
+namespace Ies.Logo.DataType.PriceCards.ItemPurchase
 {
     public class ItemPurchasePriceProfile : IConfigurationProfile
     {
@@ -25,7 +25,7 @@ namespace Ies.Logo.DataType.PriceCards
         public static void Configure<T>(ITypeConfiguration<T> typeConfigurations) where T : ItemPurchasePrice
         {
             typeConfigurations.Configure();
-            typeConfigurations.Name<T>("PRICE_RECORD");
+            typeConfigurations.Name("PRICE_RECORD");
 
             typeConfigurations
                 .Member(m => m.Code).Name("CARD_CODE")
