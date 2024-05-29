@@ -234,6 +234,7 @@ namespace Ies.Logo.DataType.Invoices
                 .Member(m => m.EarchivedetrIntpaymentAgent).Name("EARCHIVEDETR_INTPAYMENTAGENT")
                 .Member(m => m.EarchivedetrIntpaymentDate).Name("EARCHIVEDETR_INTPAYMENTDATE")
                 .Member(m => m.DelvryCode).Name("DELIVERY_CODE")
+                .Member(m => m.Itext).Name("ITEXT")
                 ;
         }
     }

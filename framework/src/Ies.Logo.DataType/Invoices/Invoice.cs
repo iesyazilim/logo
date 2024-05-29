@@ -214,6 +214,8 @@ namespace Ies.Logo.DataType.Invoices
         public virtual string EarchivedetrIntpaymentAgent { get; set; }
         public virtual string EarchivedetrIntpaymentDate { get; set; }
         public virtual string DelvryCode { get; set; }
+        public virtual string Itext { get; set; }
+
 
         #region Implementation
         public virtual string AuthCode { get; set; }
