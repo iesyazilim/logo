@@ -152,6 +152,7 @@ namespace Ies.Logo.DataType.Dispatches
                 .Member(m => m.MainMfSiteId).Name("MAIN_MF_SITEID")
                 .Member(m => m.LockControlDef).Name("LOC_CONTROL_OFF")
                 .Member(m => m.CampaingCode).Name("CAMPAIGN_CODE")
+                .Member(m => m.Itext).Name("ITEXT")
                 ;
         }
     }

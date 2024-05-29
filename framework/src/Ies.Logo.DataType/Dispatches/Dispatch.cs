@@ -137,6 +137,8 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual Nullable<int> MainMfSiteId { get; set; }
         public virtual Nullable<short> LockControlDef { get; set; }
         public virtual string CampaingCode { get; set; }
+        public virtual string Itext { get; set; }
+
 
         #region Implementation
         public virtual string AuthCode { get; set; }
