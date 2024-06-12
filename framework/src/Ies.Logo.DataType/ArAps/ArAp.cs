@@ -69,6 +69,13 @@ namespace Ies.Logo.DataType.ArAps
         public virtual string BankAccount5 { get; set; }
         public virtual string BankAccount6 { get; set; }
         public virtual string BankAccount7 { get; set; }
+        public virtual Nullable<int> DbsCurr1 { get; set; }
+        public virtual Nullable<int> DbsCurr2 { get; set; }
+        public virtual Nullable<int> DbsCurr3 { get; set; }
+        public virtual Nullable<int> DbsCurr4 { get; set; }
+        public virtual Nullable<int> DbsCurr5 { get; set; }
+        public virtual Nullable<int> DbsCurr6 { get; set; }
+        public virtual Nullable<int> DbsCurr7 { get; set; }
         public virtual string DeliveryMethod { get; set; }
         public virtual string ShipmentAgent { get; set; }
         public virtual Nullable<short> Currency { get; set; }
