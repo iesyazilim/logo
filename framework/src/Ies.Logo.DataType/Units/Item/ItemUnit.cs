@@ -34,6 +34,7 @@ namespace Ies.Logo.DataType.Units
         public virtual string VolumeCode { get; set; }
         public virtual string WeightCode { get; set; }
         public virtual string GrossVolCode { get; set; }
+        public virtual string GrossWeightCode { get; set; }
         public virtual string WithUnitBarcode { get; set; }
         public virtual Nullable<short> WbarcodeShift { get; set; }
 
