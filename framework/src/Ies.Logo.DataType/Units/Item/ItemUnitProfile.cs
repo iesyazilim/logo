@@ -48,6 +48,7 @@ namespace Ies.Logo.DataType.Units
                 .Member(m => m.VolumeCode).Name("VOLUME_CODE")
                 .Member(m => m.WeightCode).Name("WEIGHT_CODE")
                 .Member(m => m.GrossVolCode).Name("GROSS_VOL_CODE")
+                .Member(m => m.GrossWeightCode).Name("GROSS_WGHT_CODE")
                 .Member(m => m.WithUnitBarcode).Name("WITHUNIT_BARCODE")
                 .Member(m => m.WbarcodeShift).Name("WBARCODESHIFT")
                 .Member(m => m.BarcodeList).Name("BARCODE_LIST")
