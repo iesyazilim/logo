@@ -51,20 +51,30 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual Nullable<decimal> TotalVat { get; set; }
         public virtual Nullable<decimal> TotalGross { get; set; }
         public virtual Nullable<decimal> TotalNet { get; set; }
-        public virtual Nullable<short> Einvoice { get; set; }
-        public virtual Nullable<short> EinvoiceType { get; set; }
-        public virtual string EinvoiceDriverName1 { get; set; }
-        public virtual string EinvoiceDriverSurname1 { get; set; }
-        public virtual string EinvoiceDriverTckno1 { get; set; }
-        public virtual string EinvoicePlateNum1 { get; set; }
-        public virtual string EinvoiceChassisNum1 { get; set; }
-        public virtual Nullable<short> EarchivedetrSendmod { get; set; }
-        public virtual Nullable<short> EarchivedetrIntpaymentType { get; set; }
-        public virtual string EarchivedetrDriverName1 { get; set; }
-        public virtual string EarchivedetrDriverSurname1 { get; set; }
-        public virtual string EarchivedetrDriverTckno1 { get; set; }
-        public virtual string EarchivedetrPlateNum1 { get; set; }
-        public virtual string EarchivedetrChassisNum1 { get; set; }
+        public virtual Nullable<short> EInvoice { get; set; }
+        public virtual Nullable<short> EInvoiceType { get; set; }
+        public virtual string EInvoiceDriverName1 { get; set; }
+        public virtual string EInvoiceDriverSurname1 { get; set; }
+        public virtual string EInvoiceDriverTckno1 { get; set; }
+        public virtual string EInvoicePlateNum1 { get; set; }
+        public virtual string EInvoiceChassisNum1 { get; set; }
+        public virtual string EInvoiceDriverName2 { get; set; }
+        public virtual string EInvoiceDriverSurname2 { get; set; }
+        public virtual string EInvoiceDriverTckno2 { get; set; }
+        public virtual string EInvoicePlateNum2 { get; set; }
+        public virtual string EInvoiceChassisNum2 { get; set; }
+        public virtual string EInvoiceDriverName3 { get; set; }
+        public virtual string EInvoiceDriverSurname3 { get; set; }
+        public virtual string EInvoiceDriverTckno3 { get; set; }
+        public virtual string EInvoicePlateNum3 { get; set; }
+        public virtual string EInvoiceChassisNum3 { get; set; }
+        public virtual Nullable<short> EArchivedetrSendmod { get; set; }
+        public virtual Nullable<short> EArchivedetrIntpaymentType { get; set; }
+        public virtual string EArchivedetrDriverName1 { get; set; }
+        public virtual string EArchivedetrDriverSurname1 { get; set; }
+        public virtual string EArchivedetrDriverTckno1 { get; set; }
+        public virtual string EArchivedetrPlateNum1 { get; set; }
+        public virtual string EArchivedetrChassisNum1 { get; set; }
         public virtual string VatExceptReason { get; set; }
         public virtual string VatExceptCode { get; set; }
         public virtual Nullable<decimal> RcRate { get; set; }
@@ -130,8 +140,9 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual Nullable<DateTime> ShipDate { get; set; }
         public virtual Nullable<int> ShipTime { get; set; }
         public virtual Nullable<int> DocTime { get; set; }
-        public virtual Nullable<short> Edespatch { get; set; }
-        public virtual Nullable<short> EdespatchStatus { get; set; }
+        public virtual Nullable<short> EDespatch { get; set; }
+        public virtual Nullable<short> EDespatchProfileId { get; set; }
+        public virtual Nullable<short> EDespatchStatus { get; set; }
         public virtual Nullable<short> AutofillSlDetails { get; set; }
         public virtual Nullable<int> MainMfReference { get; set; }
         public virtual Nullable<int> MainMfSiteId { get; set; }
