@@ -42,7 +42,8 @@ namespace Ies.Logo.DataType.PriceCards.ItemSale
                 .Member(m => m.Definition).Name("DEFINITION")
                 .Member(m => m.Branch).Name("BRANCH")
                 .Member(m => m.AllDivision).Name("ALL_DIVISIONS")
-                .Member(m => m.Divisions).Name("DIVISION_LIST");
+                .Member(m => m.Divisions).Name("DIVISION_LIST")
+                .Member(m => m.Currency).Name("CURRENCY");
         }
     }
 }
