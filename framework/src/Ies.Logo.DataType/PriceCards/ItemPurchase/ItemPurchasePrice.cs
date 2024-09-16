@@ -27,8 +27,9 @@ namespace Ies.Logo.DataType.PriceCards.ItemPurchase
         public virtual short? Active { get; set; }
         public virtual short? Branch { get; set; }
         public virtual short? AllDivision { get; set; }
-        public virtual int? Currency {  get; set; }
+        public virtual int? Currency { get; set; }
         public virtual int? OrderNr { get; set; }
+        public virtual int? Priority { get; set; }
         #region SubClasses
         public virtual List<DivisionStr> Divisions { get; set; }
         #endregion
