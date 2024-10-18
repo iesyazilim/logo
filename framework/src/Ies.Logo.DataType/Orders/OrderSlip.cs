@@ -74,6 +74,7 @@ namespace Ies.Logo.DataType.Orders
         public virtual Nullable<int> DeductionPart1 { get; set; }
         public virtual Nullable<int> DeductionPart2 { get; set; }
         public virtual string CampaignCode { get; set; }
+        public virtual string Itext { get; set; }
 
         #region Implementation
         public virtual string AuthCode { get; set; }
