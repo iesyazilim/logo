@@ -90,6 +90,7 @@ namespace Ies.Logo.DataType.Orders
                 .Member(m => m.PaymentList).Name("PAYMENT_LIST")
                 .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
                 .Member(m => m.DemandPeggings).Name("DEMANDPEGGINGS")
+                .Member(m => m.Itext).Name("ITEXT")
                 ;
         }
     }
