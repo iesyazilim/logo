@@ -19,7 +19,7 @@ namespace Ies.Logo.DataType.Orders
         public virtual Nullable<decimal> Total { get; set; }
         public virtual Nullable<decimal> DiscountRate { get; set; }
         public virtual Nullable<decimal> CostDistr { get; set; }
-        public virtual string DiscountDistr { get; set; }
+        public virtual Nullable<decimal> DiscountDistr { get; set; }
         public virtual Nullable<decimal> ExpenseDistr { get; set; }
         public virtual Nullable<decimal> PromotionDistr { get; set; }
         public virtual Nullable<decimal> VatRate { get; set; }
