@@ -31,7 +31,7 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<decimal> TcXrate { get; set; }
         public virtual Nullable<decimal> RcXrate { get; set; }
         public virtual Nullable<decimal> CostDistr { get; set; }
-        public virtual string DiscountDistr { get; set; }
+        public virtual Nullable<decimal> DiscountDistr { get; set; }
         public virtual Nullable<decimal> ExpenseDistr { get; set; }
         public virtual Nullable<decimal> PromotionDistr { get; set; }
         public virtual Nullable<decimal> DiscountRate { get; set; }
