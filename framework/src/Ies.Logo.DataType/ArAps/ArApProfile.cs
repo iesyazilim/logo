@@ -278,6 +278,8 @@ namespace Ies.Logo.DataType.ArAps
                  .Member(m => m.IsForeign).Name("ISFOREIGN")
                  .Member(m => m.PostLabel).Name("POST_LABEL")
                  .Member(m => m.SenderLabel).Name("SENDER_LABEL")
+                 .Member(m => m.PostLabelDispatch).Name("POST_LABEL_CODE_DESP")
+                 .Member(m => m.SenderLabelDispatch).Name("SENDER_LABEL_CODE_DESP")
                  .Member(m => m.Name).Name("NAME")
                  .Member(m => m.Surname).Name("SURNAME")
                  .Member(m => m.LabelInfo).Name("LABEL_INFO")
