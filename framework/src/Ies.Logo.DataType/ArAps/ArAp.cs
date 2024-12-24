@@ -263,6 +263,8 @@ namespace Ies.Logo.DataType.ArAps
         public virtual Nullable<short> IsForeign { get; set; }
         public virtual string PostLabel { get; set; }
         public virtual string SenderLabel { get; set; }
+        public virtual string PostLabelDispatch { get; set; }
+        public virtual string SenderLabelDispatch { get; set; }
         public virtual string Name { get; set; }
         public virtual string Surname { get; set; }
         public virtual Nullable<short> LabelInfo { get; set; }
