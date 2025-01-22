@@ -125,6 +125,7 @@ namespace Ies.Logo.DataType.MaterialSlips
                 .Member(m => m.Reltransfcref).Name("RELTRANSFCREF")
                 .Member(m => m.Fromtransfer).Name("FROMTRANSFER")
                 .Member(m => m.Status).Name("STATUS")
+                .Member(m => m.DestStatus).Name("DEST_STATUS")
                 .Member(m => m.LocControlOff).Name("LOC_CONTROL_OFF")
                 .Member(m => m.CancelAutoGlProc).Name("CANCEL_AUTO_GL_PROC")
                 .Member(m => m.EbookDocdate).Name("EBOOK_DOCDATE")
