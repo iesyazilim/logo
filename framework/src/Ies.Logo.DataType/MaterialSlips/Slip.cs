@@ -114,6 +114,7 @@ namespace Ies.Logo.DataType.MaterialSlips
         public virtual Nullable<int> Reltransfcref { get; set; }
         public virtual Nullable<short> Fromtransfer { get; set; }
         public virtual Nullable<int> Status { get; set; }
+        public virtual Nullable<int> DestStatus { get; set; }
         public virtual Nullable<short> LocControlOff { get; set; }
         public virtual Nullable<short> CancelAutoGlProc { get; set; }
         public virtual Nullable<DateTime> EbookDocdate { get; set; }
