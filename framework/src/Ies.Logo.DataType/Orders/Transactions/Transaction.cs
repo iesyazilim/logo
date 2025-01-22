@@ -89,6 +89,7 @@ namespace Ies.Logo.DataType.Orders
         public virtual Nullable<int> Prclisttype { get; set; }
         public virtual Nullable<int> DeductionPart1 { get; set; }
         public virtual Nullable<int> DeductionPart2 { get; set; }
+        public virtual Nullable<int> ParentLineRef { get; set; }
         public virtual string ProducerCode { get; set; }
         public virtual string Guid { get; set; }
 

@@ -110,6 +110,7 @@ namespace Ies.Logo.DataType.Orders
                 .Member(m => m.Details).Name("DETAILS")
                 .Member(m => m.CampaingInfos).Name("CAMPAIGN_INFOS")
                 .Member(m => m.DefnFlds).Name("DEFNFLDS")
+                .Member(m => m.ParentLineRef).Name("PARENTLNREF")
                 ;
         }
     }
