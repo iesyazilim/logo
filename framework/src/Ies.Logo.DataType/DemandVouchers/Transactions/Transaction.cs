@@ -34,6 +34,7 @@ namespace Ies.Logo.DataType.DemandVouchers
         public virtual string UnitCode{ get; set; }
         public virtual Nullable<int> OrdPegUse{ get; set; }
         public virtual Nullable<int> CrossAccRef{ get; set; }
+        public virtual Nullable<int> CenterRef{ get; set; }
         public virtual string Guid{ get; set; }
         public virtual Nullable<short> PrCurr{ get; set; }
         public virtual Nullable<decimal> PrPrice{ get; set; }
