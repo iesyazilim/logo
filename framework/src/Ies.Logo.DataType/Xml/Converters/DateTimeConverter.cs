@@ -16,8 +16,13 @@ namespace Ies.Logo.DataType.Xml.Converters
             return false;
         }
 
-        public DateTime Parse(string data) => DateTime.ParseExact(data.Replace("/", "."), "dd.MM.yyyy", CultureInfo.InvariantCulture); 
+        public DateTime Parse(string data) 
+        {
+            if (DateTime.TryParseExact(data.Replace("/", "."), "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt))
+                return dt;
+            else return new DateTime();
+        }
 
-        public string Format(DateTime instance)=> instance.ToString("dd.MM.yyyy");
+        public string Format(DateTime instance) => instance.ToString("dd.MM.yyyy");
     }
 }
