@@ -35,6 +35,7 @@ namespace Ies.Logo.DataType.DemandVouchers
               .Member(m => m.MpsCode).Name("MPS_CODE")
               .Member(m => m.LineCnt).Name("LINE_CNT")
               .Member(m => m.Itext).Name("ITEXT")
+              .Member(m => m.SourceIndex).Name("SOURCE_INDEX")
               .Member(m => m.Transactions).Name("TRANSACTIONS")
               ;
         }
