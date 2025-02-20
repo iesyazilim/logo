@@ -26,6 +26,8 @@ namespace Ies.Logo.DataType.Items
         public virtual Nullable<int> ClassType { get; set; }
         public virtual Nullable<int> UsefPurchasing { get; set; }
         public virtual Nullable<int> UsefSales { get; set; }
+        public virtual Nullable<int> AddTaxSalesBrws { get; set; } = 1;
+        public virtual Nullable<int> AddTaxPurchBrws { get; set; } = 1;
         public virtual Nullable<int> UsefMm { get; set; }
         public virtual Nullable<decimal> Vat { get; set; }
         public virtual Nullable<decimal> SelVat { get; set; }
