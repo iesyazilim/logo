@@ -171,6 +171,8 @@ namespace Ies.Logo.DataType.Items
                 .Member(m => m.VrntCodeTemps).Name("VRNTCODETEMPS")
                 .Member(m => m.VrntExcpTemps).Name("VRNTEXCPTEMPS")
                 .Member(m => m.Alternatives).Name("ALTERNATIVES")
+                .Member(m => m.AddTaxPurchBrws).Name("ADDTAXPURCHBRWS")
+                .Member(m => m.AddTaxSalesBrws).Name("ADDTAXSALESBRWS")
                 ;
         }
     }
