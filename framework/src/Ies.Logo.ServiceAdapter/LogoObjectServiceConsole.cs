@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Ies.Logo.Core.Configuration;
+using System;
 using System.Threading.Tasks;
-using Ies.Logo.Core.Configuration;
 
 namespace Ies.Logo.ServiceAdapter
 {
@@ -8,7 +8,7 @@ namespace Ies.Logo.ServiceAdapter
     {
         public LogoObjectServiceConsole(ILogoObjectServiceConfiguration configuration, IParameterConfiguration parameter) : base(configuration, parameter) { }
 
-        public override Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null)
+        public override Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null, bool overrideParameterWithNull = false)
         {
             CheckDataType(xml, ref dataType);
             Console.WriteLine($"AppendDataObject isteği DataType={dataType}\nXml={xml}");

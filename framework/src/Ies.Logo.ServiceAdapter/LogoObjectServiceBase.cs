@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.Core.Configuration;
 using Ies.Logo.Core.Extensions;
+using System;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Ies.Logo.ServiceAdapter
 {
@@ -26,9 +26,15 @@ namespace Ies.Logo.ServiceAdapter
             }
         }
 
-        public string CheckParamterXml(Parameter parameter, string parameterXml) => parameter != null ? parameter.Serialize() : parameterXml;
+        public string CheckParamterXml(Parameter parameter, string parameterXml, bool overrideParameterWithNull)
+        {
+            if (overrideParameterWithNull)
+                return string.Empty;
 
-        public abstract Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null);
+            return parameter != null ? parameter.Serialize() : parameterXml;
+        }
+
+        public abstract Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null, bool overrideParameterWithNull = false);
         public abstract Task DeleteDataObjectAsync(int dataType, int dataReference);
         public abstract Task<string> ReadDataObjectAsync(int dataType, int dataReference);
     }
