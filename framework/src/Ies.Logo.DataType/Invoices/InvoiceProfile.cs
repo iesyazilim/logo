@@ -227,6 +227,8 @@ namespace Ies.Logo.DataType.Invoices
                 .Member(m => m.EarchivedetrInvoiceref).Name("EARCHIVEDETR_INVOICEREF")
                 .Member(m => m.EarchivedetrInstallmentNumber).Name("EARCHIVEDETR_INSTALLMENTNUMBER")
                 .Member(m => m.EarchivedetrEarchiveStatus).Name("EARCHIVEDETR_EARCHIVESTATUS")
+                .Member(m => m.EarchivedetrEarchiveStatusOld).Name("EARCHIVEDETR_EARCHIVESTATUSOLD")
+                .Member(m => m.EarchivedetrOldEarchiveStatus).Name("EARCHIVEDETR_OLDEARCHIVESTATUS")
                 .Member(m => m.EarchivedetrSendmod).Name("EARCHIVEDETR_SENDMOD")
                 .Member(m => m.EarchivedetrIntsaleaddr).Name("EARCHIVEDETR_INTSALESADDR")
                 .Member(m => m.EarchivedetrIntpaymentdesc).Name("EARCHIVEDETR_INTPAYMENTDESC")
