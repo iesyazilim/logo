@@ -12,7 +12,7 @@ namespace Ies.Logo.DataType.SdTransactions
         public IConfigurationContainer Get(IConfigurationContainer parameter)
         {
             var configuration = parameter.Type<SdTransactionWithInvoice>();
-            
+
             Configure(configuration);
 
             return configuration;
@@ -23,7 +23,6 @@ namespace Ies.Logo.DataType.SdTransactions
             SdTransactionProfile.Configure(typeConfigurations);
 
             typeConfigurations
-                .Member(m => m.AttachmentInvoice).Ignore()
                 .Member(m => m.AttachmentInvoices).Name("ATTACHMENT_INVOICE")
                 ;
         }
