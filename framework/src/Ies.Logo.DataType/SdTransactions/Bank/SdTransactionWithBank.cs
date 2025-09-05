@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.DataType.BankVouchers;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.SdTransactions
 {
@@ -10,7 +10,6 @@ namespace Ies.Logo.DataType.SdTransactions
     {
         public static new LogoObjectType XmlRoot => SdTransaction.XmlRoot;
 
-        public List<Transaction> AttachmentBanks => new List<Transaction> { AttachmentBank };
-        public virtual Transaction AttachmentBank { get; set; }
+        public List<Transaction> AttachmentBanks { get; set; }
     }
 }
