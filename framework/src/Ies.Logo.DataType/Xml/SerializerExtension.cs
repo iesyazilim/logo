@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Linq;
 using ExtendedXmlSerializer;
 using Ies.Logo.DataType.Infrastructure;
+using Ies.Logo.DataType.ItemCharacteristics;
 
 namespace Ies.Logo.DataType.Xml
 {
@@ -24,6 +25,14 @@ namespace Ies.Logo.DataType.Xml
                                    .Insert(0, "<?xml version=\"1.0\" encoding=\"ISO-8859-9\"?>\n");
             }
 
+
+            /*
+             * CHARACTERISTIC_CODES xml'i içindeki VALUES tagının child'ı da VALUES olduğu için hata alıyoruz.
+             * Child VALUE'lar VALUES olarak düzeltilip addorupdate isteği atılıyor
+             */
+            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(CharacteristicCode))
+                return Serializer.Serialize(new List<T> { data }).Replace("<VALUE>", "<VALUES>").Replace("</VALUE>", "</VALUES>");
+
             return Serializer.Serialize(new List<T> { data });
         }
         public static string Serialize<T>(this List<T> data, bool autoSet = true) where T : ILogoBase
@@ -38,6 +47,14 @@ namespace Ies.Logo.DataType.Xml
                 return doc.ToString().Insert(0, "<?xml version=\"1.0\" encoding=\"ISO-8859-9\"?>\n");
             }
 
+
+            /*
+             * CHARACTERISTIC_CODES xml'i içindeki VALUES tagının child'ı da VALUES olduğu için hata alıyoruz.
+             * Child VALUE'lar VALUES olarak düzeltilip addorupdate isteği atılıyor
+             */
+            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(CharacteristicCode))
+                return Serializer.Serialize(data).Replace("<VALUE>", "<VALUES>").Replace("</VALUE>", "</VALUES>");
+
             return Serializer.Serialize(data);
         }
         public static T Deserialize<T>(this string xml) where T : ILogoBase
@@ -48,6 +65,18 @@ namespace Ies.Logo.DataType.Xml
             {
                 var doc = XDocument.Parse(xml);
                 return Serializer.Get<T>().Deserialize<T>(doc.Root.FirstNode.ToString());
+            }
+
+            /*
+             * CHARACTERISTIC_CODES xml'i içindeki VALUES tagının child'ı da VALUES olduğu için hata alıyoruz.
+             * Child VALUES'lar VALUE olarak düzeltilip get isteği atılıyor
+             */
+            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(CharacteristicCode))
+            {
+                var startIndex = xml.IndexOf("<VALUES>") + "<VALUES>".Length;
+                var closedIndex = xml.LastIndexOf("</VALUES>");
+                var str = xml.Substring(startIndex, closedIndex - startIndex).Replace("<VALUES>", "<VALUE>").Replace("</VALUES>", "</VALUE>");
+                xml = string.Concat(xml.Substring(0, startIndex), str, xml.Substring(closedIndex));
             }
 
             return Serializer.Get<T>().Deserialize<List<T>>(xml).FirstOrDefault();
