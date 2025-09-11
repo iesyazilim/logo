@@ -24,8 +24,7 @@ namespace Ies.Logo.DataType.BankVouchers
 
             typeConfigurations.Member(m => m.AttachmentInvoices).Name("ATTACHMENT_INVOICE");
             typeConfigurations.Member(m => m.BnAccCode).Name("BNACCCODE");
-            typeConfigurations.Type<Invoices.Transaction>().Name("INVOICE_TRANSACTION");
-
+            //typeConfigurations.Type<Invoices.Transaction>().Name("INVOICE_TRANSACTION");
         }
     }
 }
