@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.DataType.Auditing;
+﻿using Ies.Logo.DataType.Auditing;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.CqpnRolls
 {
@@ -85,6 +85,7 @@ namespace Ies.Logo.DataType.CqpnRolls
         public virtual Nullable<int> Claccref { get; set; }
         public virtual Nullable<int> Clcostref { get; set; }
         public virtual Nullable<int> OfferReference { get; set; }
+        public virtual string Guid { get; set; }
 
         #region Implementation
         public virtual string AuthCode { get; set; }

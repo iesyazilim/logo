@@ -77,14 +77,16 @@ namespace Ies.Logo.DataType.Xml
 
         /// <summary>
         /// CHARACTERISTIC_CODES xml'i içindeki VALUES tagının child'ı da VALUES olduğu için hata alıyoruz. Child VALUES'lar VALUE olarak düzeltilip get isteği atılıyor
-        /// BankVoucherWithInvoice: BankVoucher içindeki TRANSACTION tagı ile Invoice içindeki TRANSACTION tagı karıştığı için,INVOICE_TRANSACTION olarak düzeltilip get isteği atılıyor
+        /// BankVoucher: BankVoucher içindeki TRANSACTION tagı ile Invoice içindeki TRANSACTION tagı karıştığı için,BANK_TRANSACTION olarak düzeltilip get isteği atılıyor
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="xml"></param>
         /// <returns></returns>
         private static string XmlStringHandlingDeserialize<T>(string xml)
         {
-            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(CharacteristicCode))
+            var propertyDeclaringName = typeof(T).GetProperty("XmlRoot").DeclaringType.Name;
+
+            if (propertyDeclaringName == nameof(CharacteristicCode))
             {
                 var startIndex = xml.IndexOf("<VALUES>") + "<VALUES>".Length;
                 var closedIndex = xml.LastIndexOf("</VALUES>");
@@ -92,24 +94,34 @@ namespace Ies.Logo.DataType.Xml
                 xml = string.Concat(xml.Substring(0, startIndex), str, xml.Substring(closedIndex));
             }
 
-            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(BankVoucherWithInvoice))
+            if (propertyDeclaringName == nameof(BankVoucherWithInvoice) || propertyDeclaringName == nameof(BankVoucherWithRoll))
             {
-                var openValue = "<ATTACHMENT_INVOICE>";
-                var closeValue = "</ATTACHMENT_INVOICE>";
+                var prop = propertyDeclaringName == nameof(BankVoucherWithInvoice) ? "ATTACHMENT_INVOICE" : "ATTACHMENT_ROLL";
+
+                var openValue = $"<{prop}>";
+                var closeValue = $"</{prop}>";
                 var startIndex = xml.IndexOf(openValue) + openValue.Length;
                 var closedIndex = xml.LastIndexOf(closeValue);
                 var str = xml.Substring(startIndex, closedIndex - startIndex);
-                str = str.Replace("<TRANSACTION>", "<INVOICE_TRANSACTION>").Replace("</TRANSACTION>", "</INVOICE_TRANSACTION>");
 
-                xml = string.Concat(xml.Substring(0, startIndex), str, xml.Substring(closedIndex));
+                var before = xml.Substring(0, startIndex);
+                var after = xml.Substring(closedIndex);
+
+                before = before.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
+                after = after.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
+
+                xml = string.Concat(before, str, after);
             }
+
+            if (propertyDeclaringName == nameof(BankVoucher))
+                xml = xml.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
 
             return xml;
         }
 
         /// <summary>
         /// CHARACTERISTIC_CODES xml'i içindeki VALUES tagının child'ı da VALUES olduğu için hata alıyoruz. Child VALUE'lar VALUES olarak düzeltilip addorupdate isteği atılıyor
-        /// BankVoucherWithInvoice: BankVoucher içindeki TRANSACTION tagı ile Invoice içindeki TRANSACTION tagı karıştığı için,INVOICE_TRANSACTION olarak düzeltilip addorupdate isteği atılıyor
+        /// BankVoucher: BankVoucher içindeki TRANSACTION tagı ile Invoice içindeki TRANSACTION tagı karıştığı için,BANK_TRANSACTION olarak düzeltilip addorupdate isteği atılıyor
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
@@ -117,11 +129,13 @@ namespace Ies.Logo.DataType.Xml
         /// <returns></returns>
         private static string XmlStringHandlingSerialize<T>(string xml)
         {
-            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(CharacteristicCode))
+            var propertyDeclaringName = typeof(T).GetProperty("XmlRoot").DeclaringType.Name;
+
+            if (propertyDeclaringName == nameof(CharacteristicCode))
                 xml = xml.Replace("<VALUE>", "<VALUES>").Replace("</VALUE>", "</VALUES>");
 
-            if (typeof(T).GetProperty("XmlRoot").DeclaringType.Name == nameof(BankVoucherWithInvoice))
-                xml = xml.Replace("<INVOICE_TRANSACTION>", "<TRANSACTION>").Replace("</INVOICE_TRANSACTION>", "</TRANSACTION>");
+            if (propertyDeclaringName == nameof(BankVoucherWithInvoice) || propertyDeclaringName == nameof(BankVoucher) || propertyDeclaringName == nameof(BankVoucherWithRoll))
+                xml = xml.Replace("<BANK_TRANSACTION>", "<TRANSACTION>").Replace("</BANK_TRANSACTION>", "</TRANSACTION>");
 
             return xml;
         }

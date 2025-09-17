@@ -103,6 +103,7 @@ namespace Ies.Logo.DataType.CqpnRolls
                 .Member(m => m.OfferReference).Name("OFFER_REFERENCE")
                 .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
                 .Member(m => m.StatusList).Name("STATUS_LIST")
+                .Member(m => m.Guid).Name("GUID")
                 ;
         }
     }
