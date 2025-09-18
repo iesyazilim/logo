@@ -81,6 +81,7 @@ namespace Ies.Logo.DataType.CqpnRolls
                 .Member(m => m.DocDate).Name("DOC_DATE")
                 .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
                 .Member(m => m.Transactions).Name("TRANSACTIONS")
+                .Member(m => m.BankTransactions).Name("BANK_TRANSACTIONS")
                 ;
         }
     }

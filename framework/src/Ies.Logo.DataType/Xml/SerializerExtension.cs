@@ -1,5 +1,6 @@
 ﻿using ExtendedXmlSerializer;
 using Ies.Logo.DataType.BankVouchers;
+using Ies.Logo.DataType.CqpnRolls;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.DataType.ItemCharacteristics;
 using System.Collections.Generic;
@@ -113,6 +114,22 @@ namespace Ies.Logo.DataType.Xml
                 xml = string.Concat(before, str, after);
             }
 
+            if (propertyDeclaringName == nameof(CqpnRoll))
+            {
+                var prop = "BANK_TRANSACTIONS";
+                var openValue = $"<{prop}>";
+                var closeValue = $"</{prop}>";
+                var startIndex = xml.IndexOf(openValue) + openValue.Length;
+                var closedIndex = xml.LastIndexOf(closeValue);
+
+                if (closedIndex > 0)
+                {
+                    var str = xml.Substring(startIndex, closedIndex - startIndex);
+                    str = str.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
+                    xml = string.Concat(xml.Substring(0, startIndex), str, xml.Substring(closedIndex));
+                }
+            }
+
             if (propertyDeclaringName == nameof(BankVoucher))
                 xml = xml.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
 
@@ -134,7 +151,7 @@ namespace Ies.Logo.DataType.Xml
             if (propertyDeclaringName == nameof(CharacteristicCode))
                 xml = xml.Replace("<VALUE>", "<VALUES>").Replace("</VALUE>", "</VALUES>");
 
-            if (propertyDeclaringName == nameof(BankVoucherWithInvoice) || propertyDeclaringName == nameof(BankVoucher) || propertyDeclaringName == nameof(BankVoucherWithRoll))
+            if (propertyDeclaringName == nameof(BankVoucherWithInvoice) || propertyDeclaringName == nameof(BankVoucher) || propertyDeclaringName == nameof(BankVoucherWithRoll) || propertyDeclaringName == nameof(CqpnRoll))
                 xml = xml.Replace("<BANK_TRANSACTION>", "<TRANSACTION>").Replace("</BANK_TRANSACTION>", "</TRANSACTION>");
 
             return xml;
