@@ -1,5 +1,4 @@
-﻿using ExtendedXmlSerializer.Configuration;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.PriceCards.Divisions;
 using System;
@@ -30,6 +29,11 @@ namespace Ies.Logo.DataType.PriceCards.ItemPurchase
         public virtual int? Currency { get; set; }
         public virtual int? OrderNr { get; set; }
         public virtual int? Priority { get; set; }
+        public virtual string ArpAuxCode { get; set; }
+        public virtual string ArpAuxCode2 { get; set; }
+        public virtual string ArpAuxCode3 { get; set; }
+        public virtual string ArpAuxCode4 { get; set; }
+        public virtual string ArpAuxCode5 { get; set; }
         #region SubClasses
         public virtual List<DivisionStr> Divisions { get; set; }
         #endregion

@@ -45,7 +45,12 @@ namespace Ies.Logo.DataType.PriceCards.ItemSale
                 .Member(m => m.Divisions).Name("DIVISION_LIST")
                 .Member(m => m.Currency).Name("CURRENCY")
                 .Member(m => m.OrderNr).Name("ORDER_NR")
-                .Member(m => m.Priority).Name("PRIORITY");
+                .Member(m => m.Priority).Name("PRIORITY")
+                .Member(m => m.ArpAuxCode).Name("ARP_AUXCODE")
+                .Member(m => m.ArpAuxCode2).Name("ARP_AUXCODE2")
+                .Member(m => m.ArpAuxCode3).Name("ARP_AUXCODE3")
+                .Member(m => m.ArpAuxCode4).Name("ARP_AUXCODE4")
+                .Member(m => m.ArpAuxCode5).Name("ARP_AUXCODE5");
         }
     }
 }
