@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.DataType.Infrastructure;
+﻿using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.DataType.QcList;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.SlDetails
 {
@@ -24,11 +24,12 @@ namespace Ies.Logo.DataType.SlDetails
         public virtual Nullable<decimal> RemQuantity { get; set; }
         public virtual Nullable<decimal> LuRemQuantity { get; set; }
         public virtual Nullable<DateTime> DateExpired { get; set; }
+        public virtual Nullable<DateTime> TibbiCihazUrtDate { get; set; }
         public virtual Nullable<int> RateScore { get; set; }
         public virtual Nullable<decimal> OutCost { get; set; }
         public virtual Nullable<decimal> TcOutCost { get; set; }
         public virtual Nullable<decimal> PrcdifCost { get; set; }
-        public virtual Nullable<decimal> TcPrcdifCost  { get; set; }
+        public virtual Nullable<decimal> TcPrcdifCost { get; set; }
         public virtual Nullable<short> SlQcOk { get; set; }
         public virtual Nullable<short> SourceType { get; set; }
         public virtual Nullable<int> WfStatus { get; set; }
