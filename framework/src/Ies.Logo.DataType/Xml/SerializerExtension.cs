@@ -134,8 +134,8 @@ namespace Ies.Logo.DataType.Xml
             if (propertyDeclaringName == nameof(BankVoucher))
                 xml = xml.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
 
-            if (propertyDeclaringName == nameof(SdTransaction))
-                xml = xml.Replace("<ATTACHMENT_BANK>", "<TRANSACTION>").Replace("</ATTACHMENT_BANK>", "</TRANSACTION>");
+            if (propertyDeclaringName == nameof(SdTransactionWithBank))
+                xml = xml.Replace("<BANK_TRANSACTION>", "<TRANSACTION>").Replace("</BANK_TRANSACTION>", "</TRANSACTION>");
 
             return xml;
         }
