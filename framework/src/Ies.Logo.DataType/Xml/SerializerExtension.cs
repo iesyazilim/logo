@@ -131,11 +131,8 @@ namespace Ies.Logo.DataType.Xml
                 }
             }
 
-            if (propertyDeclaringName == nameof(BankVoucher))
+            if (propertyDeclaringName == nameof(BankVoucher) || propertyDeclaringName == nameof(SdTransactionWithBank))
                 xml = xml.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
-
-            if (propertyDeclaringName == nameof(SdTransactionWithBank))
-                xml = xml.Replace("<BANK_TRANSACTION>", "<TRANSACTION>").Replace("</BANK_TRANSACTION>", "</TRANSACTION>");
 
             return xml;
         }
@@ -155,7 +152,7 @@ namespace Ies.Logo.DataType.Xml
             if (propertyDeclaringName == nameof(CharacteristicCode))
                 xml = xml.Replace("<VALUE>", "<VALUES>").Replace("</VALUE>", "</VALUES>");
 
-            if (propertyDeclaringName == nameof(BankVoucherWithInvoice) || propertyDeclaringName == nameof(BankVoucher) || propertyDeclaringName == nameof(BankVoucherWithRoll) || propertyDeclaringName == nameof(CqpnRoll))
+            if (propertyDeclaringName == nameof(BankVoucherWithInvoice) || propertyDeclaringName == nameof(BankVoucher) || propertyDeclaringName == nameof(BankVoucherWithRoll) || propertyDeclaringName == nameof(CqpnRoll) || propertyDeclaringName == nameof(SdTransactionWithBank))
                 xml = xml.Replace("<BANK_TRANSACTION>", "<TRANSACTION>").Replace("</BANK_TRANSACTION>", "</TRANSACTION>");
 
             return xml;
