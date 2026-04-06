@@ -3,6 +3,7 @@ using Ies.Logo.DataType.BankVouchers;
 using Ies.Logo.DataType.CqpnRolls;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.DataType.ItemCharacteristics;
+using Ies.Logo.DataType.SdTransactions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
@@ -132,6 +133,9 @@ namespace Ies.Logo.DataType.Xml
 
             if (propertyDeclaringName == nameof(BankVoucher))
                 xml = xml.Replace("<TRANSACTION>", "<BANK_TRANSACTION>").Replace("</TRANSACTION>", "</BANK_TRANSACTION>");
+
+            if (propertyDeclaringName == nameof(SdTransaction))
+                xml = xml.Replace("<ATTACHMENT_BANK>", "<TRANSACTION>").Replace("</ATTACHMENT_BANK>", "</TRANSACTION>");
 
             return xml;
         }
