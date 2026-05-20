@@ -23,6 +23,9 @@ namespace Ies.Logo.Core.Configuration
         PagedQueryResponse<T> QueryPagedRequest<T>(string query, string parameters = null);
         Task<PagedQueryResponse<T>> QueryPagedRequestAsync<T>(string query, string parameters = null);
 
+        MultipleQueryReader QueryMultiple(string query, string parameters = null);
+        Task<MultipleQueryReader> QueryMultipleAsync(string query, string parameters = null);
+
         int Execute(string query, string parameters = null);
         Task<int> ExecuteAsync(string query, string parameters = null);
     }
