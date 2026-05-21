@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
+using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.DemandVouchers
 {
@@ -34,6 +35,7 @@ namespace Ies.Logo.DataType.DemandVouchers
 
         #region SubClasses
         public virtual List<Transaction> Transactions { get; set; }
+        public virtual List<DefnFld> DefnFlds { get; set; }
         #endregion
     }
 }
