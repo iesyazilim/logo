@@ -37,6 +37,7 @@ namespace Ies.Logo.DataType.DemandVouchers
               .Member(m => m.Itext).Name("ITEXT")
               .Member(m => m.SourceIndex).Name("SOURCE_INDEX")
               .Member(m => m.Transactions).Name("TRANSACTIONS")
+              .Member(m => m.DefnFlds).Name("DEFNFLDSLIST")
               ;
         }
     }

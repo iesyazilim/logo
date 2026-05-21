@@ -12,7 +12,7 @@ namespace Ies.Logo.Core.Configuration
     ///   <item><see cref="Read{T}()"/> — cursor sırayla ilerler; SQL'deki SELECT sırasıyla aynı sırada çağrılmalı.</item>
     ///   <item><see cref="Read{T}(int)"/> — explicit index; sıra önemsiz, aynı set'i birden çok kez okuma da mümkün.</item>
     /// </list>
-    /// Tek satırlı sorgularda <c>reader.Read&lt;T&gt;().FirstOrDefault()</c> kullanın.
+    /// Tek satırlı sorgularda <c>reader.Read().FirstOrDefault()</c> kullanın.
     /// </summary>
     public class MultipleQueryReader
     {
