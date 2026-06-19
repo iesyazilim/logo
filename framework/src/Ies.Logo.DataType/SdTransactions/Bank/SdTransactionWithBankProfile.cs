@@ -12,7 +12,7 @@ namespace Ies.Logo.DataType.SdTransactions
         public IConfigurationContainer Get(IConfigurationContainer parameter)
         {
             var configuration = parameter.Type<SdTransactionWithBank>();
-            
+
             Configure(configuration);
 
             return configuration;
@@ -23,9 +23,7 @@ namespace Ies.Logo.DataType.SdTransactions
             SdTransactionProfile.Configure(typeConfigurations);
 
             typeConfigurations
-                .Member(m => m.AttachmentBank).Ignore()
-                .Member(m => m.AttachmentBanks).Name("ATTACHMENT_BANK")
-                ;
+                .Member(m => m.AttachmentBanks).Name("ATTACHMENT_BANK");
         }
     }
 }

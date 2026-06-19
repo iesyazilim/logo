@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using Ies.Logo.DataType.Infrastructure;
+﻿using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.DataType.Xml;
 using Ies.Logo.ServiceAdapter;
+using System.Threading.Tasks;
 
 namespace Ies.Logo.Repositories
 {
@@ -14,7 +14,7 @@ namespace Ies.Logo.Repositories
             LogoObjectService = logoObjectService;
         }
 
-        public virtual int AddOrUpdate(TEntity entity, bool autoSet = true, Parameter parameter = null) => LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName(), parameter).GetAwaiter().GetResult();
+        public virtual int AddOrUpdate(TEntity entity, bool autoSet = true, Parameter parameter = null, bool overrideParameterWithNull = false) => LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName(), parameter, overrideParameterWithNull).GetAwaiter().GetResult();
         public virtual void Delete(int id) => LogoObjectService.DeleteDataObjectAsync((int)new TEntity().GetRootElementName(), id).GetAwaiter().GetResult();
         public virtual TEntity Get(int id)
         {
@@ -23,7 +23,7 @@ namespace Ies.Logo.Repositories
         }
         public string GetXml(int id) => LogoObjectService.ReadDataObjectAsync((int)new TEntity().GetRootElementName(), id).GetAwaiter().GetResult();
 
-        public async virtual Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null) => await LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName(), parameter);
+        public async virtual Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null, bool overrideParameterWithNull = false) => await LogoObjectService.AppendDataObjectAsync(entity.Serialize(autoSet), (int)entity.GetRootElementName(), parameter, overrideParameterWithNull);
         public async virtual Task DeleteAsync(int id) => await LogoObjectService.DeleteDataObjectAsync((int)new TEntity().GetRootElementName(), id);
         public async virtual Task<TEntity> GetAsync(int id)
         {

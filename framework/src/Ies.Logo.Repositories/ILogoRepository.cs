@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using Ies.Logo.DataType.Infrastructure;
+﻿using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.ServiceAdapter;
+using System.Threading.Tasks;
 
 namespace Ies.Logo.Repositories
 {
@@ -10,12 +10,12 @@ namespace Ies.Logo.Repositories
     {
         TEntity Get(int id);
         string GetXml(int id);
-        int AddOrUpdate(TEntity entity, bool autoSet = true, Parameter parameter = null);
+        int AddOrUpdate(TEntity entity, bool autoSet = true, Parameter parameter = null, bool overrideParameterWithNull = false);
         void Delete(int id);
 
         Task<TEntity> GetAsync(int id);
         Task<string> GetXmlAsync(int id);
-        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null);
+        Task<int> AddOrUpdateAsync(TEntity entity, bool autoSet = true, Parameter parameter = null, bool overrideParameterWithNull = false);
         Task DeleteAsync(int id);
     }
 }

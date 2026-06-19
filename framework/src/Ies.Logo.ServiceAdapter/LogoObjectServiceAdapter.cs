@@ -1,9 +1,9 @@
-﻿using System;
-using System.ServiceModel;
-using System.Threading.Tasks;
-using Ies.Logo.Core.Configuration;
+﻿using Ies.Logo.Core.Configuration;
 using Ies.Logo.Core.Extensions;
 using LogoObjectService;
+using System;
+using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace Ies.Logo.ServiceAdapter
 {
@@ -57,7 +57,7 @@ namespace Ies.Logo.ServiceAdapter
             return client;
         }
 
-        public async override Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null)
+        public async override Task<int> AppendDataObjectAsync(string xml, int dataType = -1, Parameter parameter = null, bool overrideParameterWithNull = false)
         {
             SvcClient client = CreateClient();
             CheckDataType(xml, ref dataType);
@@ -69,7 +69,7 @@ namespace Ies.Logo.ServiceAdapter
                 dataXML = xml,
                 dataType = dataType,
                 LbsLoadPass = Configuration.Lbsloadpass,
-                paramXML = CheckParamterXml(parameter, _parameterXml)
+                paramXML = CheckParamterXml(parameter, _parameterXml, overrideParameterWithNull)
             });
 
             if (result.status == 3)

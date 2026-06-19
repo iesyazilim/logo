@@ -59,6 +59,7 @@ namespace Ies.Logo.DataType.ArpVouchers
                 .Member(m => m.AffectCollatrl).Name("AFFECT_COLLATRL")
                 .Member(m => m.Grpfirmtrans).Name("GRPFIRMTRANS")
                 .Member(m => m.AffectRisk).Name("AFFECT_RISK")
+                .Member(m => m.AffectCost).Name("AFFECT_COST")
                 .Member(m => m.BatchNr).Name("BATCH_NR")
                 .Member(m => m.ApproveNr).Name("APPROVE_NR")
                 .Member(m => m.OrgLogoId).Name("ORGLOGOID")

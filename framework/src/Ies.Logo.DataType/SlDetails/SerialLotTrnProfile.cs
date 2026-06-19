@@ -42,6 +42,7 @@ namespace Ies.Logo.DataType.SlDetails
                 .Member(m => m.RemQuantity).Name("REM_QUANTITY")
                 .Member(m => m.LuRemQuantity).Name("LU_REM_QUANTITY")
                 .Member(m => m.DateExpired).Name("DATE_EXPIRED")
+                .Member(m => m.TibbiCihazUrtDate).Name("TIBBICIHAZURTDATE")
                 .Member(m => m.RateScore).Name("RATE_SCORE")
                 .Member(m => m.OutCost).Name("OUT_COST")
                 .Member(m => m.TcOutCost).Name("TC_OUT_COST")

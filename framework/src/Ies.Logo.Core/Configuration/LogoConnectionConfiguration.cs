@@ -150,6 +150,11 @@ namespace Ies.Logo.Core.Configuration
 
         #endregion
 
+        #region QueryMultiple
+        public MultipleQueryReader QueryMultiple(string query, string parameters = null) => new MultipleQueryReader(GetQueryMultiple(query, parameters));
+        public async Task<MultipleQueryReader> QueryMultipleAsync(string query, string parameters = null) => new MultipleQueryReader(await GetQueryMultipleAsync(query, parameters));
+        #endregion
+
         #region Execute
         public int Execute(string query, string parameters = null)
         {

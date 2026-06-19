@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.DataType.Invoices;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.SdTransactions
 {
@@ -10,7 +10,6 @@ namespace Ies.Logo.DataType.SdTransactions
     {
         public static new LogoObjectType XmlRoot => SdTransaction.XmlRoot;
 
-        public List<Invoice> AttachmentInvoices => new List<Invoice> { AttachmentInvoice };
-        public virtual Invoice AttachmentInvoice { get; set; }
+        public List<Invoice> AttachmentInvoices { get; set; }
     }
 }

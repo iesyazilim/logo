@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Dispatches;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.DataType.Payments;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.Invoices
 {
@@ -207,6 +207,8 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<int> EarchivedetrInvoiceref { get; set; }
         public virtual string EarchivedetrInstallmentNumber { get; set; }
         public virtual Nullable<int> EarchivedetrEarchiveStatus { get; set; }
+        public virtual Nullable<int> EarchivedetrEarchiveStatusOld { get; set; }
+        public virtual Nullable<int> EarchivedetrOldEarchiveStatus { get; set; }
         public virtual Nullable<int> EarchivedetrSendmod { get; set; }
         public virtual string EarchivedetrIntsaleaddr { get; set; }
         public virtual string EarchivedetrIntpaymentdesc { get; set; }

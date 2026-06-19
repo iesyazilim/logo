@@ -22,7 +22,7 @@ namespace Ies.Logo.DataType.BankVouchers
         public static void Configure<T>(ITypeConfiguration<T> typeConfigurations) where T : Transaction
         {
             typeConfigurations.Configure();
-            typeConfigurations.Name<T>("TRANSACTION");
+            typeConfigurations.Name<T>("BANK_TRANSACTION");
 
             typeConfigurations
                 .Member(m => m.Type).Name("TYPE")
@@ -126,6 +126,7 @@ namespace Ies.Logo.DataType.BankVouchers
                 .Member(m => m.CrcardPaytrref).Name("CRCARD_PAYTRREF")
                 .Member(m => m.DefnFldsList).Name("DEFNFLDSLIST")
                 .Member(m => m.PaymentList).Name("PAYMENT_LIST")
+                .Member(m => m.Guid).Name("GUID")
                 ;
         }
     }
