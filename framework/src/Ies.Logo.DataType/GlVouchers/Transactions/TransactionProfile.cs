@@ -72,6 +72,7 @@ namespace Ies.Logo.DataType.GlVouchers
                 .Member(m => m.InvoiceNo).Name("INVOICE_NO")
                 .Member(m => m.ClName).Name("CL_NAME")
                 .Member(m => m.TaxNr).Name("TAX_NR")
+                .Member(m => m.TCKNo).Name("TCKNO")
                 .Member(m => m.ForTaxDecl).Name("FOR_TAX_DECL")
                 .Member(m => m.DocDate).Name("DOC_DATE")
                 .Member(m => m.GlobalLineNo).Name("GLOBAL_LINE_NO")
