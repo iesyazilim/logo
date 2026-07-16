@@ -59,6 +59,8 @@ namespace Ies.Logo.DataType.MaterialSlips
         public virtual string Footnote2 { get; set; }
         public virtual string Footnote3 { get; set; }
         public virtual string Footnote4 { get; set; }
+        public virtual Nullable<short> TcCurr { get; set; }
+        public virtual Nullable<decimal> TcRate { get; set; }
         public virtual Nullable<decimal> RcRate { get; set; }
         public virtual Nullable<decimal> RcNet { get; set; }
         public virtual Nullable<int> PrintCounter { get; set; }

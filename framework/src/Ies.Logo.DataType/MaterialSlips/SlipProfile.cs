@@ -70,6 +70,8 @@ namespace Ies.Logo.DataType.MaterialSlips
                 .Member(m => m.Footnote2).Name("FOOTNOTE2")
                 .Member(m => m.Footnote3).Name("FOOTNOTE3")
                 .Member(m => m.Footnote4).Name("FOOTNOTE4")
+                .Member(m => m.TcCurr).Name("TC_CURR")
+                .Member(m => m.TcRate).Name("TC_RATE")
                 .Member(m => m.RcRate).Name("RC_RATE")
                 .Member(m => m.RcNet).Name("RC_NET")
                 .Member(m => m.PrintCounter).Name("PRINT_COUNTER")
