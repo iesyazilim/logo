@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Ies.Logo.Core;
+﻿using Ies.Logo.Core;
 using Ies.Logo.DataType.AggregateRoot;
 using Ies.Logo.DataType.DefinitionFields;
 using Ies.Logo.DataType.Infrastructure;
 using Ies.Logo.DataType.Invoices;
+using System;
+using System.Collections.Generic;
 
 namespace Ies.Logo.DataType.Dispatches
 {
@@ -142,6 +142,7 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual Nullable<int> DocTime { get; set; }
         public virtual Nullable<short> EDespatch { get; set; }
         public virtual Nullable<short> EDespatchProfileId { get; set; }
+        public virtual Nullable<short> EInvoiceProfileId { get; set; }
         public virtual Nullable<short> EDespatchStatus { get; set; }
         public virtual Nullable<short> AutofillSlDetails { get; set; }
         public virtual Nullable<int> MainMfReference { get; set; }

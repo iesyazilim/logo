@@ -157,6 +157,7 @@ namespace Ies.Logo.DataType.Dispatches
                 .Member(m => m.DocTime).Name("DOC_TIME")
                 .Member(m => m.EDespatch).Name("EDESPATCH")
                 .Member(m => m.EDespatchProfileId).Name("EDESPATCH_PROFILEID")
+                .Member(m => m.EInvoiceProfileId).Name("EINVOICE_PROFILEID")
                 .Member(m => m.EDespatchStatus).Name("EDESPATCH_STATUS")
                 .Member(m => m.AutofillSlDetails).Name("AUTOFILL_SLDETAILS")
                 .Member(m => m.MainMfReference).Name("MAIN_MF_REFERENCE")
