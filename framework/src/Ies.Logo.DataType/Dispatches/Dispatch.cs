@@ -75,6 +75,34 @@ namespace Ies.Logo.DataType.Dispatches
         public virtual string EArchivedetrDriverTckno1 { get; set; }
         public virtual string EArchivedetrPlateNum1 { get; set; }
         public virtual string EArchivedetrChassisNum1 { get; set; }
+        // e-Arşiv alıcı bilgileri (perakende satış irsaliyesi; havuz carisinde gerçek müşteri)
+        public virtual Nullable<int> EArchivedetrLogicalref { get; set; }
+        public virtual Nullable<int> EArchivedetrStref { get; set; }   // irsaliye referansı (faturada INVOICEREF)
+        public virtual string EArchivedetrIntpaymentDate { get; set; }
+        public virtual Nullable<short> EArchivedetrIsComp { get; set; }   // 1 = ticari şirket (VKN), 0 = şahıs (TCKN)
+        public virtual string EArchivedetrTaxnr { get; set; }
+        public virtual string EArchivedetrTckno { get; set; }
+        public virtual string EArchivedetrName { get; set; }
+        public virtual string EArchivedetrSurname { get; set; }
+        public virtual string EArchivedetrDefinition { get; set; }   // firma ünvanı
+        public virtual string EArchivedetrAddr1 { get; set; }
+        public virtual string EArchivedetrAddr2 { get; set; }
+        public virtual string EArchivedetrCityCode { get; set; }
+        public virtual string EArchivedetrCity { get; set; }
+        public virtual string EArchivedetrCountryCode { get; set; }
+        public virtual string EArchivedetrCountry { get; set; }
+        public virtual string EArchivedetrPostCode { get; set; }
+        public virtual string EArchivedetrDistrictCode { get; set; }
+        public virtual string EArchivedetrDistrict { get; set; }
+        public virtual string EArchivedetrTownCode { get; set; }
+        public virtual string EArchivedetrTown { get; set; }
+        public virtual string EArchivedetrEmailAddr { get; set; }
+        public virtual Nullable<short> EArchivedetrIsPerCurr { get; set; }   // perakende cari bilgisi kullanılıyor
+        public virtual string EArchivedetrTaxOffice { get; set; }
+        public virtual string EArchivedetrTelCodes1 { get; set; }
+        public virtual string EArchivedetrTelCodes2 { get; set; }
+        public virtual string EArchivedetrTelNrs1 { get; set; }
+        public virtual string EArchivedetrTelNrs2 { get; set; }
         public virtual string VatExceptReason { get; set; }
         public virtual string VatExceptCode { get; set; }
         public virtual Nullable<decimal> RcRate { get; set; }
