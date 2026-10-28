@@ -215,6 +215,18 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<int> EarchivedetrIntpaymentType { get; set; }
         public virtual string EarchivedetrIntpaymentAgent { get; set; }
         public virtual string EarchivedetrIntpaymentDate { get; set; }
+        // e-Arşiv alıcı bilgileri (havuz carisine kesilen faturada gerçek müşteri; Logo "e-Arşiv Bilgileri" sekmesi)
+        public virtual string EarchivedetrTckno { get; set; }
+        public virtual string EarchivedetrName { get; set; }
+        public virtual string EarchivedetrSurname { get; set; }
+        public virtual string EarchivedetrAddr1 { get; set; }
+        public virtual string EarchivedetrTown { get; set; }
+        public virtual string EarchivedetrCity { get; set; }
+        public virtual string EarchivedetrCountry { get; set; }
+        public virtual string EarchivedetrCountryCode { get; set; }
+        public virtual string EarchivedetrPostCode { get; set; }
+        public virtual string EarchivedetrEmailAddr { get; set; }
+        public virtual Nullable<short> EarchivedetrIsPerCurr { get; set; }
         public virtual string DelvryCode { get; set; }
         public virtual string Itext { get; set; }
 
