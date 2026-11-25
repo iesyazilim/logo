@@ -111,6 +111,8 @@ namespace Ies.Logo.DataType.Items
                 #endregion
                 .Member(m => m.QprodAmnt).Name("QPRODAMNT")
                 .Member(m => m.QprodSourceIndex).Name("QPRODSOURCEINDEX")
+                .Member(m => m.QprodUnitCode).Name("QPROD_UNITCODE")
+                .Member(m => m.QprodUom).Name("QPROD_UOM")
                 .Member(m => m.LostFactor).Name("LOSTFACTOR")
                 .Member(m => m.ExpCategory).Name("EXPCATEGORY")
                 .Member(m => m.EanBarcode).Name("EAN_BARCODE")
