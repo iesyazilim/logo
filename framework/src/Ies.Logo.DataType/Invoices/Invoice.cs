@@ -215,6 +215,31 @@ namespace Ies.Logo.DataType.Invoices
         public virtual Nullable<int> EarchivedetrIntpaymentType { get; set; }
         public virtual string EarchivedetrIntpaymentAgent { get; set; }
         public virtual string EarchivedetrIntpaymentDate { get; set; }
+        // e-Arşiv alıcı bilgileri (havuz carisine kesilen faturada gerçek müşteri; Logo "e-Arşiv Bilgileri" sekmesi)
+        public virtual string EarchivedetrTckno { get; set; }
+        public virtual string EarchivedetrName { get; set; }
+        public virtual string EarchivedetrSurname { get; set; }
+        public virtual string EarchivedetrAddr1 { get; set; }
+        public virtual string EarchivedetrTown { get; set; }
+        public virtual string EarchivedetrCity { get; set; }
+        public virtual string EarchivedetrCountry { get; set; }
+        public virtual string EarchivedetrCountryCode { get; set; }
+        public virtual string EarchivedetrPostCode { get; set; }
+        public virtual string EarchivedetrEmailAddr { get; set; }
+        public virtual Nullable<short> EarchivedetrIsPerCurr { get; set; }
+        public virtual Nullable<short> EarchivedetrIsComp { get; set; }      // 1 = firma (VKN), 0 = şahıs (TCKN)
+        public virtual string EarchivedetrTaxnr { get; set; }
+        public virtual string EarchivedetrTaxOffice { get; set; }
+        public virtual string EarchivedetrDefinition { get; set; }          // firma ünvanı
+        public virtual string EarchivedetrAddr2 { get; set; }
+        public virtual string EarchivedetrDistrict { get; set; }
+        public virtual string EarchivedetrTelCodes1 { get; set; }
+        public virtual string EarchivedetrTelCodes2 { get; set; }
+        public virtual string EarchivedetrTelNrs1 { get; set; }
+        public virtual string EarchivedetrTelNrs2 { get; set; }
+        public virtual string EarchivedetrCityCode { get; set; }       // il kodu (ör. 34)
+        public virtual string EarchivedetrTownCode { get; set; }       // ilçe kodu
+        public virtual string EarchivedetrDistrictCode { get; set; }   // mahalle kodu
         public virtual string DelvryCode { get; set; }
         public virtual string Itext { get; set; }
 
