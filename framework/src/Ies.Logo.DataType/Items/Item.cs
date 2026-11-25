@@ -104,6 +104,8 @@ namespace Ies.Logo.DataType.Items
         #endregion
         public virtual Nullable<decimal> QprodAmnt { get; set; }
         public virtual Nullable<int> QprodSourceIndex { get; set; }
+        public virtual string QprodUnitCode { get; set; }
+        public virtual Nullable<int> QprodUom { get; set; }
         public virtual Nullable<decimal> LostFactor { get; set; }
         public virtual string ExpCategory { get; set; }
         public virtual string EanBarcode { get; set; }
